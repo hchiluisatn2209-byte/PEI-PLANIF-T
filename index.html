@@ -655,7 +655,7 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 <nav id="mod-nav">
   <button class="mn-home" onclick="jumpTo(1)" title="Ir al Contenido">&#9776; Contenido</button>
   <div class="mn-sep"></div>
-  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: Cortesías Empresas</button><button class="mn-btn" id="mn-02" onclick="jumpTo(5)">02: Tipos de Solicitudes</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: Flujo Solicitud</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Requisitos</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Creación login</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Registro Ordenes de Trabajo</button>
+  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: ISPs</button><button class="mn-btn" id="mn-02" onclick="jumpTo(5)">02: Tipos de Solicitudes</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: Flujo Solicitud</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Requisitos</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Creación login</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Registro Ordenes de Trabajo</button>
 </nav>
 <div id="deck">
 <section class="slide theme-navy slide-cover active" data-index="0" id="slide-0">
@@ -663,12 +663,12 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 <div class="split-media" style="height:100vh;">
   <div class="content-side">
     <div class="kicker">Equipo de Planificación - Tercerizados</div>
-    <h1>Capacitación<br>Gestión Cortesías</h1>
-    <p class="desc">Solicitudes de cortesías con Telconet  | Megadatos  | Security Data</p>
+    <h1>Capacitación<br>Gestión Tercerizados</h1>
+    <p class="desc">Solicitudes servicios o espacios físicos con ISPs</p>
     <div class="facilitator-card">
-      <div class="facilitator-avatar">GG</div>
+      <div class="facilitator-avatar">vc</div>
       <div>
-        <div class="facilitator-name">Alejandra Gallardo</div>
+        <div class="facilitator-name">Verónica Cruz</div>
         <div class="facilitator-role">Capacitadora</div>
       </div>
     </div>
@@ -707,1428 +707,647 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </section>
 
 
-<section class="slide theme-navy" data-index="2" id="slide-2">
-    <div class="slide-pad">
 
-        <div class="badge">
-            <span class="badge-num">01</span>
-            Cortesías Empresas
-        </div>
 
-    
-        <div style="
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:2rem;
-            margin-top:3rem;
-            width:100%;
-        ">
+<!-- ============================================================ -->
+<!-- MÓDULO: FLUJOS TERCERIZADOS 2026                            -->
+<!-- Slides 10-19 (data-index 10-19)                            -->
+<!-- ============================================================ -->
 
-            <!-- TELCONET -->
-            <div class="task-card" style="
-                padding:1.5rem;
-                border-radius:24px;
-                text-align:center;
-                background:linear-gradient(
-                    180deg,
-                    rgba(255,255,255,.10),
-                    rgba(255,255,255,.03)
-                );
-                border:1px solid rgba(255,255,255,.15);
-                box-shadow:0 12px 30px rgba(0,0,0,.25);
-            ">
-
-                <div style="
-                    background:#ffffff;
-                    height:180px;
-                    border-radius:18px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:1rem;
-                    margin-bottom:1.5rem;
-                ">
-                    <img
-                        src="i2.png"
-                        alt="Telconet"
-                        style="
-                            max-width:95%;
-                            max-height:140px;
-                            object-fit:contain;
-                        "
-                    >
-                </div>
-
-                <h3 style="
-                    color:#ffffff;
-                    font-size:2rem;
-                    font-weight:700;
-                    margin:0;
-                ">
-                    Telconet
-                </h3>
-
-                <p style="
-                    margin-top:.75rem;
-                    color:rgba(255,255,255,.75);
-                    font-size:1rem;
-                ">
-                    Servicios Corporativos
-                </p>
-
-            </div>
-
-            <!-- MEGADATOS -->
-            <div class="task-card" style="
-                padding:1.5rem;
-                border-radius:24px;
-                text-align:center;
-                background:linear-gradient(
-                    180deg,
-                    rgba(255,255,255,.10),
-                    rgba(255,255,255,.03)
-                );
-                border:1px solid rgba(255,255,255,.15);
-                box-shadow:0 12px 30px rgba(0,0,0,.25);
-            ">
-
-                <div style="
-                    background:#ffffff;
-                    height:180px;
-                    border-radius:18px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:1rem;
-                    margin-bottom:1.5rem;
-                ">
-<img
-                        src="i1.png"
-                        alt="Telconet"
-                        style="
-                            max-width:95%;
-                            max-height:140px;
-                            object-fit:contain;
-                        "
-                    >
-
-                </div>
-
-                <h3 style="
-                    color:#ffffff;
-                    font-size:2rem;
-                    font-weight:700;
-                    margin:0;
-                ">
-                    Megadatos
-                </h3>
-
-                <p style="
-                    margin-top:.75rem;
-                    color:rgba(255,255,255,.75);
-                    font-size:1rem;
-                ">
-                    Servicios Home
-                </p>
-
-            </div>
-
-            <!-- SECURITY DATA -->
-            <div class="task-card" style="
-                padding:1.5rem;
-                border-radius:24px;
-                text-align:center;
-                background:linear-gradient(
-                    180deg,
-                    rgba(255,255,255,.10),
-                    rgba(255,255,255,.03)
-                );
-                border:1px solid rgba(255,255,255,.15);
-                box-shadow:0 12px 30px rgba(0,0,0,.25);
-            ">
-
-                <div style="
-                    background:#ffffff;
-                    height:180px;
-                    border-radius:18px;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:1rem;
-                    margin-bottom:1.5rem;
-                ">
-                    <img
-                        src="i3.png"
-                        alt="Telconet"
-                        style="
-                            max-width:95%;
-                            max-height:140px;
-                            object-fit:contain;
-                        "
-                    >
-
-                </div>
-
-                <h3 style="
-                    color:#ffffff;
-                    font-size:2rem;
-                    font-weight:700;
-                    margin:0;
-                ">
-                    Security Data
-                </h3>
-
-                <p style="
-                    margin-top:.75rem;
-                    color:rgba(255,255,255,.75);
-                    font-size:1rem;
-                ">
-                    Firma Electrónica
-                </p>
-
-            </div>
-
-        </div>
-
+<!-- SLIDE 10 — Cover Flujos Tercerizados -->
+<section class="slide theme-navy slide-cover" data-index="10" id="slide-10">
+<div class="slide-pad" style="padding:0;">
+<div class="split-media" style="height:100vh;">
+  <div class="content-side">
+    <div class="kicker">PROYECTOS E IMPLEMENTACIÓN · JUNIO 2026</div>
+    <h1>Flujos<br><span>Tercerizados</span></h1>
+    <p class="desc">Gestión de solicitudes con operadores y terceros: Movistar, CNT, KONNET, Claro, C4 y otros.</p>
+    <div class="callout" style="max-width:520px;margin-top:0;">
+      <div class="dot" style="flex-shrink:0;margin-top:.15rem;">ℹ</div>
+      <p style="font-size:.85rem;">CNT solo soporta enlaces de <b>DATOS</b>; para internet dedicado, <b>IPCCL2</b> realiza un túnel. Las interconexiones requieren validación técnica previa con el proveedor y Telconet.</p>
     </div>
-</section>
-
-
-<section class="slide theme-navy" data-index="3" id="slide-3">
-    <div class="slide-pad">
-
-        <div class="badge">
-            <span class="badge-num">01</span>
-            Cortesías Empresas
-        </div>
-
-        <h2 class="title-xl" style="margin-bottom:1.1rem;">
-            Telconet
-        </h2>
-
-        <div style="width:100%;">
-
-            <div class="task-card" style="
-                width:100%;
-                box-sizing:border-box;
-            ">
-
-                <p style="margin-bottom:1.5rem;">
-                    Las cortesías deben registrarse únicamente bajo la Razón Social de
-                    TELCONET, respetando los lineamientos y parámetros de nomenclatura
-                    establecidos para cada tipo de servicio.
-                </p>
-
-                <div style="
-                    display:grid;
-                    grid-template-columns:repeat(3, 1fr);
-                    gap:1rem;
-                    width:100%;
-                ">
-
-                    <div class="task-card">
-                        <span class="task-proc-tag">
-                            Cortesía por Teletrabajo
-                        </span>
-
-                        <h4>
-                            Autoriza: Gerencia del Departamento solicitante
-                        </h4>
-
-                        <div class="task-meta">
-                            <span>
-                                Creación login:
-                                <b>PEI Tercerizados</b>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="task-card">
-                        <span class="task-proc-tag">
-                            Cortesía por Infraestructura
-                        </span>
-
-                        <h4>
-                            Autoriza: Gerencia Técnica Nacional
-                        </h4>
-
-                        <div class="task-meta">
-                            <span>
-                                Creación login:
-                                <b>PEI Tercerizados</b>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="task-card">
-                        <span class="task-proc-tag">
-                            Cortesía por Negociación
-                        </span>
-
-                        <h4>
-                            Autoriza:  Gerencia General, Gerencia Comercial,
-                            Gerencia DHO y Gerencia Financiera
-                        </h4>
-
-                        <div class="task-meta">
-                            <span>
-                                Creación login:
-                                <b>PEI Tercerizados</b>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
-<section class="slide theme-navy" data-index="4" id="slide-4">
-  <div class="slide-pad">
-
-    <div class="badge">
-      <span class="badge-num">01</span>
-      Cortesías Empresas
-    </div>
-
-    <h2 class="title-xl" style="margin-bottom:1rem;">
-      Megadatos | Security Data
-    </h2>
-
-    <div style="
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1rem;
-      align-items:start;
-    ">
-
-      <!-- MEGADATOS -->
-      <div class="task-card">
-
-        <span class="task-proc-tag">MEGADATOS</span>
-
-        <p style="margin:1rem 0;">
-          Las cortesías son gestionadas desde Telconet hacia Megadatos mediante correo.
-        </p>
-
-        <div style="
-          display:grid;
-          grid-template-columns:1fr;
-          gap:.8rem;
-        ">
-
-          <div class="task-card">
-            <span class="task-proc-tag">
-              Cortesía por Teletrabajo
-            </span>
-
-            <h4 style="margin:.8rem 0;">
-              Autoriza: Gerencia del Departamento Solicitante
-            </h4>
-
-            <div class="task-meta">
-              <span>
-                Creación login:
-                <b>Megadatos</b>
-              </span>
-            </div>
-          </div>
-
-          <div class="task-card">
-            <span class="task-proc-tag">
-              Plan Empleado
-            </span>
-
-            <h4 style="margin:.8rem 0;">
-              Autoriza: Gerencia del Departamento Solicitante
-            </h4>
-
-            <div class="task-meta">
-              <span>
-                Creación login:
-                <b>Megadatos</b>
-              </span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- SECURITY DATA -->
-      <div class="task-card">
-
-        <span class="task-proc-tag">SECURITY DATA</span>
-
-        <p style="margin:1rem 0;">
-          Las cortesías son gestionadas desde Telconet hacia Security Data mediante el Portal SD.
-        </p>
-
-        <div style="
-          display:grid;
-          grid-template-columns:1fr;
-          gap:.8rem;
-        ">
-
-          <div class="task-card">
-            <span class="task-proc-tag">
-              Firma Electrónica
-            </span>
-
-            <h4 style="
-              margin:.8rem 0;
-              line-height:1.4;
-            ">
-              Autoriza: Presidente Ejecutivo
-              <br>
-              (Ing. Igor Krochin)
-            </h4>
-
-            <div class="task-meta">
-              <span>
-                Creación FIRMA:
-                <b>Security Data</b>
-              </span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </div>
-</section>
-
-
-<section class="slide theme-navy" data-index="5" id="slide-5">
-  <div class="slide-pad">
-    <div class="badge"><span class="badge-num">02</span> Tipos de Solicitudes</div>
-    <p style="margin:1rem 0 1.5rem;font-size:1.1rem;font-weight:500;color:#dce8ff;">
-      Se gestionan los ingresos de acuerdo a los requerimientos de los Dptos. Solicitantes:
-    </p>
-
-    <style>
-      .ts-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
-      .ts-card {
-        background:rgba(255,255,255,.05);
-        border:1.5px solid rgba(255,255,255,.1);
-        border-radius:14px;
-        overflow:hidden;
-        cursor:pointer;
-        transition:border-color .18s, background .18s;
-      }
-      .ts-card:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22); }
-      .ts-card.ts-active { border-color:#00c9ff; background:rgba(0,201,255,.07); }
-      .ts-card-header {
-        padding:.75rem 1rem;
-        display:flex;
-        align-items:center;
-        gap:.6rem;
-        border-bottom:1px solid rgba(255,255,255,.08);
-      }
-
-      .ts-tag {
-        font-size:.68rem;
-        font-weight:700;
-        letter-spacing:.07em;
-        padding:.25rem .65rem;
-        border-radius:6px;
-      }
-      .ts-tag-teal  { background:#00c9ff22; color:#00c9ff; }
-      .ts-tag-purple{ background:#ff990022; color:#ff9900; }
-      .ts-tag-coral { background:#00e57622; color:#00e576; }
-      .ts-count {
-        margin-left:auto;
-        font-size:.72rem;
-        font-weight:600;
-        color:#8ab4d4;
-        background:rgba(255,255,255,.07);
-        border:1px solid rgba(255,255,255,.1);
-        border-radius:20px;
-        padding:.15rem .55rem;
-      }
-      .ts-body { padding:.4rem 0 .6rem; }
-      .ts-item {
-        display:flex;
-        align-items:center;
-        gap:.6rem;
-        padding:.42rem 1rem;
-        font-size:.875rem;
-        color:#c8dff5;
-        border-radius:8px;
-        margin:0 .4rem;
-        transition:background .12s, color .12s;
-      }
-      .ts-item:hover { background:rgba(255,255,255,.07); color:#fff; }
-      .ts-item svg { width:15px; height:15px; flex-shrink:0; opacity:.55; }
-      .ts-detail {
-        display:none;
-        margin-top:1rem;
-        background:rgba(0,201,255,.06);
-        border:1px solid rgba(0,201,255,.25);
-        border-radius:12px;
-        padding:.9rem 1.1rem;
-      }
-      .ts-detail.ts-show { display:block; }
-      .ts-detail-title {
-        font-size:.78rem;
-        font-weight:600;
-        color:#00c9ff;
-        margin-bottom:.55rem;
-        display:flex;
-        align-items:center;
-        gap:.4rem;
-      }
-      .ts-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
-      .ts-chip {
-        font-size:.72rem;
-        background:rgba(255,255,255,.07);
-        border:1px solid rgba(255,255,255,.12);
-        border-radius:20px;
-        padding:.28rem .7rem;
-        color:#9bbedd;
-      }
-    </style>
-
-    <div class="ts-grid">
-
-      <!-- TELCONET -->
-      <div class="ts-card ts-active" id="ts-card-tn" onclick="tsSelect('tn')">
-        <div class="ts-card-header">
-          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#00c9ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/></svg>
-          <span class="ts-tag ts-tag-teal">TELCONET</span>
-          <span class="ts-count">7</span>
-        </div>
-        <div class="ts-body">
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22v-7"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
-            Instalación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10H3"/><path d="m3 6 9-4 9 4"/><path d="M3 14h18"/><path d="m3 18 9 4 9-4"/></svg>
-            Reubicación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            Traslado
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
-            Upgrade
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
-            Downgrade
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Cancelación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Cambio de Razón Social
-          </div>
-        </div>
+  <div class="img-panel" style="background:linear-gradient(160deg,#0a1e4a,#061230);display:flex;align-items:center;justify-content:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;padding:3rem;">
+      <div style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);border-radius:14px;padding:1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">📡</div>
+        <div style="font-size:.85rem;font-weight:700;color:var(--cy);">Movistar</div>
       </div>
-
-      <!-- MEGADATOS -->
-      <div class="ts-card" id="ts-card-mg" onclick="tsSelect('mg')">
-        <div class="ts-card-header">
-          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#ff9900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-          <span class="ts-tag ts-tag-purple">MEGADATOS</span>
-          <span class="ts-count">7</span>
-        </div>
-        <div class="ts-body">
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22v-7"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
-            Instalación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10H3"/><path d="m3 6 9-4 9 4"/><path d="M3 14h18"/><path d="m3 18 9 4 9-4"/></svg>
-            Reubicación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            Traslado
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
-            Upgrade
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
-            Downgrade
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            Cancelación
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Cambio de Razón Social
-          </div>
-        </div>
+      <div style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);border-radius:14px;padding:1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">🔗</div>
+        <div style="font-size:.85rem;font-weight:700;color:var(--cy);">CNT</div>
       </div>
-
-      <!-- SECURITY DATA -->
-      <div class="ts-card" id="ts-card-sd" onclick="tsSelect('sd')">
-        <div class="ts-card-header">
-          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#00e576" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span class="ts-tag ts-tag-coral">SECURITY DATA</span>
-          <span class="ts-count">2</span>
-        </div>
-        <div class="ts-body">
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            Solicitud FE
-          </div>
-          <div class="ts-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-            Renovación FE
-          </div>
-        </div>
+      <div style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);border-radius:14px;padding:1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">🌐</div>
+        <div style="font-size:.85rem;font-weight:700;color:var(--cy);">KONNET</div>
       </div>
-
-    </div>
-
-    <!-- PANELES DE DETALLE -->
-    <div class="ts-detail ts-show" id="ts-detail-tn">
-      <div class="ts-detail-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        NOTA:
-      </div>
-      <div class="ts-chips">
-        <span class="ts-chip">Todas las solicitudes serán gestionadas mediante tareas y adjuntos respectivos</span>
-      </div>
-    </div>
-    <div class="ts-detail" id="ts-detail-mg">
-      <div class="ts-detail-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        MEGADATOS — Proceso activo
-      </div>
-      <div class="ts-chips">
-        <span class="ts-chip">PROCESO: TAREAS DE PEI - GESTIÓN COMERCIAL</span>
-        <span class="ts-chip">7 tipos de solicitud</span>
-        <span class="ts-chip">Mismas categorías que Telconet</span>
-        <span class="ts-chip">Cancelación y Cambio Razón Social: sin formato</span>
-      </div>
-    </div>
-    <div class="ts-detail" id="ts-detail-sd">
-      <div class="ts-detail-title">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        SECURITY DATA — Proceso activo
-      </div>
-      <div class="ts-chips">
-        <span class="ts-chip">2 tipos de solicitud</span>
-        <span class="ts-chip">Solicitud FE</span>
-        <span class="ts-chip">Renovación FE</span>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    function tsSelect(id) {
-      ['tn','mg','sd'].forEach(function(k) {
-        document.getElementById('ts-card-'+k).classList.remove('ts-active');
-        var d = document.getElementById('ts-detail-'+k);
-        d.classList.remove('ts-show');
-      });
-      document.getElementById('ts-card-'+id).classList.add('ts-active');
-      document.getElementById('ts-detail-'+id).classList.add('ts-show');
-    }
-  </script>
-</section>
-
-
-<section class="slide theme-navy" data-index="6" id="slide-6">
-  <div class="slide-pad">
-
-    <div class="badge"><span class="badge-num">03</span> Flujo Solicitud</div>
-    <h2 class="title-xl" style="margin-bottom:.8rem;">Flujo de Gestión de Cortesías</h2>
-    <p style="margin-bottom:1.8rem;color:#d7e8ff;line-height:1.6;font-size:1.05rem;">
-      Para gestionar una cortesía se debe generar una <b>tarea asignada a PEI</b>,
-      con el proceso respectivo de acuerdo al producto solicitado.
-    </p>
-
-    <style>
-      .fg-steps { display:grid; grid-template-columns:1fr 50px 1fr 50px 1fr; align-items:start; gap:0; margin-bottom:1.2rem; }
-      .fg-step { cursor:pointer; }
-      .fg-num {
-        width:24px; height:24px; border-radius:50%;
-        background:rgba(255,255,255,.12); font-size:.72rem; font-weight:700;
-        color:#8ab4d4; display:flex; align-items:center; justify-content:center;
-        margin:0 auto .5rem; transition:background .2s, color .2s;
-      }
-      .fg-step.fg-active .fg-num { background:#00c9ff; color:#03142b; }
-      .fg-circle {
-        width:120px; height:120px; border-radius:50%; margin:0 auto 1rem;
-        display:flex; align-items:center; justify-content:center;
-        text-align:center; font-size:.85rem; font-weight:500; line-height:1.35;
-        border:2px solid rgba(255,255,255,.15);
-        background:rgba(91,155,230,.18); color:#c8dff5;
-        transition:border-color .2s, background .2s, transform .2s;
-      }
-      .fg-step.fg-active .fg-circle {
-        border-color:#00c9ff; background:rgba(0,201,255,.15);
-        color:#fff; transform:scale(1.06);
-      }
-      .fg-step-label { text-align:center; font-size:.78rem; font-weight:500; color:#8ab4d4; transition:color .2s; }
-      .fg-step.fg-active .fg-step-label { color:#00c9ff; }
-      .fg-arrow { display:flex; align-items:center; justify-content:center; padding-top:60px; }
-      .fg-arrow svg { width:30px; height:30px; opacity:.35; }
-      .fg-detail {
-        background:rgba(0,201,255,.06); border:1px solid rgba(0,201,255,.22);
-        border-radius:14px; padding:1rem 1.25rem; min-height:90px;
-        transition:opacity .25s;
-      }
-      .fg-detail-title { font-size:.8rem; font-weight:600; color:#00c9ff; margin-bottom:.65rem; display:flex; align-items:center; gap:.4rem; }
-      .fg-ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.45rem; }
-      .fg-ul li { display:flex; align-items:flex-start; gap:.55rem; font-size:.9rem; color:#c8dff5; line-height:1.5; }
-      .fg-ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:#00c9ff; flex-shrink:0; margin-top:.45rem; opacity:.7; }
-      .fg-footer { margin-top:1rem; text-align:center; font-size:.78rem; color:#5a7a9a; }
-      .fg-footer b { color:#8ab4d4; font-weight:600; }
-    </style>
-
-    <div class="fg-steps">
-
-      <div class="fg-step fg-active" id="fg-s1" onclick="fgSelect(1)">
-        <div class="fg-num">1</div>
-        <div class="fg-circle">Departamento<br>Solicitante</div>
-        <div class="fg-step-label">Solicitud</div>
-      </div>
-
-      <div class="fg-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#8ebcff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/>
-          <polyline points="13 6 19 12 13 18"/>
-        </svg>
-      </div>
-
-      <div class="fg-step" id="fg-s2" onclick="fgSelect(2)">
-        <div class="fg-num">2</div>
-        <div class="fg-circle">PEI<br>Validación<br>e Ingreso</div>
-        <div class="fg-step-label">Validación</div>
-      </div>
-
-      <div class="fg-arrow">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#8ebcff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"/>
-          <polyline points="13 6 19 12 13 18"/>
-        </svg>
-      </div>
-
-      <div class="fg-step" id="fg-s3" onclick="fgSelect(3)">
-        <div class="fg-num">3</div>
-        <div class="fg-circle">PEI<br>Implementación</div>
-        <div class="fg-step-label">Ejecución</div>
-      </div>
-
-    </div>
-
-    <div class="fg-detail" id="fg-detail">
-      <div class="fg-detail-title" id="fg-dtitle"></div>
-      <ul class="fg-ul" id="fg-dlist"></ul>
-    </div>
-
-    <div class="fg-footer"><b>Proceso:</b> Tareas de PEI — Gestión Comercial</div>
-
-  </div>
-
-  <script>
-    var fgData = {
-      1: {
-        title: 'Departamento Solicitante — genera la tarea',
-        items: [
-          'Genera la tarea asignada a PEI',
-          'Adjunta el formulario con toda la información requerida',
-          'Adjunta la autorización correspondiente al proceso'
-        ]
-      },
-      2: {
-        title: 'PEI — Validación e Ingreso en TELCOS',
-        items: [
-          'Valida los adjuntos recibidos en la tarea',
-          'Revisa la información del formulario',
-          'Realiza el ingreso del producto correspondiente en TELCOS'
-        ]
-      },
-      3: {
-        title: 'PEI — Coordinación e Implementación',
-        items: [
-          'Coordina la implementación con el área correspondiente',
-          'Realiza seguimiento hasta la activación del servicio'
-        ]
-      }
-    };
-
-    function fgSelect(n) {
-      [1,2,3].forEach(function(k) {
-        document.getElementById('fg-s'+k).classList.remove('fg-active');
-      });
-      document.getElementById('fg-s'+n).classList.add('fg-active');
-      var d = fgData[n];
-      document.getElementById('fg-dtitle').textContent = d.title;
-      var ul = document.getElementById('fg-dlist');
-      ul.innerHTML = d.items.map(function(t){ return '<li>'+t+'</li>'; }).join('');
-      var det = document.getElementById('fg-detail');
-      det.style.opacity = '0';
-      setTimeout(function(){ det.style.opacity = '1'; }, 30);
-    }
-
-    fgSelect(1);
-  </script>
-</section>
-
-
-
-
-<section class="slide theme-navy" data-index="7" id="slide-7">
-<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
-  <div class="badge"><span class="badge-num">04</span> Requisitos</div>
-  <h2 class="title-xl" style="margin-bottom:.8rem;">Archivos en Línea y Chats de Gestión</h2>
-
-  <style>
-    .rt-tabs { display:flex; gap:.55rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .rt-btn {
-      display:flex; align-items:center; gap:.5rem;
-      padding:.55rem .9rem; border-radius:10px;
-      border:1.5px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      color:#8ab4d4; font-size:.82rem; font-weight:500;
-      cursor:pointer; transition:border-color .18s, background .18s, color .18s;
-    }
-    .rt-btn:hover { background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.22); }
-    .rt-btn .rt-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; transition:box-shadow .2s; }
-    .rt-btn .rt-count { font-size:.7rem; font-weight:700; padding:.15rem .45rem; border-radius:20px; margin-left:.1rem; }
-    .rt-btn.rt-tn  { --c:#00c9ff; --cbg:rgba(0,201,255,.1); }
-    .rt-btn.rt-dc  { --c:#38bdf8; --cbg:rgba(56,189,248,.1); }
-    .rt-btn.rt-mg  { --c:#ff9900; --cbg:rgba(255,153,0,.1); }
-    .rt-btn.rt-sd  { --c:#00e576; --cbg:rgba(0,229,118,.1); }
-    .rt-btn .rt-dot   { background:var(--c); }
-    .rt-btn .rt-count { background:var(--cbg); color:var(--c); }
-    .rt-btn.active { background:var(--cbg); border-color:var(--c); color:#fff; }
-    .rt-btn.active .rt-dot { box-shadow:0 0 0 3px var(--cbg); }
-
-    .res-tab-panel { display:none; }
-    .res-tab-panel.active { display:block; }
-
-    .res-card {
-      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-      border-radius:12px; padding:.85rem 1rem; transition:border-color .15s;
-    }
-    .res-card:hover { border-color:rgba(255,255,255,.22); }
-    .res-card-title { font-size:.95rem; font-weight:700; color:#e0eeff; margin-bottom:.4rem; }
-    .res-card-desc { font-size:.75rem; color:#7a9cbf; margin-bottom:.2rem; line-height:1.35; }
-    .res-card-desc b { color:#a0bcd8; }
-    .res-card-links { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.4rem; }
-
-    .res-link {
-      display:inline-flex; align-items:center; gap:.35rem;
-      font-size:.73rem; font-weight:500;
-      border-radius:6px; padding:.3rem .65rem;
-      text-decoration:none; transition:background .15s, border-color .15s;
-    }
-    .res-link svg { width:11px; height:11px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-
-    .no-format {
-      display:inline-block; margin-top:.5rem; font-size:.7rem; font-weight:600;
-      background:rgba(255,100,100,.08); color:#ff7b7b;
-      border:1px solid rgba(255,100,100,.2); border-radius:6px; padding:.22rem .55rem;
-    }
-
-    /* Chips de tarea compactos */
-    .task-chips { display:flex; flex-direction:column; gap:.28rem; margin:.5rem 0 .3rem; }
-    .task-chip {
-      display:flex; align-items:flex-start; gap:.4rem;
-      font-size:.72rem; color:#7a9cbf; line-height:1.3;
-    }
-    .task-chip::before {
-      content:''; width:5px; height:5px; border-radius:50%;
-      background:#38bdf8; flex-shrink:0; margin-top:.35rem; opacity:.7;
-    }
-
-    /* Layout DC: 2 columnas asimétricas */
-    .dc-grid {
-      display:grid;
-      grid-template-columns:1fr 1.45fr;
-      gap:.6rem;
-      align-items:start;
-    }
-    .dc-left { display:flex; flex-direction:column; gap:.6rem; }
-  </style>
-
-  <div class="rt-tabs">
-    <button class="rt-btn rt-tn active" onclick="rTab2(this,'rt-archivos')">
-      <span class="rt-dot"></span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/></svg>
-      Telconet <span class="rt-count">4</span>
-    </button>
-    <button class="rt-btn rt-dc" onclick="rTab2(this,'rt-archivos1')">
-      <span class="rt-dot"></span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-      Telconet Data Center <span class="rt-count">4</span>
-    </button>
-    <button class="rt-btn rt-mg" onclick="rTab2(this,'rt-archivos2')">
-      <span class="rt-dot"></span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-      Megadatos <span class="rt-count">4</span>
-    </button>
-    <button class="rt-btn rt-sd" onclick="rTab2(this,'rt-archivos3')">
-      <span class="rt-dot"></span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Security Data <span class="rt-count">1</span>
-    </button>
-  </div>
-
-  <!-- TAB 1: Telconet -->
-  <div id="rt-archivos" class="res-tab-panel active">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
-      <div class="res-card">
-        <div class="res-card-title">Instalación / Traslado</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA TELCONET</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA TRASLADO TELCONET</div>
-        <div class="res-card-links">
-          <a class="res-link" style="background:rgba(0,201,255,.1);color:#00c9ff;border:1px solid rgba(0,201,255,.25);" href="https://telcodrive.telconet.net/f/384474c9f25141d2bb60/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#00c9ff"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Formulario Instalación - Traslado TELCONET
-          </a>
-        </div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Upgrade / Downgrade</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA UPGRADE TELCONET</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA DOWNGRADE TELCONET</div>
-        <div class="res-card-links">
-          <a class="res-link" style="background:rgba(0,201,255,.1);color:#00c9ff;border:1px solid rgba(0,201,255,.25);" href="https://telcodrive.telconet.net/f/df8ab7063c1b4ac1be9c/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#00c9ff"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Formulario Upgrade - Downgrade TELCONET
-          </a>
-        </div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Cancelación</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA CANCELACION TELCONET</div>
-        <div class="no-format">NO REQUIERE FORMATO</div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Cambio de Razón Social</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CAMBIO DE RAZON SOCIAL</div>
-        <div class="no-format">NO REQUIERE FORMATO</div>
+      <div style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.3);border-radius:14px;padding:1.4rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:.5rem;">⚡</div>
+        <div style="font-size:.85rem;font-weight:700;color:var(--cy);">Claro · C4</div>
       </div>
     </div>
   </div>
-
-  <!-- TAB 2: Telconet Data Center — layout asimétrico -->
-  <div id="rt-archivos1" class="res-tab-panel">
-    <div class="dc-grid">
-
-      <!-- IZQUIERDA: 3 tarjetas apiladas -->
-      <div class="dc-left">
-
-        <div class="res-card">
-          <div class="res-card-title">Instalación</div>
-          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
-          <div class="task-chips">
-            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO INTERNET DC</div>
-            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO CONCENTRADOR DC</div>
-            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO DATOS DC</div>
-          </div>
-          <div class="res-card-links">
-            <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/f01da0bcfd0346b583da/" target="_blank">
-              <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Formulario Instalación DC
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-title">Housing</div>
-          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
-          <div class="task-chips">
-            <div class="task-chip">SOLICITUD DE HOUSING - CREACION DE HOUSING</div>
-          </div>
-
- <div class="res-card-links">
-            <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/922efc6ea5984216b316/" target="_blank">
-              <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Formulario Instalación DC
-            </a>
-          </div>
-
-      
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-title">NG Firewall</div>
-          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
-          <div class="task-chips">
-            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO NG FIREWALL</div>
-          </div>
-          <div class="no-format">NO REQUIERE FORMATO</div>
-        </div>
-
-      </div>
-
-      <!-- DERECHA: tarjeta grande VMs -->
-      <div class="res-card" style="height:fit-content;">
-        <div class="res-card-title">Creación VMs / Upgrade / Downgrade / Replicación</div>
-        <div class="res-card-desc" style="margin-bottom:.5rem;"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
-
-        <!-- Sub-sección: Creación -->
-        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">CREACIÓN</div>
-        <div class="task-chips">
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - CREACIÓN DE MAQUINA VIRTUAL</div>
-          <div class="task-chip">SOLICITUD DE MAQUINA FISICA - CREACION DE MAQUINA FISICA</div>
-        </div>
-
-        <!-- Sub-sección: Upgrade -->
-        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">UPGRADE</div>
-        <div class="task-chips">
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE CPU</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE DE RAM</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE DISCO</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE STORAGE NFS</div>
-        </div>
-
-        <!-- Sub-sección: Downgrade -->
-        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">DOWNGRADE</div>
-        <div class="task-chips">
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE CPU</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE RAM</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE DISK</div>
-        </div>
-
-        <!-- Sub-sección: Otros -->
-        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">REPLICACIÓN / REGULARIZACIÓN</div>
-        <div class="task-chips">
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - REPLICACION ZERTO DRAAS</div>
-          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - REGULARIZACION</div>
-        </div>
-
-        <div class="res-card-links" style="margin-top:.75rem;">
-          <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/7fd37200263b49fcab73/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Formulario VMs - Upgrade / Downgrade
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- TAB 3: Megadatos -->
-  <div id="rt-archivos2" class="res-tab-panel">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
-      <div class="res-card">
-        <div class="res-card-title">Instalación / Traslado</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA MEGADATOS</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA TRASLADO MEGADATOS</div>
-        <div class="res-card-links">
-          <a class="res-link" style="background:rgba(255,153,0,.1);color:#ff9900;border:1px solid rgba(255,153,0,.25);" href="https://telcodrive.telconet.net/f/e695cd3970d544c59f59/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#ff9900"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Formulario Instalación - Traslado MEGADATOS
-          </a>
-        </div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Upgrade / Downgrade</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA UPGRADE MEGADATOS</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA DOWNGRADE MEGADATOS</div>
-        <div class="res-card-links">
-          <a class="res-link" style="background:rgba(255,153,0,.1);color:#ff9900;border:1px solid rgba(255,153,0,.25);" href="https://telcodrive.telconet.net/f/b73d26755bad4d7e8fee/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#ff9900"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Formulario Upgrade - Downgrade MEGADATOS
-          </a>
-        </div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Cancelación</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA CANCELACION MEGADATOS</div>
-        <div class="no-format">NO REQUIERE FORMATO</div>
-      </div>
-      <div class="res-card">
-        <div class="res-card-title">Cambio de Razón Social</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CAMBIO DE RAZON SOCIAL</div>
-        <div class="no-format">NO REQUIERE FORMATO</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TAB 4: Security Data -->
-  <div id="rt-archivos3" class="res-tab-panel">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
-      <div class="res-card">
-        <div class="res-card-title">Firma Electrónica</div>
-        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
-        <div class="task-chips" style="--dot-color:#00e576;">
-          <div class="task-chip" style="--dot-color:#00e576;">SOLICITUD DE FIRMA ELECTRONICA</div>
-          <div class="task-chip" style="--dot-color:#00e576;">SOLICITUD DE RENOVACION FIRMA ELECTRONICA</div>
-        </div>
-        <div class="res-card-links">
-          <a class="res-link" style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);" href="https://telcodrive.telconet.net/f/69362adbe6a840ba9cf9/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#00e576"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Autorización Firma Electrónica - Presidente Ejecutivo TN
-          </a>
-        </div>
-
-<div class="res-card-links">
-          <a class="res-link" style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);" href="https://telcodrive.telconet.net/f/9e1b2a65be8c4fb5b9a8/" target="_blank">
-            <svg viewBox="0 0 24 24" style="stroke:#00e576"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Solicitud Firma Electrónica
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
 </div>
-<script>
-function rTab2(btn, panelId) {
-  const slide = btn.closest('.slide');
-  slide.querySelectorAll('.rt-btn').forEach(b => b.classList.remove('active'));
-  slide.querySelectorAll('.res-tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
-}
-</script>
+</div>
 </section>
 
+<!-- SLIDE 11 — MOVISTAR: Flujos de Gestión -->
+<section class="slide theme-navy" data-index="11" id="slide-11">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(0,112,242,.2);color:#5b9bff;border-color:rgba(91,155,255,.3);">
+    MOVISTAR
+  </div>
+  <h2 class="title-xl" style="margin-bottom:1.2rem;">Flujos de Gestión — Movistar</h2>
 
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
 
-
-<section class="slide theme-navy" data-index="8" id="slide-8">
-<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
-  <div class="badge"><span class="badge-num">05</span> Creación Login</div>
-  <h2 class="title-xl" style="margin-bottom:.6rem;">Creación de Login</h2>
-  <p style="color:#d7e8ff;font-size:1rem;margin-bottom:1.4rem;line-height:1.6;">
-    El ingreso debe realizarse respetando la <b>nomenclatura establecida</b>,
-    para garantizar su correcta identificación y control.
-  </p>
-
-  <style>
-    .mg-grid { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; margin-bottom:1rem; }
-    .mg-card {
-      border-radius:12px; padding:1rem 1.1rem;
-      border:1.5px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-    }
-    .mg-tag {
-      display:inline-block; font-size:.68rem; font-weight:600;
-      padding:.2rem .6rem; border-radius:6px; margin-bottom:.6rem;
-      letter-spacing:.05em;
-    }
-    .mg-tag-pub  { background:rgba(255,153,0,.12); color:#ff9900; border:1px solid rgba(255,153,0,.3); }
-    .mg-tag-priv { background:rgba(0,201,255,.12); color:#00c9ff; border:1px solid rgba(0,201,255,.3); }
-    .mg-card-label { font-size:.82rem; font-weight:600; color:#e0eeff; margin-bottom:.35rem; }
-    .mg-formula {
-      font-family:monospace; font-size:.86rem; color:#7a9cbf;
-      background:rgba(0,0,0,.2); border-radius:6px; padding:.38rem .7rem;
-      border:0.5px solid rgba(255,255,255,.1);
-      display:flex; flex-wrap:wrap; gap:.18rem; align-items:center;
-    }
-    .mg-seg-pub  { color:#ff9900; font-weight:700; }
-    .mg-seg-priv { color:#00c9ff; font-weight:700; }
-    .mg-seg-sep  { color:rgba(255,255,255,.25); }
-    .mg-seg      { color:#8ab4d4; }
-    .mg-example {
-      font-size:.75rem; color:#5a7a9a; margin-top:.5rem;
-      font-family:monospace; display:flex; align-items:center; gap:.35rem;
-    }
-    .mg-example span { color:#c8dff5; font-weight:500; }
-
-    .mg-mockup {
-      background:rgba(255,255,255,.04); border:0.5px solid rgba(255,255,255,.12);
-      border-radius:10px; padding:.75rem 1rem;
-    }
-    .mg-mockup-tabs { display:flex; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:.7rem; }
-    .mg-mtab { font-size:.72rem; padding:.32rem .75rem; color:#5a7a9a; border-bottom:2px solid transparent; }
-    .mg-mtab.active { color:#ff9900; border-color:#ff9900; }
-    .mg-mfield { display:flex; align-items:center; gap:.75rem; }
-    .mg-mfield label { font-size:.75rem; color:#5a7a9a; min-width:50px; text-align:right; white-space:nowrap; }
-    .mg-mfield-val {
-      flex:1; font-family:monospace; font-size:.82rem;
-      background:rgba(0,0,0,.2); border:0.5px solid rgba(255,255,255,.12);
-      border-radius:5px; padding:.32rem .65rem; color:#c8dff5;
-    }
-    .mg-alert {
-      display:flex; align-items:flex-start; gap:.75rem;
-      background:rgba(255,193,7,.07); border:1.5px solid rgba(255,193,7,.35);
-      border-radius:12px; padding:1rem 1.1rem;
-    }
-    .mg-alert-icon {
-      width:32px; height:32px; border-radius:50%; flex-shrink:0;
-      background:rgba(255,193,7,.15); border:1.5px solid rgba(255,193,7,.4);
-      display:flex; align-items:center; justify-content:center;
-    }
-    .mg-alert-icon svg { width:16px; height:16px; stroke:#ffc107; }
-    .mg-alert-body { flex:1; }
-    .mg-alert-title { font-size:.8rem; font-weight:700; color:#ffc107; margin-bottom:.35rem; letter-spacing:.03em; }
-    .mg-alert-fields { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
-    .mg-alert-chip {
-      font-size:.75rem; font-weight:500;
-      background:rgba(255,193,7,.1); color:#ffd54f;
-      border:1px solid rgba(255,193,7,.25); border-radius:6px;
-      padding:.25rem .65rem;
-    }
-  </style>
-
-  <div class="mg-grid">
-
-    <div class="mg-card">
-      <span class="mg-tag mg-tag-pub">Empresas Públicas</span>
-      <div class="mg-card-label">Nomenclatura</div>
-      <div class="mg-formula">
-        <span class="mg-seg-pub">tn</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg-pub">pub</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg">ciudad</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg">entidad</span>
-      </div>
-      <div class="mg-example">
-        &#8594; Ejm: <span>tn-pub-gye-contraloria</span>
+    <!-- Instalación -->
+    <div class="task-card">
+      <span class="task-proc-tag">Instalación</span>
+      <div style="margin-top:.6rem;">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:#cfd4e2;">
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Solicitud</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Cotización</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Instalación</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Firma digital</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Activación IPCCL2</span>
+        </div>
       </div>
     </div>
 
-    <div class="mg-card">
-      <span class="mg-tag mg-tag-priv">Empresas Privadas</span>
-      <div class="mg-card-label">Nomenclatura</div>
-      <div class="mg-formula">
-        <span class="mg-seg-priv">tn</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg-priv">priv</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg">ciudad</span><span class="mg-seg-sep">-</span>
-        <span class="mg-seg">cliente</span>
+    <!-- Reubicación / Traslado -->
+    <div class="task-card">
+      <span class="task-proc-tag">Reubicación / Traslado</span>
+      <div style="margin-top:.6rem;">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:#cfd4e2;">
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Solicitud</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Inspección</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Cotización</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Instalación</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Firma digital</span>
+          <span style="color:var(--cy);">→</span>
+          <span style="background:rgba(0,180,216,.15);border-radius:5px;padding:.2rem .55rem;color:var(--cy);font-weight:600;">Activación</span>
+        </div>
       </div>
-      <div class="mg-example">
-        &#8594; Ejm: <span>tn-priv-uio-juaneljuri</span>
+    </div>
+
+    <!-- Hilo Oscuro -->
+    <div class="task-card">
+      <span class="task-proc-tag">Hilo Oscuro (Backup)</span>
+      <div style="margin-top:.6rem;">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:#cfd4e2;">
+          <span style="background:rgba(255,209,102,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gd);font-weight:600;">Solicitud</span>
+          <span style="color:var(--gd);">→</span>
+          <span style="background:rgba(255,209,102,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gd);font-weight:600;">Puente ODFs + TX</span>
+          <span style="color:var(--gd);">→</span>
+          <span style="background:rgba(255,209,102,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gd);font-weight:600;">Instalación</span>
+          <span style="color:var(--gd);">→</span>
+          <span style="background:rgba(255,209,102,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gd);font-weight:600;">Firma digital</span>
+          <span style="color:var(--gd);">→</span>
+          <span style="background:rgba(255,209,102,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gd);font-weight:600;">Activación</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upgrade / Downgrade -->
+    <div class="task-card">
+      <span class="task-proc-tag">Upgrade / Downgrade</span>
+      <div style="margin-top:.6rem;">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:#cfd4e2;">
+          <span style="background:rgba(44,217,176,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gn);font-weight:600;">Solicitud</span>
+          <span style="color:var(--gn);">→</span>
+          <span style="background:rgba(44,217,176,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gn);font-weight:600;">Ejecución</span>
+          <span style="color:var(--gn);">→</span>
+          <span style="background:rgba(44,217,176,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gn);font-weight:600;">Cambio capacidad Telcos</span>
+          <span style="color:var(--gn);">→</span>
+          <span style="background:rgba(44,217,176,.12);border-radius:5px;padding:.2rem .55rem;color:var(--gn);font-weight:600;">Confirmación a Comercial</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancelación -->
+    <div class="task-card" style="grid-column:1/-1;">
+      <span class="task-proc-tag">Cancelación</span>
+      <div style="margin-top:.6rem;">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.35rem;font-size:.82rem;color:#cfd4e2;">
+          <span style="background:rgba(255,71,87,.12);border-radius:5px;padding:.2rem .55rem;color:var(--rd);font-weight:600;">Solicitud</span>
+          <span style="color:var(--rd);">→</span>
+          <span style="background:rgba(255,71,87,.12);border-radius:5px;padding:.2rem .55rem;color:var(--rd);font-weight:600;">Confirmación</span>
+          <span style="color:var(--rd);">→</span>
+          <span style="background:rgba(255,71,87,.12);border-radius:5px;padding:.2rem .55rem;color:var(--rd);font-weight:600;">Baja en Telcos</span>
+          <span style="color:var(--rd);">→</span>
+          <span style="background:rgba(255,71,87,.12);border-radius:5px;padding:.2rem .55rem;color:var(--rd);font-weight:600;">Finalización de tarea</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 12 — MOVISTAR: Flujo Detallado Instalación y Reubicación + Hilo/Upgrade/Cancelación -->
+<section class="slide theme-navy" data-index="12" id="slide-12">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(0,112,242,.2);color:#5b9bff;border-color:rgba(91,155,255,.3);">MOVISTAR</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">Hilo Oscuro, Upgrade/Downgrade y Cancelación</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+
+    <!-- Hilo Oscuro -->
+    <div class="color-card border-yellow">
+      <div style="display:flex;align-items:center;gap:.55rem;margin-bottom:.7rem;">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,209,102,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🔆</div>
+        <h4 style="color:var(--gd);font-size:.95rem;margin:0;">Hilo Oscuro (Backup)</h4>
+      </div>
+      <ul class="arrow-list" style="margin-bottom:.7rem;">
+        <li>PEI realiza puente entre ODFs</li>
+        <li>Instalación de TX en cliente y nodo</li>
+        <li>Telefónica ejecuta instalación</li>
+        <li>PEI gestiona firma digital y activación</li>
+      </ul>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;margin-top:.5rem;">
+        <span style="font-size:.72rem;background:rgba(255,209,102,.1);border-radius:4px;padding:.18rem .45rem;color:var(--gd);">Solicitud</span>
+        <span style="color:var(--gd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,209,102,.1);border-radius:4px;padding:.18rem .45rem;color:var(--gd);">Puente ODFs</span>
+        <span style="color:var(--gd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,209,102,.1);border-radius:4px;padding:.18rem .45rem;color:var(--gd);">TX</span>
+        <span style="color:var(--gd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,209,102,.1);border-radius:4px;padding:.18rem .45rem;color:var(--gd);">Firma digital</span>
+        <span style="color:var(--gd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,209,102,.1);border-radius:4px;padding:.18rem .45rem;color:var(--gd);">Activación</span>
+      </div>
+    </div>
+
+    <!-- Upgrade / Downgrade -->
+    <div class="color-card border-blue">
+      <div style="display:flex;align-items:center;gap:.55rem;margin-bottom:.7rem;">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(26,111,208,.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">⬆</div>
+        <h4 style="color:#5b9bff;font-size:.95rem;margin:0;">Upgrade / Downgrade</h4>
+      </div>
+      <ul class="arrow-list" style="margin-bottom:.7rem;">
+        <li>Telefónica ejecuta el cambio de capacidad</li>
+        <li>IPCCL2 actualiza en Telcos</li>
+        <li>PEI confirma a Comercial mediante tarea</li>
+      </ul>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;margin-top:.5rem;">
+        <span style="font-size:.72rem;background:rgba(26,111,208,.15);border-radius:4px;padding:.18rem .45rem;color:#5b9bff;">Solicitud</span>
+        <span style="color:#5b9bff;font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(26,111,208,.15);border-radius:4px;padding:.18rem .45rem;color:#5b9bff;">Ejecución Telefónica</span>
+        <span style="color:#5b9bff;font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(26,111,208,.15);border-radius:4px;padding:.18rem .45rem;color:#5b9bff;">Actualiza Telcos</span>
+        <span style="color:#5b9bff;font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(26,111,208,.15);border-radius:4px;padding:.18rem .45rem;color:#5b9bff;">Confirma Comercial</span>
+      </div>
+    </div>
+
+    <!-- Cancelación -->
+    <div class="color-card border-pink">
+      <div style="display:flex;align-items:center;gap:.55rem;margin-bottom:.7rem;">
+        <div style="width:32px;height:32px;border-radius:8px;background:rgba(255,71,87,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">✖</div>
+        <h4 style="color:var(--rd);font-size:.95rem;margin:0;">Cancelación</h4>
+      </div>
+      <ul class="arrow-list" style="margin-bottom:.7rem;">
+        <li>Telefónica confirma cancelación del servicio</li>
+        <li>PEI notifica a Comercial</li>
+        <li>Comercial procede a la baja en Telcos</li>
+        <li>Finaliza la tarea</li>
+      </ul>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;margin-top:.5rem;">
+        <span style="font-size:.72rem;background:rgba(255,71,87,.1);border-radius:4px;padding:.18rem .45rem;color:var(--rd);">Solicitud</span>
+        <span style="color:var(--rd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,71,87,.1);border-radius:4px;padding:.18rem .45rem;color:var(--rd);">Confirmación</span>
+        <span style="color:var(--rd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,71,87,.1);border-radius:4px;padding:.18rem .45rem;color:var(--rd);">Baja en Telcos</span>
+        <span style="color:var(--rd);font-size:.8rem;">→</span>
+        <span style="font-size:.72rem;background:rgba(255,71,87,.1);border-radius:4px;padding:.18rem .45rem;color:var(--rd);">Fin tarea</span>
       </div>
     </div>
 
   </div>
 
-  <div class="mg-alert">
-    <div class="mg-alert-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-      </svg>
-    </div>
-    <div class="mg-alert-body">
-      <div class="mg-alert-title">Campos importantes:</div>
-      <div style="font-size:.85rem;color:#d7e8ff;line-height:1.55;">
-        Es necesario complementar el registro con los siguientes campos que permitirán el control de los ingresos:
+  <div class="callout" style="margin-top:1rem;">
+    <div class="dot">ℹ</div>
+    <p style="font-size:.85rem;">En reubicación/traslado, Telefónica añade inspección y cotización antes de la instalación. En ambos casos, <b>PEI gestiona</b> la firma digital y la confirmación de costos mediante tarea.</p>
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 13 — CNT: Gestión Tercerizadoras -->
+<section class="slide theme-navy" data-index="13" id="slide-13">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(255,140,66,.15);color:var(--or);border-color:rgba(255,140,66,.3);">CNT</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — CNT</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
+
+    <!-- Instalación -->
+    <div class="task-card">
+      <span class="task-proc-tag" style="background:rgba(255,140,66,.12);color:var(--or);">Instalación</span>
+      <div style="margin-top:.7rem;display:flex;flex-direction:column;gap:.35rem;">
+        <div style="display:flex;align-items:center;gap:.3rem;font-size:.78rem;flex-wrap:wrap;">
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Solicitud</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Cotización CNT</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">PEI revisa costos</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Dir. IP</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Form. CNT</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Firma Gerencia Reg.</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Instalación</span>
+          <span style="color:var(--or);">→</span>
+          <span style="background:rgba(255,140,66,.12);border-radius:4px;padding:.18rem .45rem;color:var(--or);font-weight:600;">Activación IPCCL2</span>
+        </div>
       </div>
-      <div class="mg-alert-fields">
-        <span class="mg-alert-chip">Nombre del Punto</span>
-        <span class="mg-alert-chip">Observación</span>
-        <span class="mg-alert-chip">Descripción de la Factura</span>
+    </div>
+
+    <!-- Upgrade / Downgrade -->
+    <div class="task-card">
+      <span class="task-proc-tag" style="background:rgba(255,140,66,.12);color:var(--or);">Upgrade / Downgrade</span>
+      <ul class="arrow-list" style="margin-top:.7rem;">
+        <li>CNT confirma cotización y ejecución</li>
+        <li>PEI llena formulario y envía a Gerencia Regional</li>
+        <li>Comercial gestiona en Telcos</li>
+      </ul>
+    </div>
+
+    <!-- Cancelación -->
+    <div class="task-card">
+      <span class="task-proc-tag" style="background:rgba(255,140,66,.12);color:var(--or);">Cancelación</span>
+      <ul class="arrow-list" style="margin-top:.7rem;">
+        <li>CNT confirma baja del servicio</li>
+        <li>PEI notifica a Comercial</li>
+        <li>Cancelación en Telcos</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <div class="dot">ℹ</div>
+    <p style="font-size:.85rem;"><b>CNT solo soporta enlaces de DATOS.</b> Para internet dedicado, IPCCL2 realiza un túnel y procede con la activación. Las interconexiones requieren reunión técnica previa con el proveedor y Telconet para validar el diagrama de diseño y costos.</p>
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 14 — KONNET: Gestión Tercerizadoras -->
+<section class="slide theme-navy" data-index="14" id="slide-14">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(44,217,176,.12);color:var(--gn);border-color:rgba(44,217,176,.3);">KONNET</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — KONNET</h2>
+
+  <!-- Diagrama de 4 pasos horizontal -->
+  <div style="display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr 40px 1fr;align-items:start;gap:0;margin-bottom:1.2rem;">
+
+    <div style="text-align:center;padding:.5rem;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,180,216,.15);border:2px solid rgba(0,180,216,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-size:1.4rem;">📋</div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--cy);margin-bottom:.3rem;">Solicitud</div>
+      <div style="font-size:.74rem;color:#9aa3b8;line-height:1.4;">Comercial inicia con formato</div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;padding-top:1.5rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.5)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </div>
+
+    <div style="text-align:center;padding:.5rem;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(44,217,176,.12);border:2px solid rgba(44,217,176,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-size:1.4rem;">✅</div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--gn);margin-bottom:.3rem;">Aprobación</div>
+      <div style="font-size:.74rem;color:#9aa3b8;line-height:1.4;">PEI revisa costos y confirma por correo</div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;padding-top:1.5rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.5)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </div>
+
+    <div style="text-align:center;padding:.5rem;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,209,102,.12);border:2px solid rgba(255,209,102,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-size:1.4rem;">🔍</div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--gd);margin-bottom:.3rem;">Confirmación</div>
+      <div style="font-size:.74rem;color:#9aa3b8;line-height:1.4;">KONNET confirma cotización e inspección</div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;padding-top:1.5rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.5)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </div>
+
+    <div style="text-align:center;padding:.5rem;">
+      <div style="width:56px;height:56px;border-radius:50%;background:rgba(0,207,193,.12);border:2px solid rgba(0,207,193,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .6rem;font-size:1.4rem;">🚀</div>
+      <div style="font-size:.78rem;font-weight:700;color:var(--tl);margin-bottom:.3rem;">Habilitación</div>
+      <div style="font-size:.74rem;color:#9aa3b8;line-height:1.4;">KONNET habilita, PEI instala e IPCCL2 activa</div>
+    </div>
+
+  </div>
+
+  <div class="task-card">
+    <p style="font-size:.9rem;color:#cfd4e2;line-height:1.6;">Tras la confirmación de costos por parte de PEI, KONNET realiza la inspección y habilitación de la última milla. PEI instala los equipos y IPCCL2 procede con la activación del servicio.</p>
+  </div>
+
+  <div class="callout" style="margin-top:1rem;">
+    <div class="dot">ℹ</div>
+    <p style="font-size:.85rem;">CNT solo soporta enlaces de DATOS. Para internet dedicado, IPCCL2 realiza un túnel y procede con la activación. Las interconexiones requieren reunión técnica previa con el proveedor y Telconet para validar el diagrama de diseño y costos.</p>
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 15 — OTROS OPERADORES -->
+<section class="slide theme-navy" data-index="15" id="slide-15">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(0,207,193,.12);color:var(--tl);border-color:rgba(0,207,193,.3);">OTROS OPERADORES</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">GO CORP., Piedrahuasi Inmobiliaria y Mall del Alto</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1rem;">
+
+    <!-- Piedrahuasi Inmobiliaria -->
+    <div class="task-card">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem;">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(0,207,193,.12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🏢</div>
+        <div>
+          <span class="task-proc-tag" style="background:rgba(0,207,193,.12);color:var(--tl);">Piedrahuasi Inmobiliaria</span>
+        </div>
+      </div>
+      <p style="font-size:.88rem;color:#cfd4e2;line-height:1.6;margin-bottom:.8rem;">PEI instala y reporta enlaces activos mensualmente. Piedrahuasi revisa enlaces y emite facturación según contrato.</p>
+      <div style="display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;">
+        <span style="font-size:.74rem;background:rgba(0,207,193,.1);border-radius:4px;padding:.18rem .45rem;color:var(--tl);">Solicitud</span>
+        <span style="color:var(--tl);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(0,207,193,.1);border-radius:4px;padding:.18rem .45rem;color:var(--tl);">Cotización</span>
+        <span style="color:var(--tl);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(0,207,193,.1);border-radius:4px;padding:.18rem .45rem;color:var(--tl);">Instalación</span>
+        <span style="color:var(--tl);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(0,207,193,.1);border-radius:4px;padding:.18rem .45rem;color:var(--tl);">Activación IPCCL2</span>
       </div>
     </div>
+
+    <!-- Mall del Alto -->
+    <div class="task-card">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.9rem;">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,140,66,.12);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🏬</div>
+        <div>
+          <span class="task-proc-tag" style="background:rgba(255,140,66,.12);color:var(--or);">Mall del Alto</span>
+        </div>
+      </div>
+      <p style="font-size:.88rem;color:#cfd4e2;line-height:1.6;margin-bottom:.8rem;">Flujo de instalación estándar: solicitud, cotización, instalación de equipos y activación IPCCL2.</p>
+      <div style="display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;">
+        <span style="font-size:.74rem;background:rgba(255,140,66,.1);border-radius:4px;padding:.18rem .45rem;color:var(--or);">Solicitud</span>
+        <span style="color:var(--or);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(255,140,66,.1);border-radius:4px;padding:.18rem .45rem;color:var(--or);">Cotización</span>
+        <span style="color:var(--or);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(255,140,66,.1);border-radius:4px;padding:.18rem .45rem;color:var(--or);">Instalación</span>
+        <span style="color:var(--or);font-size:.8rem;">→</span>
+        <span style="font-size:.74rem;background:rgba(255,140,66,.1);border-radius:4px;padding:.18rem .45rem;color:var(--or);">Activación IPCCL2</span>
+      </div>
+    </div>
+
   </div>
 
 </div>
 </section>
 
+<!-- SLIDE 16 — CLARO: Gestión Tercerizadoras -->
+<section class="slide theme-navy" data-index="16" id="slide-16">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(255,71,87,.12);color:var(--rd);border-color:rgba(255,71,87,.3);">CLARO</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — Claro</h2>
 
-<section class="slide theme-navy" data-index="9" id="slide-9">
-<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
-  <div class="badge"><span class="badge-num">06</span> Registro Ordenes de Trabajo</div>
-  <h2 class="title-xl" style="margin-bottom:.6rem;">Productos Telconet</h2>
-  <p style="color:#d7e8ff;font-size:1rem;margin-bottom:1.2rem;line-height:1.6;">
-    Se realiza el registro de las ordenes de trabajo de acuerdo al producto solicitado:
-  </p>
+  <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem;align-items:start;">
 
-  <style>
-    .cp-grid {
-      display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; margin-bottom:.85rem;
-      max-width:100%;
-    }
-    .cp-grid .cp-btn:nth-child(5),
-    .cp-grid .cp-btn:nth-child(6),
-    .cp-grid .cp-btn:nth-child(7) {
-      grid-column: span 1;
-    }
-    .cp-btn {
-      padding:.6rem .5rem; border-radius:10px;
-      border:1.5px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.05);
-      cursor:pointer; text-align:center;
-      font-size:.72rem; font-weight:600; color:#8ab4d4;
-      transition:border-color .15s, background .15s, color .15s;
-      font-family:inherit; letter-spacing:.01em;
-    }
-    .cp-btn:hover { border-color:rgba(255,255,255,.25); color:#c8dff5; background:rgba(255,255,255,.09); }
-    .cp-btn.cp-active { border-color:#00c9ff; background:rgba(0,201,255,.1); color:#00c9ff; }
-    .cp-btn .cp-icon { font-size:1.3rem; display:block; margin-bottom:.3rem; }
-    .cp-btn .cp-count { font-size:.65rem; color:#4a6a88; margin-top:.2rem; }
-    .cp-btn.cp-active .cp-count { color:#0090bb; }
+    <div>
+      <h3 style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:1rem;">Flujo de Instalación</h3>
+      <div class="icon-grid">
 
-    .cp-panel {
-      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-      border-radius:12px; padding:.9rem 1.1rem; min-height:110px;
-      transition:opacity .2s;
-    }
-    .cp-panel-title {
-      font-size:.85rem; font-weight:600; color:#e0eeff;
-      margin-bottom:.65rem; display:flex; align-items:center; gap:.45rem;
-    }
-    .cp-panel-title svg { width:16px; height:16px; stroke:#00c9ff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
-    .cp-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
-    .cp-chip {
-      font-size:.75rem; padding:.28rem .7rem;
-      border-radius:6px; background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      color:#9bbedd; transition:border-color .12s, color .12s; cursor:default;
-    }
-    .cp-chip:hover { border-color:rgba(0,201,255,.4); color:#00c9ff; }
-  </style>
+        <div class="icon-card">
+          <div class="icon-circle" style="background:rgba(255,71,87,.1);">
+            <svg viewBox="0 0 24 24" style="stroke:var(--rd);"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h5>Comercial inicia solicitud con formato adjunto</h5>
+          </div>
+        </div>
 
-  <!-- Botones de categoría -->
-  <div class="cp-grid">
+        <div class="icon-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div>
+            <h5>Claro confirma cotización y envía SOW para firma del apoderado legal</h5>
+          </div>
+        </div>
 
-    <button class="cp-btn cp-active" id="cp-conn" onclick="cpShow('conn')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      </span>
-      Connectivity
-      <div class="cp-count">8 productos</div>
-    </button>
+        <div class="icon-card">
+          <div class="icon-circle" style="background:rgba(44,217,176,.1);">
+            <svg viewBox="0 0 24 24" style="stroke:var(--gn);"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h5>PEI revisa costos y confirma aceptación por correo</h5>
+          </div>
+        </div>
 
-    <button class="cp-btn" id="cp-cloud" onclick="cpShow('cloud')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      </span>
-      Cloud
-      <div class="cp-count">6 productos</div>
-    </button>
+        <div class="icon-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </div>
+          <div>
+            <h5>Claro asigna PM y confirma última milla + VLAN</h5>
+          </div>
+        </div>
 
-    <button class="cp-btn" id="cp-sec" onclick="cpShow('sec')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </span>
-      Security
-      <div class="cp-count">5 productos</div>
-    </button>
+        <div class="icon-card">
+          <div class="icon-circle" style="background:rgba(0,180,216,.15);">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <h5>PEI instala equipos → IPCCL2 activa</h5>
+          </div>
+        </div>
 
-    <button class="cp-btn" id="cp-seg" onclick="cpShow('seg')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h4"/></svg>
-      </span>
-      SEG Electronica
-      <div class="cp-count">2 productos</div>
-    </button>
-
-    <button class="cp-btn" id="cp-net" onclick="cpShow('net')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6"/></svg>
-      </span>
-      Network
-      <div class="cp-count">4 productos</div>
-    </button>
-
-    <button class="cp-btn" id="cp-col" onclick="cpShow('col')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      </span>
-      Collaboration
-      <div class="cp-count">3 productos</div>
-    </button>
-
-    <button class="cp-btn" id="cp-tra" onclick="cpShow('tra')">
-      <span class="cp-icon">
-        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-      </span>
-      Transit
-      <div class="cp-count">3 productos</div>
-    </button>
-
-
-
-  </div>
-
-  <!-- Panel de productos -->
-  <div class="cp-panel" id="cp-panel">
-    <div class="cp-panel-title" id="cp-ptitle">
-      <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-      Connectivity
+      </div>
     </div>
-    <div class="cp-chips" id="cp-pchips"></div>
+
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+      <div class="callout-danger">
+        <div class="dot">⚠</div>
+        <p><b>Requiere firma de SOW</b> por apoderado legal antes de la instalación.</p>
+      </div>
+      <div class="task-card" style="background:rgba(255,71,87,.05);border-color:rgba(255,71,87,.2);">
+        <span class="task-proc-tag" style="background:rgba(255,71,87,.12);color:var(--rd);">Flujo resumido</span>
+        <div style="margin-top:.6rem;display:flex;flex-direction:column;gap:.4rem;">
+          <div style="display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;font-size:.74rem;">
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">Formato Comercial</span>
+            <span style="color:var(--rd);">→</span>
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">Cotización + SOW</span>
+            <span style="color:var(--rd);">→</span>
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">Revisión PEI</span>
+            <span style="color:var(--rd);">→</span>
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">PM + VLAN</span>
+            <span style="color:var(--rd);">→</span>
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">Instalación</span>
+            <span style="color:var(--rd);">→</span>
+            <span style="background:rgba(255,71,87,.1);border-radius:4px;padding:.16rem .4rem;color:var(--rd);">Activación IPCCL2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 17 — C4 S.A.: Gestión Tercerizadoras -->
+<section class="slide theme-navy" data-index="17" id="slide-17">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(255,209,102,.12);color:var(--gd);border-color:rgba(255,209,102,.3);">C4 S.A.</div>
+  <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — C4 S.A.</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1rem;">
+
+    <!-- Buijo -->
+    <div class="task-card">
+      <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.8rem;">
+        <div style="width:36px;height:36px;border-radius:9px;background:rgba(255,209,102,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🏗</div>
+        <span class="task-proc-tag" style="background:rgba(255,209,102,.12);color:var(--gd);">Buijo</span>
+      </div>
+      <p style="font-size:.85rem;color:#cfd4e2;line-height:1.55;">Flujo de instalación estándar: solicitud, cotización, instalación de equipos y activación IPCCL2.</p>
+      <div style="margin-top:.7rem;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;font-size:.72rem;">
+        <span style="background:rgba(255,209,102,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gd);">Solicitud</span>
+        <span style="color:var(--gd);">→</span>
+        <span style="background:rgba(255,209,102,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gd);">Cotización</span>
+        <span style="color:var(--gd);">→</span>
+        <span style="background:rgba(255,209,102,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gd);">Instalación</span>
+        <span style="color:var(--gd);">→</span>
+        <span style="background:rgba(255,209,102,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gd);">Activación IPCCL2</span>
+      </div>
+    </div>
+
+    <!-- Almax Center -->
+    <div class="task-card">
+      <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.8rem;">
+        <div style="width:36px;height:36px;border-radius:9px;background:rgba(0,180,216,.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🏪</div>
+        <span class="task-proc-tag">Almax Center</span>
+      </div>
+      <p style="font-size:.85rem;color:#cfd4e2;line-height:1.55;">PEI instala y reporta enlaces activos mensualmente. Piedrahuasi revisa enlaces y emite facturación según contrato.</p>
+      <div style="margin-top:.7rem;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;font-size:.72rem;">
+        <span style="background:rgba(0,180,216,.1);border-radius:4px;padding:.16rem .4rem;color:var(--cy);">Solicitud</span>
+        <span style="color:var(--cy);">→</span>
+        <span style="background:rgba(0,180,216,.1);border-radius:4px;padding:.16rem .4rem;color:var(--cy);">Cotización</span>
+        <span style="color:var(--cy);">→</span>
+        <span style="background:rgba(0,180,216,.1);border-radius:4px;padding:.16rem .4rem;color:var(--cy);">Instalación</span>
+        <span style="color:var(--cy);">→</span>
+        <span style="background:rgba(0,180,216,.1);border-radius:4px;padding:.16rem .4rem;color:var(--cy);">Activación</span>
+      </div>
+    </div>
+
+    <!-- Almax Plus -->
+    <div class="task-card">
+      <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.8rem;">
+        <div style="width:36px;height:36px;border-radius:9px;background:rgba(44,217,176,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🏬</div>
+        <span class="task-proc-tag" style="background:rgba(44,217,176,.1);color:var(--gn);">Almax Plus</span>
+      </div>
+      <p style="font-size:.85rem;color:#cfd4e2;line-height:1.55;">PEI envía reporte mensual de enlaces activos a Cobranzas, quien remite soportes a C4. C4 procede con la facturación correspondiente al contrato.</p>
+      <div style="margin-top:.7rem;display:flex;align-items:center;gap:.3rem;flex-wrap:wrap;font-size:.72rem;">
+        <span style="background:rgba(44,217,176,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gn);">Reporte PEI</span>
+        <span style="color:var(--gn);">→</span>
+        <span style="background:rgba(44,217,176,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gn);">Cobranzas</span>
+        <span style="color:var(--gn);">→</span>
+        <span style="background:rgba(44,217,176,.1);border-radius:4px;padding:.16rem .4rem;color:var(--gn);">C4 Facturación</span>
+      </div>
+    </div>
+
   </div>
 
-  <script>
-    var cpData = {
-      conn: {
-        label: 'Connectivity',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>',
-        items: ['Internet Dedicado','Concentrador L3MPLS','L3MPLS','INTERNET WIFI','TelcoHome','OTROS']
-      },
-      cloud: {
-        label: 'Cloud',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>',
-        items: ['Internet DC','DATOS DC','HOUSING Alquiler de Espacio Físico','HOUSING INSTALACION ENERGIA','DOMINIO','CLOUD','OTROS']
-      },
-      sec: {
-        label: 'Security',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-        items: ['SECURITY CLOUD NG FIREWALL','SECURITY NG FIREWALL','EMAIL PROTECTION','OTROS']
-      },
-      seg: {
-        label: 'SEG Electronica',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h4"/></svg>',
-        items: ['MANTENIMIENTO CORRECTIVO CCTV','MANTENIMIENTO PREVENTIVO','SAFE CAM','SEGURIDAD ELECTRONICA VIDEO VIGILANCIA', 'CAMARA IP', 'SEGURIDAD ELECTRONICA ALARMAS',  'OTROS']
-      },
-      net: {
-        label: 'Network',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6"/></svg>',
-        items: ['Cableado Estructurado','FIBER LAN EXTENSION','WIFI Alquiler Equipos','Networking LAN','OTROS']
-      },
-      col: {
-        label: 'Collaboration',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
-        items: ['COU TELEFONIA IP','COU LINEAS TELEFONIA FIJA','COU VIDEO ANALYTICS','OTROS' ]
-      },
-      tra: {
-        label: 'Transit',
-        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>',
-        items: ['MOBILE BUS']
-      },
+</div>
+</section>
 
-    };
+<!-- SLIDE 18 — INTERCONEXIONES: Validación y Aprobación -->
+<section class="slide theme-navy" data-index="18" id="slide-18">
+<div class="slide-pad">
+  <div class="badge" style="background:rgba(0,180,216,.15);color:var(--cy);border-color:rgba(0,180,216,.3);">INTERCONEXIONES</div>
+  <h2 class="title-xl" style="margin-bottom:.6rem;">Flujo de Interconexiones: Validación y Aprobación</h2>
 
-    function cpShow(id) {
-      Object.keys(cpData).forEach(function(k) {
-        var btn = document.getElementById('cp-'+k);
-        if (btn) btn.classList.toggle('cp-active', k === id);
-      });
-      var d = cpData[id];
-      document.getElementById('cp-ptitle').innerHTML = d.icon + ' ' + d.label;
-      var chips = d.items.map(function(t){ return '<span class="cp-chip">' + t + '</span>'; }).join('');
-      var panel = document.getElementById('cp-panel');
-      panel.style.opacity = '0';
-      document.getElementById('cp-pchips').innerHTML = chips;
-      setTimeout(function(){ panel.style.opacity = '1'; }, 40);
-    }
+  <!-- Diagrama de flujo principal -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin-bottom:1rem;">
 
-    cpShow('conn');
-  </script>
+    <div style="text-align:center;">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(0,180,216,.15);border:2px solid rgba(0,180,216,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">🔍</div>
+      <div style="font-size:.75rem;font-weight:700;color:var(--cy);">Validación Técnica</div>
+      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Reunión proveedor + Telconet</div>
+    </div>
 
+    <div style="display:flex;align-items:flex-start;justify-content:center;padding-top:1.1rem;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.45)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </div>
+
+    <div style="text-align:center;">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,209,102,.12);border:2px solid rgba(255,209,102,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">📐</div>
+      <div style="font-size:.75rem;font-weight:700;color:var(--gd);">Revisión Oferta</div>
+      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Grandes Superficies + Regulatorio</div>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;justify-content:center;padding-top:1.1rem;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.45)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </div>
+
+    <div style="text-align:center;">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(44,217,176,.1);border:2px solid rgba(44,217,176,.35);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">📝</div>
+      <div style="font-size:.75rem;font-weight:700;color:var(--gn);">Contratación</div>
+      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Con proveedor seleccionado</div>
+    </div>
+
+  </div>
+
+  <!-- Proveedores disponibles -->
+  <div style="margin-bottom:1rem;">
+    <div style="font-size:.76rem;font-weight:700;color:var(--text-muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;">Proveedores para contratación</div>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">CNT</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Claro</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Tigo</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Puntonet</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Ufinet</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Teuno-Bravco (Cirion)</span>
+    </div>
+  </div>
+
+  <div class="callout-danger" style="margin-bottom:.8rem;">
+    <div class="dot">⚠</div>
+    <p><b>Cirion requiere gestión directa del cliente</b> — no puede ser contratado directamente por Telconet.</p>
+  </div>
+
+  <div class="callout">
+    <div class="dot">ℹ</div>
+    <p style="font-size:.85rem;">Este flujo asegura que todas las interconexiones cumplan con los estándares técnicos y regulatorios antes de ser aprobadas y contratadas, con opciones variadas de proveedores para la implementación.</p>
+  </div>
+</div>
+</section>
+
+<!-- SLIDE 19 — Fin del módulo Flujos Tercerizados -->
+<section class="slide theme-navy slide-cover" data-index="19" id="slide-19">
+<div class="slide-pad" style="padding:0;">
+<div style="height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;background:linear-gradient(135deg,var(--nd) 0%,#0a1e4a 100%);">
+  <div style="text-align:center;max-width:620px;padding:2rem;">
+    <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--cy),var(--tl));display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem;box-shadow:0 12px 32px rgba(0,180,216,.35);">✓</div>
+    <div class="kicker" style="color:var(--cy);margin-bottom:.8rem;">FLUJOS TERCERIZADOS 2026</div>
+    <h2 style="font-size:clamp(1.5rem,3vw,2.3rem);font-weight:800;color:#fff;margin-bottom:.8rem;line-height:1.2;">Módulo completado</h2>
+    <p style="color:var(--text-muted);font-size:1rem;line-height:1.6;margin-bottom:1.8rem;">Gestión de solicitudes con operadores y terceros: Movistar, CNT, KONNET, Claro, C4 y otros. · PROYECTOS E IMPLEMENTACIÓN</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;">
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">Movistar</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">CNT</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">KONNET</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">Claro</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">C4 S.A.</span>
+      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .9rem;font-size:.82rem;color:var(--cy);">Interconexiones</span>
+    </div>
+    <button onclick="jumpTo(0)" style="margin-top:1.8rem;background:rgba(0,180,216,.15);border:1.5px solid rgba(0,180,216,.4);color:var(--cy);font-size:.9rem;font-weight:600;padding:.7rem 1.8rem;border-radius:10px;cursor:pointer;font-family:inherit;transition:.2s;" onmouseover="this.style.background='rgba(0,180,216,.28)'" onmouseout="this.style.background='rgba(0,180,216,.15)'">← Volver al inicio</button>
+  </div>
+</div>
 </div>
 </section>
 
