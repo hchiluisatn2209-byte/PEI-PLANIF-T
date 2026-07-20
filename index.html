@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capacitación Conectividad 2026 · Telconet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & ROOT ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  /* Paleta corporativa Telconet */
+  --nd:#0B1D53;
+  --nd2:#0d1130;
+  --bc:#0E4D92;
+  --bm:#1A6FD0;
+  --cy:#00B4D8;
+  --tl:#00CFC1;
+  --gn:#2CD9B0;
+  --or:#FF8C42;
+  --rd:#FF4757;
+  --gd:#FFD166;
+  --wh:#FFFFFF;
+  --g1:#F0F4F8;
+  --g2:#D9E2EC;
+  --g3:#9FB3C8;
+  --g4:#627D98;
+  --g5:#334E68;
+  --g6:#627D98;
+  --g7:#243B53;
+  --g8:#334E68;
+
+  /* Derivados */
+  --card-dark:rgba(255,255,255,0.04);
+  --card-border:rgba(0,180,216,0.18);
+  --text-light:#EEF1FB;
+  --text-muted:#9FB3C8;
+  --gold:#FFD166;
+  --gold-badge:#1A3A6B;
+  --gold-badge-text:#FFD166;
+  --purple:#00B4D8;
+  --purple-light:#00CFC1;
+  --blue:#1A6FD0;
+  --cyan:#00B4D8;
+  --green:#2CD9B0;
+  --orange:#FF8C42;
+  --pink:#FF4757;
+  --ink:#0B1D53;
+}
+
+html,body{height:100%;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--nd);
+  color:var(--text-light);
+  overflow:hidden;
+}
+h1,h2,h3,.font-head{font-family:'Outfit',sans-serif;font-weight:700;}
+
+/* ===== DECK / NAV ===== */
+#deck{position:relative;width:100vw;height:100vh;overflow:hidden;}
+.slide{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:flex;flex-direction:column;
+  opacity:0;pointer-events:none;
+  transform:translateX(40px);
+  transition:opacity .45s ease,transform .45s ease;
+  overflow-y:auto;
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0);}
+.slide.exit{opacity:0;transform:translateX(-40px);}
+.slide-pad{
+  padding:clamp(1.6rem,4vw,3.4rem) clamp(1.6rem,6vw,5.5rem);
+  width:100%;margin:auto 0;
+  min-height:100%;display:flex;flex-direction:column;justify-content:center;
+}
+
+/* THEMES */
+.theme-navy{
+  background:
+    radial-gradient(circle at 15% 20%,rgba(0,180,216,0.12),transparent 45%),
+    radial-gradient(circle at 85% 75%,rgba(26,111,208,0.10),transparent 45%),
+    linear-gradient(135deg,var(--nd) 0%,#0a1540 100%);
+}
+.theme-purple{
+  background:linear-gradient(160deg,#040D15 50%,#0B2545 100%);
+}
+.theme-light{background:var(--g1);color:var(--ink);}
+.theme-light .muted{color:#4A6275;}
+
+/* Corner decoration */
+.corner-tab{
+  position:absolute;top:0;right:8%;
+  width:56px;height:70px;
+  background:linear-gradient(180deg,var(--cy),var(--bm));
+  box-shadow:0 8px 20px rgba(0,180,216,.4);
+  border-radius:0 0 6px 6px;
+}
+
+/* ===== PROGRESS BAR ===== */
+#progress{
+  position:fixed;top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--cy),var(--tl));
+  z-index:100;
+  transition:width .4s ease;
+  box-shadow:0 0 10px rgba(0,180,216,.6);
+}
+
+/* ===== MODULE NAV BAR ===== */
+#mod-nav{
+  position:fixed;top:3px;left:0;right:0;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  gap:.5rem;z-index:55;
+  background:rgba(11,29,83,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(0,180,216,.15);
+  padding:0 .8rem;
+}
+#mod-nav .mn-home{
+  background:rgba(0,180,216,.15);
+  border:1px solid rgba(0,180,216,.3);
+  color:var(--cy);
+  border-radius:6px;
+  padding:.28rem .85rem;
+  font-size:.72rem;font-weight:700;
+  cursor:pointer;font-family:inherit;
+  letter-spacing:.04em;
+  display:flex;align-items:center;gap:.35rem;
+  transition:.2s;flex-shrink:0;
+}
+#mod-nav .mn-home:hover{background:rgba(0,180,216,.3);color:#fff;}
+#mod-nav .mn-sep{width:1px;height:16px;background:rgba(0,180,216,.2);flex-shrink:0;}
+#mod-nav .mn-btn{
+  border:none;background:none;
+  color:rgba(255,255,255,.45);
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.04em;
+  cursor:pointer;padding:.28rem .7rem;
+  border-radius:6px;transition:.2s;
+  white-space:nowrap;font-family:inherit;
+}
+#mod-nav .mn-btn:hover{background:rgba(255,255,255,.1);color:#fff;}
+#mod-nav .mn-btn.active{background:var(--gold-badge);color:var(--gold);}
+
+/* Slide padding top for navbar */
+.slide{padding-top:41px;}
+.slide.slide-cover{padding-top:0;}
+.slide.slide-cover .split-media,.slide.slide-cover>*{margin-top:41px;}
+
+/* ===== COUNTER ===== */
+#counter{
+  position:fixed;top:calc(41px + .6rem);right:1.3rem;
+  font-size:.75rem;color:rgba(255,255,255,.5);
+  z-index:50;font-variant-numeric:tabular-nums;
+  font-family:'JetBrains Mono',monospace;
+}
+
+/* ===== BADGE / TITLES ===== */
+.badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--gold-badge);
+  color:var(--gold);
+  font-size:.8rem;font-weight:700;
+  letter-spacing:.06em;
+  padding:.38rem 1rem;border-radius:6px;
+  margin-bottom:.9rem;text-transform:uppercase;
+  width:max-content;
+  border:1px solid rgba(255,209,102,.2);
+}
+.badge .badge-num{
+  background:rgba(255,209,102,.2);
+  border-radius:4px;padding:.04rem .45rem;
+  font-size:.74rem;letter-spacing:.04em;
+}
+.theme-light .badge{background:#dbeafe;color:#1A6FD0;border-color:#93c5fd;}
+.theme-light .badge .badge-num{background:rgba(26,111,208,.12);}
+
+.title-xl{
+  font-size:clamp(1.7rem,3.4vw,2.6rem);
+  font-weight:700;color:var(--wh);
+  line-height:1.15;margin-bottom:.6rem;
+}
+.title-purple{
+  font-size:clamp(1.7rem,3.4vw,2.6rem);
+  font-weight:700;color:var(--cy);
+  line-height:1.15;margin-bottom:.6rem;
+}
+.subtitle{
+  color:var(--text-muted);
+  font-size:clamp(.93rem,1.3vw,1.08rem);
+  max-width:900px;margin-bottom:1.8rem;line-height:1.55;
+}
+
+/* ===== COVER ===== */
+.slide-cover{flex-direction:row;padding:0;}
+.cover-left{
+  width:52%;display:flex;flex-direction:column;
+  justify-content:center;padding:5vw 4.5vw;position:relative;
+  background:linear-gradient(135deg,var(--nd) 0%,#0a1e4a 100%);
+}
+.cover-left::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 60%,rgba(0,180,216,.12),transparent 60%);
+  pointer-events:none;
+}
+.cover-left .kicker{
+  color:var(--cy);letter-spacing:.14em;
+  font-size:.78rem;font-weight:700;
+  text-transform:uppercase;margin-bottom:1.1rem;
+}
+.cover-left h1{
+  font-size:clamp(2rem,4.2vw,3.2rem);
+  font-weight:800;color:var(--wh);
+  line-height:1.1;margin-bottom:1.1rem;
+}
+.cover-left h1 span{
+  background:linear-gradient(90deg,var(--cy),var(--tl));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.cover-left p.desc{
+  color:var(--text-muted);font-size:1.02rem;
+  line-height:1.6;max-width:560px;margin-bottom:2.2rem;
+}
+.facilitator-card{
+  display:flex;align-items:center;gap:.9rem;
+  background:rgba(0,180,216,.08);
+  border:1px solid rgba(0,180,216,.25);
+  border-radius:10px;padding:.85rem 1.25rem;
+  width:max-content;
+}
+.facilitator-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cy),var(--bm));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:#fff;font-size:1.05rem;flex-shrink:0;
+}
+.facilitator-name{font-weight:700;color:#fff;font-size:.96rem;}
+.facilitator-role{font-size:.78rem;color:var(--text-muted);}
+.cover-right{width:48%;position:relative;overflow:hidden;}
+.cover-right img{width:100%;height:100%;object-fit:cover;display:block;}
+.cover-right::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--nd) 0%,transparent 14%);
+}
+
+/* ===== AGENDA GRID ===== */
+.agenda-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem 3rem;margin-top:1rem;}
+.agenda-item .num{
+  font-family:'JetBrains Mono',monospace;
+  font-weight:600;color:var(--text-muted);
+  font-size:.9rem;margin-bottom:.5rem;
+}
+.agenda-item .underline{height:2px;width:100%;margin-bottom:.9rem;border-radius:2px;}
+.agenda-item h3{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:.5rem;}
+.agenda-item p{color:var(--text-muted);font-size:.92rem;line-height:1.55;}
+.u-yellow{background:linear-gradient(90deg,var(--gd),transparent);}
+.u-pink{background:linear-gradient(90deg,var(--rd),transparent);}
+.u-orange{background:linear-gradient(90deg,var(--or),transparent);}
+.u-blue{background:linear-gradient(90deg,var(--bm),transparent);}
+.u-green{background:linear-gradient(90deg,var(--gn),transparent);}
+.u-purple{background:linear-gradient(90deg,var(--cy),transparent);}
+.u-cyan{background:linear-gradient(90deg,var(--tl),transparent);}
+.u-teal{background:linear-gradient(90deg,var(--tl),transparent);}
+
+/* ===== PLAIN CARDS ===== */
+.plain-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.4rem;}
+.plain-card{
+  background:rgba(0,180,216,.06);
+  border:1px solid rgba(0,180,216,.15);
+  border-radius:10px;padding:1.1rem 1.35rem;
+}
+.plain-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.35rem;}
+.plain-card p{font-size:.88rem;color:var(--g3);line-height:1.5;}
+
+/* ===== COLORED BORDER CARDS ===== */
+.color-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-top:.6rem;}
+.color-grid.single{grid-template-columns:1fr;}
+.color-card{
+  border:1.5px solid;border-radius:10px;
+  padding:1.2rem 1.5rem;
+  background:rgba(255,255,255,.025);
+}
+.color-card h4{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.45rem;}
+.color-card p{font-size:.9rem;color:#cfd4e2;line-height:1.55;}
+.border-yellow{border-color:var(--gd);}
+.border-pink{border-color:var(--rd);}
+.border-orange{border-color:var(--or);}
+.border-blue{border-color:var(--bm);}
+
+/* ===== TWO COLUMN TEXT ===== */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;margin-top:.6rem;}
+.two-col h4{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.8rem;}
+.two-col ul{list-style:none;}
+.two-col li{
+  font-size:.9rem;color:#cfd4e2;line-height:1.55;
+  margin-bottom:.8rem;padding-left:1rem;position:relative;
+}
+.two-col li::before{content:'›';position:absolute;left:0;color:var(--cy);font-size:1.1rem;}
+.two-col li b{color:#fff;}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4rem;align-items:start;}
+
+/* ===== ICON ROW CARDS ===== */
+.icon-grid{display:flex;flex-direction:column;gap:.8rem;}
+.icon-card{
+  display:flex;align-items:center;gap:1rem;
+  background:rgba(0,180,216,.06);
+  border:1px solid rgba(0,180,216,.15);
+  border-radius:10px;padding:.85rem 1.15rem;
+}
+.icon-circle{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(0,180,216,.12);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.icon-circle svg{width:21px;height:21px;stroke:var(--cy);fill:none;}
+.icon-card h5{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:.12rem;}
+.icon-card p{font-size:.83rem;color:var(--g3);}
+.icon-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.shot-panel{
+  background:#fff;border-radius:10px;
+  padding:.85rem;box-shadow:0 12px 32px rgba(0,0,0,.35);
+}
+.shot-panel img{width:100%;border-radius:6px;display:block;}
+.callout-danger{
+  display:flex;gap:.9rem;
+  background:rgba(255,71,87,.1);
+  border:1px solid rgba(255,71,87,.35);
+  border-radius:10px;padding:1rem 1.25rem;
+}
+.callout-danger p{font-size:.87rem;color:#fca5a5;line-height:1.55;}
+.callout-danger b{color:#fff;}
+.callout-danger .dot{
+  width:22px;height:22px;border-radius:6px;
+  background:rgba(255,71,87,.2);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:#fca5a5;font-weight:700;
+}
+.arrow-list{list-style:none;}
+.arrow-list li{
+  font-size:.9rem;color:#cfd4e2;line-height:1.6;
+  margin-bottom:.75rem;padding-left:1.3rem;position:relative;
+}
+.arrow-list li::before{content:'›';position:absolute;left:0;color:var(--cy);font-size:1.2rem;}
+
+/* ===== TASK CARDS ===== */
+.dept-pills{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem;}
+.dept-pill{
+  background:rgba(0,180,216,.08);
+  border:1px solid rgba(0,180,216,.2);
+  border-radius:6px;padding:.4rem .9rem;
+  font-size:.8rem;color:#dfe3ee;
+  display:flex;align-items:center;gap:.45rem;
+}
+.dept-pill .dot-sm{width:7px;height:7px;border-radius:50%;}
+.task-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1rem;}
+.task-grid.single{grid-template-columns:1fr;}
+.task-card{
+  background:rgba(0,180,216,.05);
+  border:1px solid rgba(0,180,216,.15);
+  border-radius:10px;padding:1.05rem 1.25rem;
+}
+.task-proc-tag{
+  display:inline-block;font-size:.67rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--cy);background:rgba(0,180,216,.12);
+  border-radius:4px;padding:.18rem .5rem;margin-bottom:.55rem;
+}
+.task-card h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.38rem;}
+.task-card p{font-size:.86rem;color:#c3c8d6;line-height:1.55;margin-bottom:.45rem;}
+.task-card .task-assign{font-size:.82rem;color:#cfd4e2;line-height:1.6;margin-bottom:.15rem;}
+.task-card .task-doc{
+  font-size:.75rem;color:#9aa3b8;line-height:1.5;
+  word-break:break-word;margin-top:.38rem;
+  border-top:1px dashed rgba(0,180,216,.2);padding-top:.45rem;
+}
+.task-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:.65rem;padding-top:.55rem;
+  border-top:1px solid rgba(0,180,216,.15);
+  font-size:.73rem;color:#8b93a7;
+}
+.task-meta b{color:#dfe3ee;}
+
+/* ===== ACCORDION ===== */
+.accordion-item{
+  border:1px solid rgba(0,180,216,.18);
+  border-radius:8px;margin-bottom:.6rem;
+  overflow:hidden;background:rgba(0,180,216,.04);
+}
+.accordion-item summary{
+  cursor:pointer;padding:.8rem 1.1rem;
+  font-weight:600;color:#fff;font-size:.89rem;
+  list-style:none;display:flex;
+  align-items:center;justify-content:space-between;gap:1rem;
+}
+.accordion-item summary::-webkit-details-marker{display:none;}
+.accordion-item summary::after{content:'+';color:var(--cy);font-size:1.15rem;flex-shrink:0;}
+.accordion-item[open] summary::after{content:'−';}
+.accordion-item[open] summary{border-bottom:1px solid rgba(0,180,216,.18);}
+.accordion-item .acc-body{padding:.75rem 1.1rem .95rem;font-size:.85rem;color:#cfd4e2;line-height:1.6;}
+.accordion-item .acc-body b{color:#fff;}
+
+/* ===== REC CARDS ===== */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-top:.9rem;}
+.rec-card{
+  background:rgba(0,180,216,.05);
+  border:1px solid rgba(0,180,216,.15);
+  border-radius:10px;padding:.95rem 1.2rem;
+  display:flex;flex-direction:column;gap:.4rem;
+  position:relative;transition:border-color .2s,transform .18s;cursor:default;
+}
+.rec-card:hover{border-color:var(--cy);transform:translateY(-2px);}
+.rec-card-icon{
+  width:34px;height:34px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-bottom:.08rem;
+}
+.rec-card-icon svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.rec-card h5{font-size:.9rem;font-weight:700;color:#fff;line-height:1.3;}
+.rec-card p{font-size:.81rem;color:#b8bfce;line-height:1.55;}
+.rec-card p b{color:#e6eaf5;}
+.rec-num{position:absolute;top:.72rem;right:.85rem;font-size:.68rem;font-weight:700;color:rgba(0,180,216,.3);font-variant-numeric:tabular-nums;}
+
+/* ===== KANBAN BOARD ===== */
+.kanban-board{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:.65rem;margin-top:.7rem;
+  height:calc(100vh - 230px);min-height:0;
+}
+.kanban-col{
+  display:flex;flex-direction:column;gap:0;min-height:0;
+  border-radius:10px;
+  background:rgba(0,180,216,.04);
+  border:1px solid rgba(0,180,216,.14);overflow:hidden;
+}
+.kanban-col-head{
+  padding:.55rem .85rem;font-size:.76rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:.45rem;flex-shrink:0;
+}
+.kanban-col-head .kn-count{
+  font-size:.68rem;background:rgba(0,0,0,.25);
+  border-radius:999px;padding:.06rem .45rem;font-weight:600;
+}
+.kanban-col-body{
+  overflow-y:auto;flex:1;padding:.45rem;
+  display:flex;flex-direction:column;gap:.35rem;
+}
+.kanban-col-body::-webkit-scrollbar{width:3px;}
+.kanban-col-body::-webkit-scrollbar-thumb{background:rgba(0,180,216,.25);border-radius:99px;}
+.kn-card{
+  background:rgba(11,29,83,.7);
+  border-radius:7px;border-left:3px solid transparent;
+  cursor:pointer;transition:background .18s,transform .14s;user-select:none;
+}
+.kn-card:hover{background:rgba(26,62,111,.8);transform:translateX(2px);}
+.kn-card.open{background:rgba(26,62,111,.8);}
+.kn-motivo{
+  padding:.52rem .65rem;font-size:.77rem;font-weight:600;
+  color:#dde1f0;line-height:1.35;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:.35rem;
+}
+.kn-motivo .kn-arrow{font-size:.64rem;color:#6b7491;flex-shrink:0;margin-top:2px;transition:transform .2s;}
+.kn-card.open .kn-arrow{transform:rotate(90deg);}
+.kn-obs{
+  display:none;padding:.38rem .65rem .55rem;
+  font-size:.72rem;color:#9aa3b8;line-height:1.5;
+  border-top:1px solid rgba(0,180,216,.1);
+}
+.kn-obs b{color:#c8cfe0;}
+.kn-card.open .kn-obs{display:block;}
+.kn-who{margin-top:.28rem;font-size:.67rem;color:#6b7491;font-style:italic;}
+
+/* ===== RESOURCE CARDS ===== */
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.8rem;}
+.res-card{
+  background:rgba(0,180,216,.05);
+  border:1px solid rgba(0,180,216,.15);
+  border-radius:9px;padding:.58rem .85rem;
+  display:flex;flex-direction:column;gap:.22rem;
+}
+.res-card-title{font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.08rem;}
+.res-card-desc{font-size:.79rem;color:#9aa3b8;line-height:1.45;flex:1;}
+.res-card-links{display:flex;flex-wrap:wrap;gap:.38rem;margin-top:.32rem;}
+.res-link{
+  display:inline-flex;align-items:center;gap:.28rem;
+  background:rgba(0,180,216,.12);color:var(--cy);
+  font-size:.72rem;font-weight:600;
+  padding:.22rem .55rem;border-radius:5px;
+  text-decoration:none;transition:background .15s;
+}
+.res-link:hover{background:rgba(0,180,216,.28);}
+.res-link svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.5;flex-shrink:0;}
+
+/* ===== RESOURCE TABS ===== */
+.res-tabs{display:flex;gap:.45rem;margin-bottom:.8rem;}
+.res-tab-btn{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(0,180,216,.18);
+  border-radius:7px;color:var(--text-muted);
+  font-size:.8rem;font-weight:600;
+  padding:.42rem 1rem;cursor:pointer;transition:.2s;
+  font-family:inherit;
+  display:flex;align-items:center;gap:.42rem;
+}
+.res-tab-btn:hover{background:rgba(0,180,216,.14);color:#fff;}
+.res-tab-btn.active{background:var(--cy);border-color:var(--cy);color:#fff;}
+.res-tab-btn .tab-count{background:rgba(255,255,255,.25);border-radius:999px;font-size:.68rem;padding:.04rem .38rem;}
+.res-tab-panel{display:none;}
+.res-tab-panel.active{display:block;}
+.chat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;}
+.chat-card{
+  background:rgba(0,180,216,.05);
+  border:1px solid rgba(0,180,216,.15);
+  border-left:3px solid var(--gd);
+  border-radius:7px;padding:.6rem .85rem;
+}
+.chat-card h5{font-size:.82rem;font-weight:700;color:var(--gd);margin-bottom:.22rem;}
+.chat-card p{font-size:.77rem;color:#9aa3b8;line-height:1.45;margin:0;}
+
+/* ===== CALLOUT BOX ===== */
+.callout{
+  display:flex;gap:.85rem;
+  background:rgba(255,209,102,.1);
+  border:1px solid rgba(255,209,102,.25);
+  border-radius:10px;padding:.95rem 1.25rem;margin-top:1rem;
+}
+.callout .dot{
+  width:22px;height:22px;border-radius:6px;
+  background:rgba(255,209,102,.2);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;
+}
+.callout p{font-size:.88rem;color:#f6e6b8;line-height:1.55;}
+.callout b{color:#fff;}
+
+/* ===== IMAGE PANEL ===== */
+.img-panel{position:relative;overflow:hidden;border-radius:0;}
+.img-panel img{width:100%;height:100%;object-fit:cover;display:block;}
+.split-media{display:grid;grid-template-columns:1.1fr .9fr;gap:0;align-items:stretch;height:100%;}
+.split-media .content-side{
+  padding:clamp(1.6rem,4vw,3.4rem) clamp(1.6rem,4vw,3.6rem);
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+/* ===== LIGHT (SCREENSHOT) SLIDES ===== */
+.light-title{
+  font-size:clamp(1.35rem,2.5vw,1.9rem);font-weight:800;
+  color:var(--ink);text-transform:uppercase;
+  margin-bottom:.95rem;letter-spacing:.01em;
+}
+.light-cyan{color:var(--bc);}
+.light-body p{font-size:.96rem;line-height:1.6;color:#334;margin-bottom:.65rem;}
+.light-body b{color:var(--ink);}
+.shot-wrap{margin-top:1rem;text-align:center;}
+.shot-wrap img{
+  max-width:100%;max-height:58vh;
+  border:1px solid #d1d9e0;border-radius:8px;
+  box-shadow:0 6px 22px rgba(20,30,60,.1);
+}
+.note-box{
+  background:#e8f4fd;border-left:4px solid var(--bc);
+  border-radius:8px;padding:.8rem 1.05rem;
+  margin-top:.95rem;font-size:.88rem;color:#234;
+}
+.note-box b{color:var(--ink);}
+
+/* ===== TABLES ===== */
+.tbl-wrap{margin-top:1rem;overflow-x:auto;}
+table.deck-table{border-collapse:collapse;width:100%;font-size:.81rem;}
+table.deck-table th{
+  background:rgba(0,180,216,.15);color:var(--gd);
+  font-weight:700;padding:.52rem .75rem;
+  text-align:left;border:1px solid rgba(0,180,216,.2);
+}
+table.deck-table td{
+  padding:.48rem .75rem;
+  border:1px solid rgba(0,180,216,.1);color:#e7e2f5;
+}
+table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
+.theme-purple table.deck-table td,.theme-purple table.deck-table th{border-color:rgba(0,180,216,.2);}
+
+/* ===== PURPLE QUAD ===== */
+.purple-quad{display:grid;grid-template-columns:1fr 1fr;gap:2.2rem 2.8rem;margin-top:1.1rem;}
+.purple-quad h4{font-size:1.1rem;font-weight:700;margin-bottom:.65rem;}
+.purple-quad ul{list-style:none;}
+.purple-quad li{font-size:.93rem;line-height:1.7;padding-left:1.1rem;position:relative;}
+.q-yellow li::before{content:'●';position:absolute;left:0;font-size:.55rem;top:.45rem;}
+.q-pink{color:var(--rd);}
+.q-blue{color:#7dd3fc;}
+.q-gold{color:var(--gd);}
+.q-green li::before{content:'✓';position:absolute;left:0;color:var(--gn);}
+.q-yellow{color:var(--gd);}
+.circ li::before{content:'○';position:absolute;left:0;}
+
+.purple-banner{
+  background:linear-gradient(180deg,rgba(0,180,216,.06),transparent);
+  border-radius:0 0 60% 60%/0 0 80% 80%;
+  padding:2.4rem clamp(1.6rem,5vw,4rem) 3rem;
+}
+.purple-banner h2{
+  font-size:clamp(1.7rem,3.4vw,2.5rem);
+  font-weight:800;color:var(--gd);
+}
+
+/* ===== FOOTER / NAV ===== */
+.slide-foot{
+  position:fixed;bottom:1rem;left:0;right:0;
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;z-index:50;
+}
+.nav-btn{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(0,180,216,.35);
+  background:rgba(11,29,83,.7);color:#fff;
+  font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);transition:.2s;
+}
+.nav-btn:hover{background:rgba(0,180,216,.25);}
+.dots{display:flex;gap:5px;align-items:center;}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.25);cursor:pointer;transition:.2s;
+}
+.dot.active{background:var(--cy);width:16px;border-radius:4px;}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:820px){
+  .agenda-grid,.plain-grid,.color-grid,.two-col,.purple-quad{grid-template-columns:1fr;}
+  .split,.split-media{grid-template-columns:1fr;}
+  .slide-cover{flex-direction:column;}
+  .cover-left,.cover-right{width:100%;}
+  .cover-right{height:36vh;}
+  .split-media{height:auto;}
+  .split-media .img-panel{height:30vh;}
+  .kanban-board{grid-template-columns:1fr 1fr;}
+  #mod-nav{overflow-x:auto;justify-content:flex-start;}
+  #mod-nav .mn-btn{font-size:.66rem;padding:.24rem .55rem;}
+}
+@media (max-width:480px){
+  .kanban-board{grid-template-columns:1fr;}
+  .rec-grid,.task-grid,.res-grid,.icon-grid-2col,.chat-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<body>
+<div id="progress" style="width:2.326%;"></div>
+<div id="counter">01 / 43</div>
+<nav id="mod-nav">
+  <button class="mn-home" onclick="jumpTo(1)" title="Ir al Contenido">&#9776; Contenido</button>
+  <div class="mn-sep"></div>
+  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: Cortesías Empresas</button><button class="mn-btn" id="mn-02" onclick="jumpTo(5)">02: Tipos de Solicitudes</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: Flujo Solicitud</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Requisitos</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Creación login</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Registro Ordenes de Trabajo</button>
+</nav>
+<div id="deck">
+<section class="slide theme-navy slide-cover active" data-index="0" id="slide-0">
+<div class="slide-pad" style="padding:0;">
+<div class="split-media" style="height:100vh;">
+  <div class="content-side">
+    <div class="kicker">Equipo de Planificación - Tercerizados</div>
+    <h1>Capacitación<br>Gestión Cortesías</h1>
+    <p class="desc">Solicitudes de cortesías con Telconet  | Megadatos  | Security Data</p>
+    <div class="facilitator-card">
+      <div class="facilitator-avatar">GG</div>
+      <div>
+        <div class="facilitator-name">Alejandra Gallardo</div>
+        <div class="facilitator-role">Capacitadora</div>
+      </div>
+    </div>
+  </div>
+  <div class="img-panel"><img src="i5.png" alt="Infraestructura de red de fibra óptica"></div>
+</div>
+</div></section>
+
+
+<section class="slide theme-navy" data-index="1" id="slide-1">
+<div class="slide-pad">
+  <div class="badge">Agenda</div>
+  <h2 class="title-xl">Contenido de la Capacitación</h2>
+  <div class="agenda-grid">
+    <div class="agenda-item"><div class="num">01</div><div class="underline u-yellow"></div>
+    <h3>Cortesías Empresas</h3><p></p></div>
+    
+
+    <div class="agenda-item"><div class="num">02</div><div class="underline u-orange"></div>
+    <h3>Tipos de Solicitudes</h3><p></p></div>
+
+    <div class="agenda-item"><div class="num">03</div><div class="underline u-blue"></div>
+    <h3>Flujo Solicitud</h3><p></p></div>
+
+    <div class="agenda-item"><div class="num">04</div><div class="underline u-green"></div>
+    <h3>Requisitos</h3><p></p></div>
+
+    <div class="agenda-item"><div class="num">05</div><div class="underline u-teal"></div>
+    <h3>Creación Login</h3><p></p></div>
+
+    <div class="agenda-item"><div class="num">06</div><div class="underline u-purple"></div>
+    <h3>Registro Ordenes de Trabajo</h3><p></p></div>
+
+  </div>
+</div>
+</section>
+
+
+<section class="slide theme-navy" data-index="2" id="slide-2">
+    <div class="slide-pad">
+
+        <div class="badge">
+            <span class="badge-num">01</span>
+            Cortesías Empresas
+        </div>
+
+    
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:2rem;
+            margin-top:3rem;
+            width:100%;
+        ">
+
+            <!-- TELCONET -->
+            <div class="task-card" style="
+                padding:1.5rem;
+                border-radius:24px;
+                text-align:center;
+                background:linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.10),
+                    rgba(255,255,255,.03)
+                );
+                border:1px solid rgba(255,255,255,.15);
+                box-shadow:0 12px 30px rgba(0,0,0,.25);
+            ">
+
+                <div style="
+                    background:#ffffff;
+                    height:180px;
+                    border-radius:18px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:1rem;
+                    margin-bottom:1.5rem;
+                ">
+                    <img
+                        src="i2.png"
+                        alt="Telconet"
+                        style="
+                            max-width:95%;
+                            max-height:140px;
+                            object-fit:contain;
+                        "
+                    >
+                </div>
+
+                <h3 style="
+                    color:#ffffff;
+                    font-size:2rem;
+                    font-weight:700;
+                    margin:0;
+                ">
+                    Telconet
+                </h3>
+
+                <p style="
+                    margin-top:.75rem;
+                    color:rgba(255,255,255,.75);
+                    font-size:1rem;
+                ">
+                    Servicios Corporativos
+                </p>
+
+            </div>
+
+            <!-- MEGADATOS -->
+            <div class="task-card" style="
+                padding:1.5rem;
+                border-radius:24px;
+                text-align:center;
+                background:linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.10),
+                    rgba(255,255,255,.03)
+                );
+                border:1px solid rgba(255,255,255,.15);
+                box-shadow:0 12px 30px rgba(0,0,0,.25);
+            ">
+
+                <div style="
+                    background:#ffffff;
+                    height:180px;
+                    border-radius:18px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:1rem;
+                    margin-bottom:1.5rem;
+                ">
+<img
+                        src="i1.png"
+                        alt="Telconet"
+                        style="
+                            max-width:95%;
+                            max-height:140px;
+                            object-fit:contain;
+                        "
+                    >
+
+                </div>
+
+                <h3 style="
+                    color:#ffffff;
+                    font-size:2rem;
+                    font-weight:700;
+                    margin:0;
+                ">
+                    Megadatos
+                </h3>
+
+                <p style="
+                    margin-top:.75rem;
+                    color:rgba(255,255,255,.75);
+                    font-size:1rem;
+                ">
+                    Servicios Home
+                </p>
+
+            </div>
+
+            <!-- SECURITY DATA -->
+            <div class="task-card" style="
+                padding:1.5rem;
+                border-radius:24px;
+                text-align:center;
+                background:linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.10),
+                    rgba(255,255,255,.03)
+                );
+                border:1px solid rgba(255,255,255,.15);
+                box-shadow:0 12px 30px rgba(0,0,0,.25);
+            ">
+
+                <div style="
+                    background:#ffffff;
+                    height:180px;
+                    border-radius:18px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    padding:1rem;
+                    margin-bottom:1.5rem;
+                ">
+                    <img
+                        src="i3.png"
+                        alt="Telconet"
+                        style="
+                            max-width:95%;
+                            max-height:140px;
+                            object-fit:contain;
+                        "
+                    >
+
+                </div>
+
+                <h3 style="
+                    color:#ffffff;
+                    font-size:2rem;
+                    font-weight:700;
+                    margin:0;
+                ">
+                    Security Data
+                </h3>
+
+                <p style="
+                    margin-top:.75rem;
+                    color:rgba(255,255,255,.75);
+                    font-size:1rem;
+                ">
+                    Firma Electrónica
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="slide theme-navy" data-index="3" id="slide-3">
+    <div class="slide-pad">
+
+        <div class="badge">
+            <span class="badge-num">01</span>
+            Cortesías Empresas
+        </div>
+
+        <h2 class="title-xl" style="margin-bottom:1.1rem;">
+            Telconet
+        </h2>
+
+        <div style="width:100%;">
+
+            <div class="task-card" style="
+                width:100%;
+                box-sizing:border-box;
+            ">
+
+                <p style="margin-bottom:1.5rem;">
+                    Las cortesías deben registrarse únicamente bajo la Razón Social de
+                    TELCONET, respetando los lineamientos y parámetros de nomenclatura
+                    establecidos para cada tipo de servicio.
+                </p>
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(3, 1fr);
+                    gap:1rem;
+                    width:100%;
+                ">
+
+                    <div class="task-card">
+                        <span class="task-proc-tag">
+                            Cortesía por Teletrabajo
+                        </span>
+
+                        <h4>
+                            Autoriza: Gerencia del Departamento solicitante
+                        </h4>
+
+                        <div class="task-meta">
+                            <span>
+                                Creación login:
+                                <b>PEI Tercerizados</b>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="task-card">
+                        <span class="task-proc-tag">
+                            Cortesía por Infraestructura
+                        </span>
+
+                        <h4>
+                            Autoriza: Gerencia Técnica Nacional
+                        </h4>
+
+                        <div class="task-meta">
+                            <span>
+                                Creación login:
+                                <b>PEI Tercerizados</b>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="task-card">
+                        <span class="task-proc-tag">
+                            Cortesía por Negociación
+                        </span>
+
+                        <h4>
+                            Autoriza:  Gerencia General, Gerencia Comercial,
+                            Gerencia DHO y Gerencia Financiera
+                        </h4>
+
+                        <div class="task-meta">
+                            <span>
+                                Creación login:
+                                <b>PEI Tercerizados</b>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<section class="slide theme-navy" data-index="4" id="slide-4">
+  <div class="slide-pad">
+
+    <div class="badge">
+      <span class="badge-num">01</span>
+      Cortesías Empresas
+    </div>
+
+    <h2 class="title-xl" style="margin-bottom:1rem;">
+      Megadatos | Security Data
+    </h2>
+
+    <div style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+      align-items:start;
+    ">
+
+      <!-- MEGADATOS -->
+      <div class="task-card">
+
+        <span class="task-proc-tag">MEGADATOS</span>
+
+        <p style="margin:1rem 0;">
+          Las cortesías son gestionadas desde Telconet hacia Megadatos mediante correo.
+        </p>
+
+        <div style="
+          display:grid;
+          grid-template-columns:1fr;
+          gap:.8rem;
+        ">
+
+          <div class="task-card">
+            <span class="task-proc-tag">
+              Cortesía por Teletrabajo
+            </span>
+
+            <h4 style="margin:.8rem 0;">
+              Autoriza: Gerencia del Departamento Solicitante
+            </h4>
+
+            <div class="task-meta">
+              <span>
+                Creación login:
+                <b>Megadatos</b>
+              </span>
+            </div>
+          </div>
+
+          <div class="task-card">
+            <span class="task-proc-tag">
+              Plan Empleado
+            </span>
+
+            <h4 style="margin:.8rem 0;">
+              Autoriza: Gerencia del Departamento Solicitante
+            </h4>
+
+            <div class="task-meta">
+              <span>
+                Creación login:
+                <b>Megadatos</b>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SECURITY DATA -->
+      <div class="task-card">
+
+        <span class="task-proc-tag">SECURITY DATA</span>
+
+        <p style="margin:1rem 0;">
+          Las cortesías son gestionadas desde Telconet hacia Security Data mediante el Portal SD.
+        </p>
+
+        <div style="
+          display:grid;
+          grid-template-columns:1fr;
+          gap:.8rem;
+        ">
+
+          <div class="task-card">
+            <span class="task-proc-tag">
+              Firma Electrónica
+            </span>
+
+            <h4 style="
+              margin:.8rem 0;
+              line-height:1.4;
+            ">
+              Autoriza: Presidente Ejecutivo
+              <br>
+              (Ing. Igor Krochin)
+            </h4>
+
+            <div class="task-meta">
+              <span>
+                Creación FIRMA:
+                <b>Security Data</b>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="slide theme-navy" data-index="5" id="slide-5">
+  <div class="slide-pad">
+    <div class="badge"><span class="badge-num">02</span> Tipos de Solicitudes</div>
+    <p style="margin:1rem 0 1.5rem;font-size:1.1rem;font-weight:500;color:#dce8ff;">
+      Se gestionan los ingresos de acuerdo a los requerimientos de los Dptos. Solicitantes:
+    </p>
+
+    <style>
+      .ts-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+      .ts-card {
+        background:rgba(255,255,255,.05);
+        border:1.5px solid rgba(255,255,255,.1);
+        border-radius:14px;
+        overflow:hidden;
+        cursor:pointer;
+        transition:border-color .18s, background .18s;
+      }
+      .ts-card:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22); }
+      .ts-card.ts-active { border-color:#00c9ff; background:rgba(0,201,255,.07); }
+      .ts-card-header {
+        padding:.75rem 1rem;
+        display:flex;
+        align-items:center;
+        gap:.6rem;
+        border-bottom:1px solid rgba(255,255,255,.08);
+      }
+
+      .ts-tag {
+        font-size:.68rem;
+        font-weight:700;
+        letter-spacing:.07em;
+        padding:.25rem .65rem;
+        border-radius:6px;
+      }
+      .ts-tag-teal  { background:#00c9ff22; color:#00c9ff; }
+      .ts-tag-purple{ background:#ff990022; color:#ff9900; }
+      .ts-tag-coral { background:#00e57622; color:#00e576; }
+      .ts-count {
+        margin-left:auto;
+        font-size:.72rem;
+        font-weight:600;
+        color:#8ab4d4;
+        background:rgba(255,255,255,.07);
+        border:1px solid rgba(255,255,255,.1);
+        border-radius:20px;
+        padding:.15rem .55rem;
+      }
+      .ts-body { padding:.4rem 0 .6rem; }
+      .ts-item {
+        display:flex;
+        align-items:center;
+        gap:.6rem;
+        padding:.42rem 1rem;
+        font-size:.875rem;
+        color:#c8dff5;
+        border-radius:8px;
+        margin:0 .4rem;
+        transition:background .12s, color .12s;
+      }
+      .ts-item:hover { background:rgba(255,255,255,.07); color:#fff; }
+      .ts-item svg { width:15px; height:15px; flex-shrink:0; opacity:.55; }
+      .ts-detail {
+        display:none;
+        margin-top:1rem;
+        background:rgba(0,201,255,.06);
+        border:1px solid rgba(0,201,255,.25);
+        border-radius:12px;
+        padding:.9rem 1.1rem;
+      }
+      .ts-detail.ts-show { display:block; }
+      .ts-detail-title {
+        font-size:.78rem;
+        font-weight:600;
+        color:#00c9ff;
+        margin-bottom:.55rem;
+        display:flex;
+        align-items:center;
+        gap:.4rem;
+      }
+      .ts-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+      .ts-chip {
+        font-size:.72rem;
+        background:rgba(255,255,255,.07);
+        border:1px solid rgba(255,255,255,.12);
+        border-radius:20px;
+        padding:.28rem .7rem;
+        color:#9bbedd;
+      }
+    </style>
+
+    <div class="ts-grid">
+
+      <!-- TELCONET -->
+      <div class="ts-card ts-active" id="ts-card-tn" onclick="tsSelect('tn')">
+        <div class="ts-card-header">
+          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#00c9ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/></svg>
+          <span class="ts-tag ts-tag-teal">TELCONET</span>
+          <span class="ts-count">7</span>
+        </div>
+        <div class="ts-body">
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22v-7"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
+            Instalación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10H3"/><path d="m3 6 9-4 9 4"/><path d="M3 14h18"/><path d="m3 18 9 4 9-4"/></svg>
+            Reubicación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Traslado
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+            Upgrade
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
+            Downgrade
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Cancelación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Cambio de Razón Social
+          </div>
+        </div>
+      </div>
+
+      <!-- MEGADATOS -->
+      <div class="ts-card" id="ts-card-mg" onclick="tsSelect('mg')">
+        <div class="ts-card-header">
+          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#ff9900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          <span class="ts-tag ts-tag-purple">MEGADATOS</span>
+          <span class="ts-count">7</span>
+        </div>
+        <div class="ts-body">
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22v-7"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
+            Instalación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10H3"/><path d="m3 6 9-4 9 4"/><path d="M3 14h18"/><path d="m3 18 9 4 9-4"/></svg>
+            Reubicación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            Traslado
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+            Upgrade
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
+            Downgrade
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            Cancelación
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Cambio de Razón Social
+          </div>
+        </div>
+      </div>
+
+      <!-- SECURITY DATA -->
+      <div class="ts-card" id="ts-card-sd" onclick="tsSelect('sd')">
+        <div class="ts-card-header">
+          <svg style="width:10px;height:10px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="#00e576" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="ts-tag ts-tag-coral">SECURITY DATA</span>
+          <span class="ts-count">2</span>
+        </div>
+        <div class="ts-body">
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Solicitud FE
+          </div>
+          <div class="ts-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            Renovación FE
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANELES DE DETALLE -->
+    <div class="ts-detail ts-show" id="ts-detail-tn">
+      <div class="ts-detail-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        NOTA:
+      </div>
+      <div class="ts-chips">
+        <span class="ts-chip">Todas las solicitudes serán gestionadas mediante tareas y adjuntos respectivos</span>
+      </div>
+    </div>
+    <div class="ts-detail" id="ts-detail-mg">
+      <div class="ts-detail-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        MEGADATOS — Proceso activo
+      </div>
+      <div class="ts-chips">
+        <span class="ts-chip">PROCESO: TAREAS DE PEI - GESTIÓN COMERCIAL</span>
+        <span class="ts-chip">7 tipos de solicitud</span>
+        <span class="ts-chip">Mismas categorías que Telconet</span>
+        <span class="ts-chip">Cancelación y Cambio Razón Social: sin formato</span>
+      </div>
+    </div>
+    <div class="ts-detail" id="ts-detail-sd">
+      <div class="ts-detail-title">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        SECURITY DATA — Proceso activo
+      </div>
+      <div class="ts-chips">
+        <span class="ts-chip">2 tipos de solicitud</span>
+        <span class="ts-chip">Solicitud FE</span>
+        <span class="ts-chip">Renovación FE</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function tsSelect(id) {
+      ['tn','mg','sd'].forEach(function(k) {
+        document.getElementById('ts-card-'+k).classList.remove('ts-active');
+        var d = document.getElementById('ts-detail-'+k);
+        d.classList.remove('ts-show');
+      });
+      document.getElementById('ts-card-'+id).classList.add('ts-active');
+      document.getElementById('ts-detail-'+id).classList.add('ts-show');
+    }
+  </script>
+</section>
+
+
+<section class="slide theme-navy" data-index="6" id="slide-6">
+  <div class="slide-pad">
+
+    <div class="badge"><span class="badge-num">03</span> Flujo Solicitud</div>
+    <h2 class="title-xl" style="margin-bottom:.8rem;">Flujo de Gestión de Cortesías</h2>
+    <p style="margin-bottom:1.8rem;color:#d7e8ff;line-height:1.6;font-size:1.05rem;">
+      Para gestionar una cortesía se debe generar una <b>tarea asignada a PEI</b>,
+      con el proceso respectivo de acuerdo al producto solicitado.
+    </p>
+
+    <style>
+      .fg-steps { display:grid; grid-template-columns:1fr 50px 1fr 50px 1fr; align-items:start; gap:0; margin-bottom:1.2rem; }
+      .fg-step { cursor:pointer; }
+      .fg-num {
+        width:24px; height:24px; border-radius:50%;
+        background:rgba(255,255,255,.12); font-size:.72rem; font-weight:700;
+        color:#8ab4d4; display:flex; align-items:center; justify-content:center;
+        margin:0 auto .5rem; transition:background .2s, color .2s;
+      }
+      .fg-step.fg-active .fg-num { background:#00c9ff; color:#03142b; }
+      .fg-circle {
+        width:120px; height:120px; border-radius:50%; margin:0 auto 1rem;
+        display:flex; align-items:center; justify-content:center;
+        text-align:center; font-size:.85rem; font-weight:500; line-height:1.35;
+        border:2px solid rgba(255,255,255,.15);
+        background:rgba(91,155,230,.18); color:#c8dff5;
+        transition:border-color .2s, background .2s, transform .2s;
+      }
+      .fg-step.fg-active .fg-circle {
+        border-color:#00c9ff; background:rgba(0,201,255,.15);
+        color:#fff; transform:scale(1.06);
+      }
+      .fg-step-label { text-align:center; font-size:.78rem; font-weight:500; color:#8ab4d4; transition:color .2s; }
+      .fg-step.fg-active .fg-step-label { color:#00c9ff; }
+      .fg-arrow { display:flex; align-items:center; justify-content:center; padding-top:60px; }
+      .fg-arrow svg { width:30px; height:30px; opacity:.35; }
+      .fg-detail {
+        background:rgba(0,201,255,.06); border:1px solid rgba(0,201,255,.22);
+        border-radius:14px; padding:1rem 1.25rem; min-height:90px;
+        transition:opacity .25s;
+      }
+      .fg-detail-title { font-size:.8rem; font-weight:600; color:#00c9ff; margin-bottom:.65rem; display:flex; align-items:center; gap:.4rem; }
+      .fg-ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:.45rem; }
+      .fg-ul li { display:flex; align-items:flex-start; gap:.55rem; font-size:.9rem; color:#c8dff5; line-height:1.5; }
+      .fg-ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:#00c9ff; flex-shrink:0; margin-top:.45rem; opacity:.7; }
+      .fg-footer { margin-top:1rem; text-align:center; font-size:.78rem; color:#5a7a9a; }
+      .fg-footer b { color:#8ab4d4; font-weight:600; }
+    </style>
+
+    <div class="fg-steps">
+
+      <div class="fg-step fg-active" id="fg-s1" onclick="fgSelect(1)">
+        <div class="fg-num">1</div>
+        <div class="fg-circle">Departamento<br>Solicitante</div>
+        <div class="fg-step-label">Solicitud</div>
+      </div>
+
+      <div class="fg-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8ebcff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="13 6 19 12 13 18"/>
+        </svg>
+      </div>
+
+      <div class="fg-step" id="fg-s2" onclick="fgSelect(2)">
+        <div class="fg-num">2</div>
+        <div class="fg-circle">PEI<br>Validación<br>e Ingreso</div>
+        <div class="fg-step-label">Validación</div>
+      </div>
+
+      <div class="fg-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#8ebcff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="13 6 19 12 13 18"/>
+        </svg>
+      </div>
+
+      <div class="fg-step" id="fg-s3" onclick="fgSelect(3)">
+        <div class="fg-num">3</div>
+        <div class="fg-circle">PEI<br>Implementación</div>
+        <div class="fg-step-label">Ejecución</div>
+      </div>
+
+    </div>
+
+    <div class="fg-detail" id="fg-detail">
+      <div class="fg-detail-title" id="fg-dtitle"></div>
+      <ul class="fg-ul" id="fg-dlist"></ul>
+    </div>
+
+    <div class="fg-footer"><b>Proceso:</b> Tareas de PEI — Gestión Comercial</div>
+
+  </div>
+
+  <script>
+    var fgData = {
+      1: {
+        title: 'Departamento Solicitante — genera la tarea',
+        items: [
+          'Genera la tarea asignada a PEI',
+          'Adjunta el formulario con toda la información requerida',
+          'Adjunta la autorización correspondiente al proceso'
+        ]
+      },
+      2: {
+        title: 'PEI — Validación e Ingreso en TELCOS',
+        items: [
+          'Valida los adjuntos recibidos en la tarea',
+          'Revisa la información del formulario',
+          'Realiza el ingreso del producto correspondiente en TELCOS'
+        ]
+      },
+      3: {
+        title: 'PEI — Coordinación e Implementación',
+        items: [
+          'Coordina la implementación con el área correspondiente',
+          'Realiza seguimiento hasta la activación del servicio'
+        ]
+      }
+    };
+
+    function fgSelect(n) {
+      [1,2,3].forEach(function(k) {
+        document.getElementById('fg-s'+k).classList.remove('fg-active');
+      });
+      document.getElementById('fg-s'+n).classList.add('fg-active');
+      var d = fgData[n];
+      document.getElementById('fg-dtitle').textContent = d.title;
+      var ul = document.getElementById('fg-dlist');
+      ul.innerHTML = d.items.map(function(t){ return '<li>'+t+'</li>'; }).join('');
+      var det = document.getElementById('fg-detail');
+      det.style.opacity = '0';
+      setTimeout(function(){ det.style.opacity = '1'; }, 30);
+    }
+
+    fgSelect(1);
+  </script>
+</section>
+
+
+
+
+<section class="slide theme-navy" data-index="7" id="slide-7">
+<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
+  <div class="badge"><span class="badge-num">04</span> Requisitos</div>
+  <h2 class="title-xl" style="margin-bottom:.8rem;">Archivos en Línea y Chats de Gestión</h2>
+
+  <style>
+    .rt-tabs { display:flex; gap:.55rem; margin-bottom:1rem; flex-wrap:wrap; }
+    .rt-btn {
+      display:flex; align-items:center; gap:.5rem;
+      padding:.55rem .9rem; border-radius:10px;
+      border:1.5px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:#8ab4d4; font-size:.82rem; font-weight:500;
+      cursor:pointer; transition:border-color .18s, background .18s, color .18s;
+    }
+    .rt-btn:hover { background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.22); }
+    .rt-btn .rt-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; transition:box-shadow .2s; }
+    .rt-btn .rt-count { font-size:.7rem; font-weight:700; padding:.15rem .45rem; border-radius:20px; margin-left:.1rem; }
+    .rt-btn.rt-tn  { --c:#00c9ff; --cbg:rgba(0,201,255,.1); }
+    .rt-btn.rt-dc  { --c:#38bdf8; --cbg:rgba(56,189,248,.1); }
+    .rt-btn.rt-mg  { --c:#ff9900; --cbg:rgba(255,153,0,.1); }
+    .rt-btn.rt-sd  { --c:#00e576; --cbg:rgba(0,229,118,.1); }
+    .rt-btn .rt-dot   { background:var(--c); }
+    .rt-btn .rt-count { background:var(--cbg); color:var(--c); }
+    .rt-btn.active { background:var(--cbg); border-color:var(--c); color:#fff; }
+    .rt-btn.active .rt-dot { box-shadow:0 0 0 3px var(--cbg); }
+
+    .res-tab-panel { display:none; }
+    .res-tab-panel.active { display:block; }
+
+    .res-card {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; padding:.85rem 1rem; transition:border-color .15s;
+    }
+    .res-card:hover { border-color:rgba(255,255,255,.22); }
+    .res-card-title { font-size:.95rem; font-weight:700; color:#e0eeff; margin-bottom:.4rem; }
+    .res-card-desc { font-size:.75rem; color:#7a9cbf; margin-bottom:.2rem; line-height:1.35; }
+    .res-card-desc b { color:#a0bcd8; }
+    .res-card-links { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.4rem; }
+
+    .res-link {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-size:.73rem; font-weight:500;
+      border-radius:6px; padding:.3rem .65rem;
+      text-decoration:none; transition:background .15s, border-color .15s;
+    }
+    .res-link svg { width:11px; height:11px; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+    .no-format {
+      display:inline-block; margin-top:.5rem; font-size:.7rem; font-weight:600;
+      background:rgba(255,100,100,.08); color:#ff7b7b;
+      border:1px solid rgba(255,100,100,.2); border-radius:6px; padding:.22rem .55rem;
+    }
+
+    /* Chips de tarea compactos */
+    .task-chips { display:flex; flex-direction:column; gap:.28rem; margin:.5rem 0 .3rem; }
+    .task-chip {
+      display:flex; align-items:flex-start; gap:.4rem;
+      font-size:.72rem; color:#7a9cbf; line-height:1.3;
+    }
+    .task-chip::before {
+      content:''; width:5px; height:5px; border-radius:50%;
+      background:#38bdf8; flex-shrink:0; margin-top:.35rem; opacity:.7;
+    }
+
+    /* Layout DC: 2 columnas asimétricas */
+    .dc-grid {
+      display:grid;
+      grid-template-columns:1fr 1.45fr;
+      gap:.6rem;
+      align-items:start;
+    }
+    .dc-left { display:flex; flex-direction:column; gap:.6rem; }
+  </style>
+
+  <div class="rt-tabs">
+    <button class="rt-btn rt-tn active" onclick="rTab2(this,'rt-archivos')">
+      <span class="rt-dot"></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"/></svg>
+      Telconet <span class="rt-count">4</span>
+    </button>
+    <button class="rt-btn rt-dc" onclick="rTab2(this,'rt-archivos1')">
+      <span class="rt-dot"></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      Telconet Data Center <span class="rt-count">4</span>
+    </button>
+    <button class="rt-btn rt-mg" onclick="rTab2(this,'rt-archivos2')">
+      <span class="rt-dot"></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      Megadatos <span class="rt-count">4</span>
+    </button>
+    <button class="rt-btn rt-sd" onclick="rTab2(this,'rt-archivos3')">
+      <span class="rt-dot"></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Security Data <span class="rt-count">1</span>
+    </button>
+  </div>
+
+  <!-- TAB 1: Telconet -->
+  <div id="rt-archivos" class="res-tab-panel active">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div class="res-card">
+        <div class="res-card-title">Instalación / Traslado</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA TELCONET</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA TRASLADO TELCONET</div>
+        <div class="res-card-links">
+          <a class="res-link" style="background:rgba(0,201,255,.1);color:#00c9ff;border:1px solid rgba(0,201,255,.25);" href="https://telcodrive.telconet.net/f/384474c9f25141d2bb60/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#00c9ff"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Formulario Instalación - Traslado TELCONET
+          </a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Upgrade / Downgrade</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA UPGRADE TELCONET</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA DOWNGRADE TELCONET</div>
+        <div class="res-card-links">
+          <a class="res-link" style="background:rgba(0,201,255,.1);color:#00c9ff;border:1px solid rgba(0,201,255,.25);" href="https://telcodrive.telconet.net/f/df8ab7063c1b4ac1be9c/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#00c9ff"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Formulario Upgrade - Downgrade TELCONET
+          </a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Cancelación</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD INGRESO CORTESIA CANCELACION TELCONET</div>
+        <div class="no-format">NO REQUIERE FORMATO</div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Cambio de Razón Social</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CAMBIO DE RAZON SOCIAL</div>
+        <div class="no-format">NO REQUIERE FORMATO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Telconet Data Center — layout asimétrico -->
+  <div id="rt-archivos1" class="res-tab-panel">
+    <div class="dc-grid">
+
+      <!-- IZQUIERDA: 3 tarjetas apiladas -->
+      <div class="dc-left">
+
+        <div class="res-card">
+          <div class="res-card-title">Instalación</div>
+          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
+          <div class="task-chips">
+            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO INTERNET DC</div>
+            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO CONCENTRADOR DC</div>
+            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO DATOS DC</div>
+          </div>
+          <div class="res-card-links">
+            <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/f01da0bcfd0346b583da/" target="_blank">
+              <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Formulario Instalación DC
+            </a>
+          </div>
+        </div>
+
+        <div class="res-card">
+          <div class="res-card-title">Housing</div>
+          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
+          <div class="task-chips">
+            <div class="task-chip">SOLICITUD DE HOUSING - CREACION DE HOUSING</div>
+          </div>
+
+ <div class="res-card-links">
+            <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/922efc6ea5984216b316/" target="_blank">
+              <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Formulario Instalación DC
+            </a>
+          </div>
+
+      
+        </div>
+
+        <div class="res-card">
+          <div class="res-card-title">NG Firewall</div>
+          <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
+          <div class="task-chips">
+            <div class="task-chip">SOLICITUD DE REQUERIMIENTOS DC - SERVICIO NG FIREWALL</div>
+          </div>
+          <div class="no-format">NO REQUIERE FORMATO</div>
+        </div>
+
+      </div>
+
+      <!-- DERECHA: tarjeta grande VMs -->
+      <div class="res-card" style="height:fit-content;">
+        <div class="res-card-title">Creación VMs / Upgrade / Downgrade / Replicación</div>
+        <div class="res-card-desc" style="margin-bottom:.5rem;"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL - DATA CENTER</div>
+
+        <!-- Sub-sección: Creación -->
+        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">CREACIÓN</div>
+        <div class="task-chips">
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - CREACIÓN DE MAQUINA VIRTUAL</div>
+          <div class="task-chip">SOLICITUD DE MAQUINA FISICA - CREACION DE MAQUINA FISICA</div>
+        </div>
+
+        <!-- Sub-sección: Upgrade -->
+        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">UPGRADE</div>
+        <div class="task-chips">
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE CPU</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE DE RAM</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE DISCO</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - UPGRADE STORAGE NFS</div>
+        </div>
+
+        <!-- Sub-sección: Downgrade -->
+        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">DOWNGRADE</div>
+        <div class="task-chips">
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE CPU</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE RAM</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - DOWNGRADE DE DISK</div>
+        </div>
+
+        <!-- Sub-sección: Otros -->
+        <div style="font-size:.7rem;font-weight:700;color:#38bdf8;letter-spacing:.05em;margin:.55rem 0 .3rem;">REPLICACIÓN / REGULARIZACIÓN</div>
+        <div class="task-chips">
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - REPLICACION ZERTO DRAAS</div>
+          <div class="task-chip">SOLICITUD DE MAQUINAS VIRTUALES - REGULARIZACION</div>
+        </div>
+
+        <div class="res-card-links" style="margin-top:.75rem;">
+          <a class="res-link" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.25);" href="https://telcodrive.telconet.net/f/7fd37200263b49fcab73/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#38bdf8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Formulario VMs - Upgrade / Downgrade
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB 3: Megadatos -->
+  <div id="rt-archivos2" class="res-tab-panel">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div class="res-card">
+        <div class="res-card-title">Instalación / Traslado</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA MEGADATOS</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA TRASLADO MEGADATOS</div>
+        <div class="res-card-links">
+          <a class="res-link" style="background:rgba(255,153,0,.1);color:#ff9900;border:1px solid rgba(255,153,0,.25);" href="https://telcodrive.telconet.net/f/e695cd3970d544c59f59/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#ff9900"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Formulario Instalación - Traslado MEGADATOS
+          </a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Upgrade / Downgrade</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA UPGRADE MEGADATOS</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA DOWNGRADE MEGADATOS</div>
+        <div class="res-card-links">
+          <a class="res-link" style="background:rgba(255,153,0,.1);color:#ff9900;border:1px solid rgba(255,153,0,.25);" href="https://telcodrive.telconet.net/f/b73d26755bad4d7e8fee/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#ff9900"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Formulario Upgrade - Downgrade MEGADATOS
+          </a>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Cancelación</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CORTESIA CANCELACION MEGADATOS</div>
+        <div class="no-format">NO REQUIERE FORMATO</div>
+      </div>
+      <div class="res-card">
+        <div class="res-card-title">Cambio de Razón Social</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="res-card-desc"><b>TAREA:</b> SOLICITUD GESTION CAMBIO DE RAZON SOCIAL</div>
+        <div class="no-format">NO REQUIERE FORMATO</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 4: Security Data -->
+  <div id="rt-archivos3" class="res-tab-panel">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;">
+      <div class="res-card">
+        <div class="res-card-title">Firma Electrónica</div>
+        <div class="res-card-desc"><b>PROCESO:</b> TAREAS DE PEI - GESTION COMERCIAL</div>
+        <div class="task-chips" style="--dot-color:#00e576;">
+          <div class="task-chip" style="--dot-color:#00e576;">SOLICITUD DE FIRMA ELECTRONICA</div>
+          <div class="task-chip" style="--dot-color:#00e576;">SOLICITUD DE RENOVACION FIRMA ELECTRONICA</div>
+        </div>
+        <div class="res-card-links">
+          <a class="res-link" style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);" href="https://telcodrive.telconet.net/f/69362adbe6a840ba9cf9/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#00e576"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Autorización Firma Electrónica - Presidente Ejecutivo TN
+          </a>
+        </div>
+
+<div class="res-card-links">
+          <a class="res-link" style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);" href="https://telcodrive.telconet.net/f/9e1b2a65be8c4fb5b9a8/" target="_blank">
+            <svg viewBox="0 0 24 24" style="stroke:#00e576"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Solicitud Firma Electrónica
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+function rTab2(btn, panelId) {
+  const slide = btn.closest('.slide');
+  slide.querySelectorAll('.rt-btn').forEach(b => b.classList.remove('active'));
+  slide.querySelectorAll('.res-tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</section>
+
+
+
+
+<section class="slide theme-navy" data-index="8" id="slide-8">
+<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
+  <div class="badge"><span class="badge-num">05</span> Creación Login</div>
+  <h2 class="title-xl" style="margin-bottom:.6rem;">Creación de Login</h2>
+  <p style="color:#d7e8ff;font-size:1rem;margin-bottom:1.4rem;line-height:1.6;">
+    El ingreso debe realizarse respetando la <b>nomenclatura establecida</b>,
+    para garantizar su correcta identificación y control.
+  </p>
+
+  <style>
+    .mg-grid { display:grid; grid-template-columns:1fr 1fr; gap:.7rem; margin-bottom:1rem; }
+    .mg-card {
+      border-radius:12px; padding:1rem 1.1rem;
+      border:1.5px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+    }
+    .mg-tag {
+      display:inline-block; font-size:.68rem; font-weight:600;
+      padding:.2rem .6rem; border-radius:6px; margin-bottom:.6rem;
+      letter-spacing:.05em;
+    }
+    .mg-tag-pub  { background:rgba(255,153,0,.12); color:#ff9900; border:1px solid rgba(255,153,0,.3); }
+    .mg-tag-priv { background:rgba(0,201,255,.12); color:#00c9ff; border:1px solid rgba(0,201,255,.3); }
+    .mg-card-label { font-size:.82rem; font-weight:600; color:#e0eeff; margin-bottom:.35rem; }
+    .mg-formula {
+      font-family:monospace; font-size:.86rem; color:#7a9cbf;
+      background:rgba(0,0,0,.2); border-radius:6px; padding:.38rem .7rem;
+      border:0.5px solid rgba(255,255,255,.1);
+      display:flex; flex-wrap:wrap; gap:.18rem; align-items:center;
+    }
+    .mg-seg-pub  { color:#ff9900; font-weight:700; }
+    .mg-seg-priv { color:#00c9ff; font-weight:700; }
+    .mg-seg-sep  { color:rgba(255,255,255,.25); }
+    .mg-seg      { color:#8ab4d4; }
+    .mg-example {
+      font-size:.75rem; color:#5a7a9a; margin-top:.5rem;
+      font-family:monospace; display:flex; align-items:center; gap:.35rem;
+    }
+    .mg-example span { color:#c8dff5; font-weight:500; }
+
+    .mg-mockup {
+      background:rgba(255,255,255,.04); border:0.5px solid rgba(255,255,255,.12);
+      border-radius:10px; padding:.75rem 1rem;
+    }
+    .mg-mockup-tabs { display:flex; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:.7rem; }
+    .mg-mtab { font-size:.72rem; padding:.32rem .75rem; color:#5a7a9a; border-bottom:2px solid transparent; }
+    .mg-mtab.active { color:#ff9900; border-color:#ff9900; }
+    .mg-mfield { display:flex; align-items:center; gap:.75rem; }
+    .mg-mfield label { font-size:.75rem; color:#5a7a9a; min-width:50px; text-align:right; white-space:nowrap; }
+    .mg-mfield-val {
+      flex:1; font-family:monospace; font-size:.82rem;
+      background:rgba(0,0,0,.2); border:0.5px solid rgba(255,255,255,.12);
+      border-radius:5px; padding:.32rem .65rem; color:#c8dff5;
+    }
+    .mg-alert {
+      display:flex; align-items:flex-start; gap:.75rem;
+      background:rgba(255,193,7,.07); border:1.5px solid rgba(255,193,7,.35);
+      border-radius:12px; padding:1rem 1.1rem;
+    }
+    .mg-alert-icon {
+      width:32px; height:32px; border-radius:50%; flex-shrink:0;
+      background:rgba(255,193,7,.15); border:1.5px solid rgba(255,193,7,.4);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .mg-alert-icon svg { width:16px; height:16px; stroke:#ffc107; }
+    .mg-alert-body { flex:1; }
+    .mg-alert-title { font-size:.8rem; font-weight:700; color:#ffc107; margin-bottom:.35rem; letter-spacing:.03em; }
+    .mg-alert-fields { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+    .mg-alert-chip {
+      font-size:.75rem; font-weight:500;
+      background:rgba(255,193,7,.1); color:#ffd54f;
+      border:1px solid rgba(255,193,7,.25); border-radius:6px;
+      padding:.25rem .65rem;
+    }
+  </style>
+
+  <div class="mg-grid">
+
+    <div class="mg-card">
+      <span class="mg-tag mg-tag-pub">Empresas Públicas</span>
+      <div class="mg-card-label">Nomenclatura</div>
+      <div class="mg-formula">
+        <span class="mg-seg-pub">tn</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg-pub">pub</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg">ciudad</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg">entidad</span>
+      </div>
+      <div class="mg-example">
+        &#8594; Ejm: <span>tn-pub-gye-contraloria</span>
+      </div>
+    </div>
+
+    <div class="mg-card">
+      <span class="mg-tag mg-tag-priv">Empresas Privadas</span>
+      <div class="mg-card-label">Nomenclatura</div>
+      <div class="mg-formula">
+        <span class="mg-seg-priv">tn</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg-priv">priv</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg">ciudad</span><span class="mg-seg-sep">-</span>
+        <span class="mg-seg">cliente</span>
+      </div>
+      <div class="mg-example">
+        &#8594; Ejm: <span>tn-priv-uio-juaneljuri</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mg-alert">
+    <div class="mg-alert-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="mg-alert-body">
+      <div class="mg-alert-title">Campos importantes:</div>
+      <div style="font-size:.85rem;color:#d7e8ff;line-height:1.55;">
+        Es necesario complementar el registro con los siguientes campos que permitirán el control de los ingresos:
+      </div>
+      <div class="mg-alert-fields">
+        <span class="mg-alert-chip">Nombre del Punto</span>
+        <span class="mg-alert-chip">Observación</span>
+        <span class="mg-alert-chip">Descripción de la Factura</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<section class="slide theme-navy" data-index="9" id="slide-9">
+<div class="slide-pad" style="padding-top:calc(36px + .9rem);">
+  <div class="badge"><span class="badge-num">06</span> Registro Ordenes de Trabajo</div>
+  <h2 class="title-xl" style="margin-bottom:.6rem;">Productos Telconet</h2>
+  <p style="color:#d7e8ff;font-size:1rem;margin-bottom:1.2rem;line-height:1.6;">
+    Se realiza el registro de las ordenes de trabajo de acuerdo al producto solicitado:
+  </p>
+
+  <style>
+    .cp-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; margin-bottom:.85rem;
+      max-width:100%;
+    }
+    .cp-grid .cp-btn:nth-child(5),
+    .cp-grid .cp-btn:nth-child(6),
+    .cp-grid .cp-btn:nth-child(7) {
+      grid-column: span 1;
+    }
+    .cp-btn {
+      padding:.6rem .5rem; border-radius:10px;
+      border:1.5px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      cursor:pointer; text-align:center;
+      font-size:.72rem; font-weight:600; color:#8ab4d4;
+      transition:border-color .15s, background .15s, color .15s;
+      font-family:inherit; letter-spacing:.01em;
+    }
+    .cp-btn:hover { border-color:rgba(255,255,255,.25); color:#c8dff5; background:rgba(255,255,255,.09); }
+    .cp-btn.cp-active { border-color:#00c9ff; background:rgba(0,201,255,.1); color:#00c9ff; }
+    .cp-btn .cp-icon { font-size:1.3rem; display:block; margin-bottom:.3rem; }
+    .cp-btn .cp-count { font-size:.65rem; color:#4a6a88; margin-top:.2rem; }
+    .cp-btn.cp-active .cp-count { color:#0090bb; }
+
+    .cp-panel {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; padding:.9rem 1.1rem; min-height:110px;
+      transition:opacity .2s;
+    }
+    .cp-panel-title {
+      font-size:.85rem; font-weight:600; color:#e0eeff;
+      margin-bottom:.65rem; display:flex; align-items:center; gap:.45rem;
+    }
+    .cp-panel-title svg { width:16px; height:16px; stroke:#00c9ff; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+    .cp-chips { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .cp-chip {
+      font-size:.75rem; padding:.28rem .7rem;
+      border-radius:6px; background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      color:#9bbedd; transition:border-color .12s, color .12s; cursor:default;
+    }
+    .cp-chip:hover { border-color:rgba(0,201,255,.4); color:#00c9ff; }
+  </style>
+
+  <!-- Botones de categoría -->
+  <div class="cp-grid">
+
+    <button class="cp-btn cp-active" id="cp-conn" onclick="cpShow('conn')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </span>
+      Connectivity
+      <div class="cp-count">8 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-cloud" onclick="cpShow('cloud')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      </span>
+      Cloud
+      <div class="cp-count">6 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-sec" onclick="cpShow('sec')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </span>
+      Security
+      <div class="cp-count">5 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-seg" onclick="cpShow('seg')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h4"/></svg>
+      </span>
+      SEG Electronica
+      <div class="cp-count">2 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-net" onclick="cpShow('net')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6"/></svg>
+      </span>
+      Network
+      <div class="cp-count">4 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-col" onclick="cpShow('col')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      Collaboration
+      <div class="cp-count">3 productos</div>
+    </button>
+
+    <button class="cp-btn" id="cp-tra" onclick="cpShow('tra')">
+      <span class="cp-icon">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:inline-block"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      </span>
+      Transit
+      <div class="cp-count">3 productos</div>
+    </button>
+
+
+
+  </div>
+
+  <!-- Panel de productos -->
+  <div class="cp-panel" id="cp-panel">
+    <div class="cp-panel-title" id="cp-ptitle">
+      <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      Connectivity
+    </div>
+    <div class="cp-chips" id="cp-pchips"></div>
+  </div>
+
+  <script>
+    var cpData = {
+      conn: {
+        label: 'Connectivity',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>',
+        items: ['Internet Dedicado','Concentrador L3MPLS','L3MPLS','INTERNET WIFI','TelcoHome','OTROS']
+      },
+      cloud: {
+        label: 'Cloud',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>',
+        items: ['Internet DC','DATOS DC','HOUSING Alquiler de Espacio Físico','HOUSING INSTALACION ENERGIA','DOMINIO','CLOUD','OTROS']
+      },
+      sec: {
+        label: 'Security',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+        items: ['SECURITY CLOUD NG FIREWALL','SECURITY NG FIREWALL','EMAIL PROTECTION','OTROS']
+      },
+      seg: {
+        label: 'SEG Electronica',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h4"/></svg>',
+        items: ['MANTENIMIENTO CORRECTIVO CCTV','MANTENIMIENTO PREVENTIVO','SAFE CAM','SEGURIDAD ELECTRONICA VIDEO VIGILANCIA', 'CAMARA IP', 'SEGURIDAD ELECTRONICA ALARMAS',  'OTROS']
+      },
+      net: {
+        label: 'Network',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6"/></svg>',
+        items: ['Cableado Estructurado','FIBER LAN EXTENSION','WIFI Alquiler Equipos','Networking LAN','OTROS']
+      },
+      col: {
+        label: 'Collaboration',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+        items: ['COU TELEFONIA IP','COU LINEAS TELEFONIA FIJA','COU VIDEO ANALYTICS','OTROS' ]
+      },
+      tra: {
+        label: 'Transit',
+        icon: '<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:#00c9ff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>',
+        items: ['MOBILE BUS']
+      },
+
+    };
+
+    function cpShow(id) {
+      Object.keys(cpData).forEach(function(k) {
+        var btn = document.getElementById('cp-'+k);
+        if (btn) btn.classList.toggle('cp-active', k === id);
+      });
+      var d = cpData[id];
+      document.getElementById('cp-ptitle').innerHTML = d.icon + ' ' + d.label;
+      var chips = d.items.map(function(t){ return '<span class="cp-chip">' + t + '</span>'; }).join('');
+      var panel = document.getElementById('cp-panel');
+      panel.style.opacity = '0';
+      document.getElementById('cp-pchips').innerHTML = chips;
+      setTimeout(function(){ panel.style.opacity = '1'; }, 40);
+    }
+
+    cpShow('conn');
+  </script>
+
+</div>
+</section>
+
+
+
+<div class="slide-foot">
+  <button class="nav-btn" onclick="go(-1)" aria-label="Anterior">&#8592;</button>
+  <div class="dots"><span class="dot active" onclick="jumpTo(0)"></span><span class="dot" onclick="jumpTo(1)"></span><span class="dot" onclick="jumpTo(2)"></span><span class="dot" onclick="jumpTo(3)"></span><span class="dot" onclick="jumpTo(4)"></span><span class="dot" onclick="jumpTo(5)"></span><span class="dot" onclick="jumpTo(6)"></span><span class="dot" onclick="jumpTo(7)"></span><span class="dot" onclick="jumpTo(8)"></span><span class="dot" onclick="jumpTo(9)"></span><span class="dot" onclick="jumpTo(10)"></span></div>
+  <button class="nav-btn" onclick="go(1)" aria-label="Siguiente">&#8594;</button>
+</div>
+<script>
+const TOTAL = 10;
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const SECTIONS = [[2,'01'],[5,'02'],[6,'03'],[7,'04'],[8,'05'],[9,'06']];
+
+function activeMod(n) {
+  let active = null;
+  for (const [idx, num] of SECTIONS) { if (n >= idx) active = num; }
+  document.querySelectorAll('#mod-nav .mn-btn').forEach(b => b.classList.remove('active'));
+  if (active) { const el = document.getElementById('mn-' + active); if(el) el.classList.add('active'); }
+}
+function update() {
+  slides.forEach((s,i) => {
+    s.classList.remove('active','exit');
+    if (i === cur) s.classList.add('active');
+  });
+  dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+  document.getElementById('counter').textContent = String(cur+1).padStart(2,'0') + ' / 10';
+  document.getElementById('progress').style.width = ((cur+1)/TOTAL*100).toFixed(2) + '%';
+  slides[cur].scrollTop = 0;
+  activeMod(cur);
+}
+function go(dir) {
+  cur = Math.min(TOTAL-1, Math.max(0, cur+dir));
+  update();
+}
+function jumpTo(n) { cur = n; update(); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') go(1);
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(-1);
+});
+let touchX = null;
+document.addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+document.addEventListener('touchend', e => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
+  touchX = null;
+});
+update();
+</script>
+</body></html>
