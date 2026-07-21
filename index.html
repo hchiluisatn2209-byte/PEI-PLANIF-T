@@ -1137,7 +1137,101 @@ new MutationObserver(function(){
       Gestión Solicitudes Servicios Tercerizados  <!-- ✅ corregido "Serivicios" -->
     </h2>
 
-    <div
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;align-items:start;">
+
+      <!-- Tarjeta principal -->
+      <div class="res-card">
+        <div class="res-card-title">PROCESO Y TAREAS</div>
+
+        <div class="res-card-desc">
+          <b>PROCESO:</b> TAREAS DE PEI - GESTION DE TERCERIZADOS
+        </div>
+
+        <div class="task-chips" style="margin-bottom:.7rem;">
+          <div class="task-chip">SOLICITUD INSTALACION</div>
+          <div class="task-chip">SOLICITUD DE RENOVACION FIRMA ELECTRONICA</div>
+          <div class="task-chip">SOLICITUD REUBICACION</div>
+          <div class="task-chip">SOLICITUD TRASLADO</div>
+          <div class="task-chip">SOLICITUD UPGRADE</div>
+          <div class="task-chip">SOLICITUD DOWNGRADE</div>
+          <div class="task-chip">SOLICITUD CANCELACION</div>
+        </div>
+
+        <!-- ✅ Primer enlace corregido: href, target, rel, svg y cierre </a> -->
+        <div class="res-card-links" style="margin-bottom:.45rem;">
+          
+            class="res-link"
+            style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);"
+            href="URL_AUTORIZACION_AQUI"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" style="stroke:#00e576;fill:none;stroke-width:2;width:14px;height:14px">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Autorización Firma Electrónica - Presidente Ejecutivo TN
+          </a>
+        </div>
+
+        <div class="res-card-links">
+          
+            class="res-link"
+            style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);"
+            href="https://telcodrive.telconet.net/f/9e1b2a65be8c4fb5b9a8/"
+            target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" style="stroke:#00e576;fill:none;stroke-width:2;width:14px;height:14px">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Solicitud Firma Electrónica
+          </a>
+        </div>
+      </div>
+
+      <!-- Flujo de Tareas -->
+      <div class="req-card">  <!-- ✅ cierre </div> movido al lugar correcto abajo -->
+        <div class="req-header">
+          <div class="req-icon">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#00e576" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="req-label">Flujo de Tareas Tercerizados</div>
+        </div>
+
+        <div style="font-size:.72rem;color:#7ab3cc;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:.55rem">
+          Etapa 1 — Validación de la tarea
+        </div>
+
+        <div class="flow-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Validación de Login</div>
+            <div class="step-desc">Validar que el Login se encuentre en estado FACTIBLE y enlazado a la Tercerizadora; verificar Switch Virtual.</div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Validación de Formato</div>
+            <div class="step-desc">Validar que la Tarea tenga adjunto el Formato de Factibilidad dependiendo del proveedor y verificar que los datos sean correctos.</div>
+          </div>
+        </div>
+
+        <div class="bifurc">
+          <div class="bifurc-title">Bifurcación según el resultado del paso 2</div>
+          <div class="bifurc-item">Sin formato → Reasignar la tarea a Ventas solicitando el formato.</div>
+          <div class="bifurc-item">Con formato → Continuar con el paso 3 (envío de correos y tareas).</div>
+        </div>
+      </div> <!-- ✅ cierre correcto de .req-card -->
+
+    </div> <!-- cierre del grid -->
+  </div> <!-- cierre de .slide-pad -->
+</section>
 
 
 <!-- SLIDE 6 — TIGO: Flujos de Gestión -->
