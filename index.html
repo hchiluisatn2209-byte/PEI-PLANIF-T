@@ -651,11 +651,21 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 <body>
 <div id="progress" style="width:2.326%;"></div>
 <div id="counter">01 / 43</div>
+
 <nav id="mod-nav">
   <button class="mn-home" onclick="jumpTo(1)" title="Ir al Contenido">&#9776; Contenido</button>
   <div class="mn-sep"></div>
-  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: ISPs</button><button class="mn-btn" id="mn-02" onclick="jumpTo(4)">02: Tigo</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: CNT</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Konnet</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Claro</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Otros Operadores</button><button class="mn-btn" id="mn-07" onclick="jumpTo(11)">07: Interconexiones</button>
+  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: ISPs</button>
+  <button class="mn-btn" id="mn-02" onclick="jumpTo(4)">02: Cobertura</button>
+  <button class="mn-btn" id="mn-03" onclick="jumpTo(5)">03: Solicitudes y Requisitos</button>
+  <button class="mn-btn" id="mn-04" onclick="jumpTo(6)">04: Tigo</button>
+  <button class="mn-btn" id="mn-05" onclick="jumpTo(7)">05: CNT</button>
+  <button class="mn-btn" id="mn-06" onclick="jumpTo(8)">06: Konnet</button>
+  <button class="mn-btn" id="mn-07" onclick="jumpTo(9)">07: Claro</button>
+  <button class="mn-btn" id="mn-08" onclick="jumpTo(10)">08: Otros Operadores</button>
+  <button class="mn-btn" id="mn-09" onclick="jumpTo(11)">09: Interconexiones</button>
 </nav>
+
 <div id="deck">
 <section class="slide theme-navy slide-cover active" data-index="0" id="slide-0">
 <div style="position:relative;width:100%;height:100vh;overflow:hidden;display:flex;align-items:center;">
@@ -2004,21 +2014,21 @@ const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 // Mapa exacto: slide index → id del botón de nav
 const SLIDE_NAV = {
-  0: null,      // cover
-  1: null,      // agenda
-  2: 'mn-01',   // Op. Servicios → ISPs
-  3: 'mn-01',   // Op. Infraestructura → ISPs
-  4: 'mn-01',   // Cobertura
-  5: 'mn-01',   // Tipo solicitud
-  6: 'mn-02',   // Tigo
-  7: 'mn-02',   // Hilo Oscuro
-  8: 'mn-03',   // CNT
-  9: 'mn-04',   // Konnet
-  10: 'mn-05',   // Claro
-  11: 'mn-06',   // Otros Operadores
-  12: 'mn-06',  // C4
-  13: 'mn-07',  // Interconexiones
-  14: 'mn-07'   // Módulo completado
+  0: null,       // cover
+  1: null,       // agenda/contenido
+  2: 'mn-01',    // ISPs - slide 2
+  3: 'mn-01',    // ISPs - slide 3
+  4: 'mn-02',    // Cobertura
+  5: 'mn-03',    // Solicitudes y Requisitos
+  6: 'mn-04',    // Tigo
+  7: 'mn-05',    // CNT
+  8: 'mn-06',    // Konnet
+  9: 'mn-07',    // Claro
+  10: 'mn-08',   // Otros Operadores
+  11: 'mn-09',   // Interconexiones
+  12: 'mn-09',   // Interconexiones (slide final del módulo)
+  13: 'mn-09',
+  14: null
 };
 
 function activeMod(n) {
