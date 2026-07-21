@@ -1393,63 +1393,92 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 <!-- SLIDE 11 — INTERCONEXIONES: Validación y Aprobación -->
 
 <section class="slide theme-navy" data-index="11" id="slide-11">
-<div class="slide-pad">
-  <div class="badge" style="background:rgba(0,180,216,.15);color:var(--cy);border-color:rgba(0,180,216,.3);">INTERCONEXIONES</div>
-  <h2 class="title-xl" style="margin-bottom:.6rem;">Flujo de Interconexiones: Validación y Aprobación</h2>
+<div class="slide-pad" style="padding-top:calc(38px + 1.2rem);">
 
-  <!-- Diagrama de flujo principal -->
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin-bottom:1rem;">
-
-    <div style="text-align:center;">
-      <div style="width:52px;height:52px;border-radius:50%;background:rgba(0,180,216,.15);border:2px solid rgba(0,180,216,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">🔍</div>
-      <div style="font-size:.75rem;font-weight:700;color:var(--cy);">Validación Técnica</div>
-      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Reunión proveedor + Telconet</div>
-    </div>
-
-    <div style="display:flex;align-items:flex-start;justify-content:center;padding-top:1.1rem;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.45)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-    </div>
-
-    <div style="text-align:center;">
-      <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,209,102,.12);border:2px solid rgba(255,209,102,.4);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">📐</div>
-      <div style="font-size:.75rem;font-weight:700;color:var(--gd);">Revisión Oferta</div>
-      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Grandes Superficies + Regulatorio</div>
-    </div>
-
-    <div style="display:flex;align-items:flex-start;justify-content:center;padding-top:1.1rem;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(0,180,216,.45)" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-    </div>
-
-    <div style="text-align:center;">
-      <div style="width:52px;height:52px;border-radius:50%;background:rgba(44,217,176,.1);border:2px solid rgba(44,217,176,.35);display:flex;align-items:center;justify-content:center;margin:0 auto .5rem;font-size:1.3rem;">📝</div>
-      <div style="font-size:.75rem;font-weight:700;color:var(--gn);">Contratación</div>
-      <div style="font-size:.68rem;color:#9aa3b8;margin-top:.25rem;line-height:1.4;">Con proveedor seleccionado</div>
-    </div>
-
-  </div>
-
-  <!-- Proveedores disponibles -->
-  <div style="margin-bottom:1rem;">
-    <div style="font-size:.76rem;font-weight:700;color:var(--text-muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;">Proveedores para contratación</div>
-    <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">CNT</span>
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Claro</span>
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Tigo</span>
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Puntonet</span>
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Ufinet</span>
-      <span style="background:rgba(0,180,216,.1);border:1px solid rgba(0,180,216,.25);border-radius:7px;padding:.32rem .8rem;font-size:.82rem;color:var(--cy);font-weight:600;">Teuno-Bravco (Cirion)</span>
+  <!-- HEADER -->
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;gap:1rem;">
+    <div>
+      <div class="badge" style="background:rgba(0,180,216,.15);color:var(--cy);border-color:rgba(0,180,216,.3);margin-bottom:.5rem;">INTERCONEXIONES</div>
+      <h2 class="title-xl" style="margin:0;font-size:clamp(1.3rem,2.5vw,1.9rem);">Flujo de Interconexiones: Validación y Aprobación</h2>
     </div>
   </div>
 
-  <div class="callout-danger" style="margin-bottom:.8rem;">
-    <div class="dot">⚠</div>
-    <p><b>Cirion requiere gestión directa del cliente</b> — no puede ser contratado directamente por Telconet.</p>
-  </div>
+  <!-- LAYOUT PRINCIPAL: imagen grande izquierda | info derecha -->
+  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:1.4rem;align-items:start;">
 
-  <div class="callout">
-    <div class="dot">ℹ</div>
-    <p style="font-size:.85rem;">Este flujo asegura que todas las interconexiones cumplan con los estándares técnicos y regulatorios antes de ser aprobadas y contratadas, con opciones variadas de proveedores para la implementación.</p>
-  </div>
+    <!-- IMAGEN GRANDE -->
+    <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(0,180,216,.25);background:rgba(0,0,0,.3);">
+      <img src="img11.png" alt="Diagrama flujo de interconexiones" style="width:100%;height:auto;display:block;">
+    </div>
+
+    <!-- COLUMNA DERECHA -->
+    <div style="display:flex;flex-direction:column;gap:.85rem;">
+
+      <!-- PASOS DEL FLUJO -->
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:.9rem 1rem;">
+        <div style="font-size:.62rem;font-weight:700;color:rgba(140,165,195,.65);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.7rem;">Flujo de validación</div>
+
+        <div style="display:flex;flex-direction:column;gap:.5rem;">
+
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <div style="width:34px;height:34px;border-radius:50%;background:rgba(0,180,216,.15);border:2px solid rgba(0,180,216,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;font-weight:800;color:var(--cy);">1</div>
+            <div>
+              <div style="font-size:.78rem;font-weight:700;color:var(--cy);">Validación Técnica</div>
+              <div style="font-size:.68rem;color:#9aa3b8;line-height:1.4;">Reunión con proveedor + Telconet</div>
+            </div>
+          </div>
+
+          <div style="margin-left:17px;width:2px;height:10px;background:rgba(0,180,216,.25);border-radius:2px;"></div>
+
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,209,102,.12);border:2px solid rgba(255,209,102,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;font-weight:800;color:var(--gd);">2</div>
+            <div>
+              <div style="font-size:.78rem;font-weight:700;color:var(--gd);">Revisión de Oferta</div>
+              <div style="font-size:.68rem;color:#9aa3b8;line-height:1.4;">Grandes Superficies + Regulatorio</div>
+            </div>
+          </div>
+
+          <div style="margin-left:17px;width:2px;height:10px;background:rgba(255,209,102,.25);border-radius:2px;"></div>
+
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <div style="width:34px;height:34px;border-radius:50%;background:rgba(44,217,176,.1);border:2px solid rgba(44,217,176,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.8rem;font-weight:800;color:var(--gn);">3</div>
+            <div>
+              <div style="font-size:.78rem;font-weight:700;color:var(--gn);">Contratación</div>
+              <div style="font-size:.68rem;color:#9aa3b8;line-height:1.4;">Con proveedor seleccionado</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PROVEEDORES -->
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:.9rem 1rem;">
+        <div style="font-size:.62rem;font-weight:700;color:rgba(140,165,195,.65);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.6rem;">Proveedores para contratación</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.38rem;">
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">CNT</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Claro</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Tigo</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Puntonet</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Ufinet</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Teuno-Bravco</span>
+          <span style="background:rgba(0,180,216,.12);border:1px solid rgba(0,180,216,.28);border-radius:6px;padding:.22rem .65rem;font-size:.74rem;color:var(--cy);font-weight:600;">Cirion</span>
+        </div>
+      </div>
+
+      <!-- ALERTAS -->
+      <div class="callout-danger">
+        <div class="dot">⚠</div>
+        <p style="font-size:.82rem;"><b>Cirion requiere gestión directa del cliente</b> — Telconet no contrata directamente.</p>
+      </div>
+
+      <div class="callout">
+        <div class="dot">ℹ</div>
+        <p style="font-size:.78rem;">Este flujo asegura que todas las interconexiones cumplan con los estándares técnicos y regulatorios antes de ser aprobadas y contratadas.</p>
+      </div>
+
+    </div><!-- fin columna derecha -->
+  </div><!-- fin grid -->
+
 </div>
 </section>
 
