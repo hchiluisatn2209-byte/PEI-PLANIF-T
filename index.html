@@ -655,7 +655,7 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 <nav id="mod-nav">
   <button class="mn-home" onclick="jumpTo(1)" title="Ir al Contenido">&#9776; Contenido</button>
   <div class="mn-sep"></div>
-  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: ISPs</button><button class="mn-btn" id="mn-02" onclick="jumpTo(4)">02: Tigo</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: CNT</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Konnet</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Claro</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Otros Operadores</button><button class="mn-btn" id="mn-07" onclick="jumpTo(11)">07: Interconexiones</button><button class="mn-btn" id="mn-08" onclick="jumpTo(2)">08: Op. Servicios</button><button class="mn-btn" id="mn-09" onclick="jumpTo(3)">09: Op. Infraestructura</button>
+  <button class="mn-btn" id="mn-01" onclick="jumpTo(2)">01: ISPs</button><button class="mn-btn" id="mn-02" onclick="jumpTo(4)">02: Tigo</button><button class="mn-btn" id="mn-03" onclick="jumpTo(6)">03: CNT</button><button class="mn-btn" id="mn-04" onclick="jumpTo(7)">04: Konnet</button><button class="mn-btn" id="mn-05" onclick="jumpTo(8)">05: Claro</button><button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Otros Operadores</button><button class="mn-btn" id="mn-07" onclick="jumpTo(11)">07: Interconexiones</button>
 </nav>
 <div id="deck">
 <section class="slide theme-navy slide-cover active" data-index="0" id="slide-0">
@@ -1491,15 +1491,15 @@ const dots = document.querySelectorAll('.dot');
 const SLIDE_NAV = {
   0: null,      // cover
   1: null,      // agenda
-  2: 'mn-08',   // Op. Servicios
-  3: 'mn-09',   // Op. Infraestructura
+  2: 'mn-01',   // Op. Servicios → ISPs
+  3: 'mn-01',   // Op. Infraestructura → ISPs
   4: 'mn-02',   // Tigo
-  5: 'mn-02',   // Hilo Oscuro (continúa Tigo)
+  5: 'mn-02',   // Hilo Oscuro
   6: 'mn-03',   // CNT
   7: 'mn-04',   // Konnet
   8: 'mn-05',   // Claro
   9: 'mn-06',   // Otros Operadores
-  10: 'mn-06',  // C4 (continúa Otros)
+  10: 'mn-06',  // C4
   11: 'mn-07',  // Interconexiones
   12: 'mn-07'   // Módulo completado
 };
@@ -1511,11 +1511,7 @@ function activeMod(n) {
     const el = document.getElementById(btnId);
     if (el) el.classList.add('active');
   }
-  // También iluminar mn-01 cuando estamos en slides ISPs (2 y 3)
-  if (n === 2 || n === 3) {
-    const parent = document.getElementById('mn-01');
-    if (parent) parent.classList.add('active');
-  }
+
 }
 function update() {
   slides.forEach((s,i) => {
