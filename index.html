@@ -1116,19 +1116,80 @@ var PUNTOS=[
   {name:'Speedcast — Satelital Galápagos',city:'Galápagos',op:'Speedcast',group:'rural',lat:-0.67,lng:-90.55,warn:false}
 ];
 var COLORS={telefonica:'#00B4D8',cnt:'#FFD166',claro:'#FF4757',cirion:'#FF8C42',ufinet:'#2CD9B0',rural:'#9B8AFB'};
+
 function mkIcon(g,w){
   var c=COLORS[g]||'#fff',s=14;
   var wc=w?'<circle cx="'+s+'" cy="'+s+'" r="'+(s-1.5)+'" fill="none" stroke="#FF4757" stroke-width="1.5" stroke-dasharray="3,2"/>':'';
   var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+(s*2)+'" height="'+(s*2)+'" viewBox="0 0 '+(s*2)+' '+(s*2)+'"><circle cx="'+s+'" cy="'+s+'" r="'+(s-1)+'" fill="'+c+'" opacity=".2"/><circle cx="'+s+'" cy="'+s+'" r="'+(s/2)+'" fill="'+c+'" stroke="#0B1D53" stroke-width="1.5"/>'+wc+'</svg>';
   return L.divIcon({html:svg,className:'',iconSize:[s*2,s*2],iconAnchor:[s,s],popupAnchor:[0,-s]});
 }
+
 var inited=false,map=null,markers=[];
+
 function initMap(){
   if(inited)return;inited=true;
-  map=L.map('cov-map',{center:[-1.5,-78.5],zoom:6,attributionControl:false});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
-  L.rectangle([[-5.0,-81.2],[1.5,-75.2]],{color:'#9B8AFB',weight:1.5,fillColor:'#9B8AFB',fillOpacity:0.05,dashArray:'6,5',className:'ecuador-pulse'}).addTo(map).bindPopup('<div class="lp-name">Cobertura Rural/Interurbana</div><div class="lp-op" style="color:#9B8AFB">Bravco · Teuno · Systray · Puntonet · Piedrahuasi · C4</div><div class="lp-city">Todo Ecuador continental</div>');
-  L.rectangle([[-1.5,-92.0],[0.6,-89.0]],{color:'#9B8AFB',weight:1.5,fillColor:'#9B8AFB',fillOpacity:0.08,dashArray:'6,5'}).addTo(map).bindPopup('<div class="lp-name">Galápagos — Satelital</div><div class="lp-op" style="color:#9B8AFB">Speedcast</div>');
+
+  /* ── Mapa centrado en Ecuador continental, zoom 7 ── */
+  map=L.map('cov-map',{
+    center:[-1.8,-78.2],
+    zoom:7,
+    attributionControl:false,
+    zoomControl:true
+  });
+
+  /* ── Tile oscuro de alta calidad ── */
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    maxZoom:19,
+    subdomains:'abcd'
+  }).addTo(map);
+
+  /* ── Polígono Ecuador continental resaltado ── */
+  var ECU_CONTINENTAL=[
+    [-0.02,-75.22],[-0.45,-75.25],[-0.90,-75.57],[-1.40,-76.10],
+    [-2.20,-76.65],[-3.40,-76.38],[-4.20,-77.00],[-4.98,-79.28],
+    [-3.37,-80.32],[-2.22,-80.97],[-0.90,-80.50],[-0.35,-80.44],
+    [0.60,-80.10],[1.45,-78.86],[0.90,-77.52],[0.40,-76.90],
+    [0.10,-76.30],[-0.02,-75.22]
+  ];
+  L.polygon(ECU_CONTINENTAL,{
+    color:'#00B4D8',
+    weight:1.8,
+    opacity:.6,
+    fillColor:'#1A3A6B',
+    fillOpacity:.25,
+    dashArray:null
+  }).addTo(map);
+
+  /* ── Polígono Galápagos (inset visual) ── */
+  var GALAPAGOS=[
+    [-0.30,-91.80],[-0.30,-89.20],[1.00,-89.20],[1.00,-91.80],[-0.30,-91.80]
+  ];
+  L.polygon(GALAPAGOS,{
+    color:'#00CFC1',
+    weight:1.5,
+    opacity:.5,
+    fillColor:'#1A3A6B',
+    fillOpacity:.2,
+    dashArray:'6,4'
+  }).addTo(map).bindPopup('<div class="lp-name">Galápagos</div><div class="lp-op" style="color:#9B8AFB">Speedcast — Satelital</div>');
+
+  /* ── Label Galápagos ── */
+  L.marker([-0.67,-90.55],{
+    icon:L.divIcon({
+      html:'<div style="color:#9B8AFB;font-size:.68rem;font-weight:700;font-family:Outfit,sans-serif;white-space:nowrap;text-shadow:0 1px 3px #000;">🏝 Galápagos</div>',
+      className:'',iconSize:[90,20],iconAnchor:[0,0]
+    })
+  }).addTo(map);
+
+  /* ── Label Ecuador continental ── */
+  L.marker([-2.0,-78.2],{
+    icon:L.divIcon({
+      html:'<div style="color:rgba(0,180,216,.5);font-size:.75rem;font-weight:800;font-family:Outfit,sans-serif;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 4px #000;">ECUADOR</div>',
+      className:'',iconSize:[100,20],iconAnchor:[50,10]
+    })
+  }).addTo(map);
+
+  /* ── Puntos de cobertura ── */
   PUNTOS.forEach(function(p){
     var wh=p.warn?'<div class="lp-warn">&#9888; Gestión directa del cliente</div>':'';
     var popup='<div class="lp-name">'+p.name+'</div><div class="lp-op" style="color:'+COLORS[p.group]+'">'+p.op+'</div><div class="lp-city">'+p.city+'</div>'+wh;
@@ -1136,14 +1197,19 @@ function initMap(){
     m._group=p.group;markers.push(m);
   });
 }
+
 window.filterMap=function(g,btn){
   document.querySelectorAll('.mf-btn').forEach(function(b){b.classList.remove('active');});
   btn.classList.add('active');
   markers.forEach(function(m){g==='all'||m._group===g?map.addLayer(m):map.removeLayer(m);});
 };
+
 var sec=document.getElementById('slide-4');
 new MutationObserver(function(){
-  if(sec.classList.contains('active')){if(!inited)setTimeout(initMap,80);else map.invalidateSize();}
+  if(sec.classList.contains('active')){
+    if(!inited)setTimeout(initMap,80);
+    else map.invalidateSize();
+  }
 }).observe(sec,{attributes:true,attributeFilter:['class']});
 })();
 </script>
