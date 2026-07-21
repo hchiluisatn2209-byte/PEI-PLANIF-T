@@ -663,7 +663,7 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
   <button class="mn-btn" id="mn-06" onclick="jumpTo(9)">06: Konnet</button>
   <button class="mn-btn" id="mn-07" onclick="jumpTo(10)">07: Claro</button>
   <button class="mn-btn" id="mn-08" onclick="jumpTo(11)">08: Otros Operadores</button>
-  <button class="mn-btn" id="mn-09" onclick="jumpTo(12)">09: Interconexiones</button>
+  <button class="mn-btn" id="mn-09" onclick="jumpTo(13)">09: Interconexiones</button>
 </nav>
 
 <div id="deck">
@@ -2032,23 +2032,22 @@ const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 // Mapa exacto: slide index → id del botón de nav
 const SLIDE_NAV = {
-  0: null,       // cover
-  1: null,       // agenda/contenido
-  2: 'mn-01',    // ISPs - slide 2
-  3: 'mn-01',    // ISPs - slide 3
-  4: 'mn-02',    // Cobertura
-  5: 'mn-03',    // Solicitudes y Requisitos
-  6: 'mn-04',    // Tigo
-  7: 'mn-05',    // CNT
-  8: 'mn-06',    // Konnet
-  9: 'mn-07',    // Claro
-  10: 'mn-08',   // Otros Operadores
-  11: 'mn-09',   // Interconexiones
-  12: 'mn-09',   // Interconexiones (slide final del módulo)
-  13: 'mn-09',
-  14: null
+  0:  null,      // cover
+  1:  null,      // agenda
+  2:  'mn-01',   // Operadores de Servicios
+  3:  'mn-01',   // Operadores de Infraestructura
+  4:  'mn-02',   // Cobertura
+  5:  'mn-03',   // Solicitudes y Requisitos
+  6:  'mn-04',   // Tigo - slide 1
+  7:  'mn-04',   // Tigo - slide 2
+  8:  'mn-05',   // CNT
+  9:  'mn-06',   // Konnet
+  10: 'mn-07',   // Claro
+  11: 'mn-08',   // Otros Operadores
+  12: 'mn-08',   // C4 S.A. (también Otros)
+  13: 'mn-09',   // Interconexiones
+  14: null       // Módulo completado
 };
-
 function activeMod(n) {
   const btnId = SLIDE_NAV[n] || null;
   document.querySelectorAll('#mod-nav .mn-btn').forEach(b => b.classList.remove('active'));
