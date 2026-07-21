@@ -1487,17 +1487,35 @@ const TOTAL = 12;
 let cur = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
-const SECTIONS = [
-  [2,'mn-01'],[3,'mn-01'],[4,'mn-02'],[5,'mn-02'],
-  [6,'mn-03'],[7,'mn-04'],[8,'mn-05'],[9,'mn-06'],
-  [10,'mn-06'],[11,'mn-07'],[12,'mn-07']
-];
+// Mapa exacto: slide index → id del botón de nav
+const SLIDE_NAV = {
+  0: null,      // cover
+  1: null,      // agenda
+  2: 'mn-08',   // Op. Servicios
+  3: 'mn-09',   // Op. Infraestructura
+  4: 'mn-02',   // Tigo
+  5: 'mn-02',   // Hilo Oscuro (continúa Tigo)
+  6: 'mn-03',   // CNT
+  7: 'mn-04',   // Konnet
+  8: 'mn-05',   // Claro
+  9: 'mn-06',   // Otros Operadores
+  10: 'mn-06',  // C4 (continúa Otros)
+  11: 'mn-07',  // Interconexiones
+  12: 'mn-07'   // Módulo completado
+};
 
 function activeMod(n) {
-  let active = null;
-  for (const [idx, num] of SECTIONS) { if (n >= idx) active = num; }
+  const btnId = SLIDE_NAV[n] || null;
   document.querySelectorAll('#mod-nav .mn-btn').forEach(b => b.classList.remove('active'));
-  if (active) { const el = document.getElementById('mn-' + active); if(el) el.classList.add('active'); }
+  if (btnId) {
+    const el = document.getElementById(btnId);
+    if (el) el.classList.add('active');
+  }
+  // También iluminar mn-01 cuando estamos en slides ISPs (2 y 3)
+  if (n === 2 || n === 3) {
+    const parent = document.getElementById('mn-01');
+    if (parent) parent.classList.add('active');
+  }
 }
 function update() {
   slides.forEach((s,i) => {
