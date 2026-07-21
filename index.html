@@ -1129,59 +1129,196 @@ new MutationObserver(function(){
 <section class="slide theme-navy" data-index="5" id="slide-5">
   <div class="slide-pad" style="padding-top:calc(36px + .9rem);">
 
-    <div class="badge">
-      Solicitudes y Requisitos
-    </div>
+    <!-- Estilos locales para las clases que faltan en el CSS global -->
+    <style>
+      /* Chips de tareas */
+      #slide-5 .task-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .35rem;
+      }
+      #slide-5 .task-chip {
+        background: rgba(0,180,216,.08);
+        border: 1px solid rgba(0,180,216,.2);
+        border-radius: 5px;
+        color: var(--cy);
+        font-size: .63rem;
+        font-weight: 700;
+        letter-spacing: .04em;
+        padding: .25rem .55rem;
+        text-transform: uppercase;
+      }
+
+      /* Tarjeta columna derecha (flujo) */
+      #slide-5 .req-card {
+        background: rgba(0,180,216,.04);
+        border: 1px solid rgba(0,180,216,.25);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+      }
+      #slide-5 .req-header {
+        display: flex;
+        align-items: center;
+        gap: .55rem;
+        margin-bottom: .75rem;
+      }
+      #slide-5 .req-icon {
+        width: 30px; height: 30px;
+        border-radius: 8px;
+        background: rgba(0,180,216,.15);
+        border: 1.5px solid rgba(0,180,216,.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      #slide-5 .req-label {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--cy);
+        text-transform: uppercase;
+        letter-spacing: .06em;
+      }
+
+      /* Pasos del flujo */
+      #slide-5 .flow-step {
+        display: flex;
+        gap: .6rem;
+        margin-bottom: .6rem;
+        align-items: flex-start;
+      }
+      #slide-5 .step-num {
+        width: 26px; height: 26px;
+        border-radius: 50%;
+        background: rgba(0,180,216,.15);
+        border: 1.5px solid var(--cy);
+        color: var(--cy);
+        font-size: .72rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      #slide-5 .step-title {
+        font-size: .82rem;
+        font-weight: 700;
+        color: #e0f4ff;
+        margin-bottom: .18rem;
+      }
+      #slide-5 .step-desc {
+        font-size: .76rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      /* Bloque de bifurcación */
+      #slide-5 .bifurc {
+        background: rgba(255,140,66,.1);
+        border: 1px solid rgba(255,140,66,.35);
+        border-radius: 8px;
+        padding: .6rem .85rem;
+        margin-top: .75rem;
+      }
+      #slide-5 .bifurc-title {
+        font-size: .72rem;
+        font-weight: 700;
+        color: var(--or);
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-bottom: .38rem;
+      }
+      #slide-5 .bifurc-item {
+        font-size: .76rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+        padding-left: .75rem;
+        position: relative;
+      }
+      #slide-5 .bifurc-item::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--or);
+      }
+
+      /* Links internos con color corporativo */
+      #slide-5 .res-link-green {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        background: rgba(0,180,216,.1);
+        color: var(--cy);
+        border: 1px solid rgba(0,180,216,.3);
+        font-size: .82rem;
+        font-weight: 600;
+        padding: .3rem .65rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background .15s;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      #slide-5 .res-link-green:hover {
+        background: rgba(0,180,216,.22);
+      }
+      #slide-5 .res-link-green svg {
+        width: 12px; height: 12px;
+        fill: none;
+        stroke: var(--cy);
+        stroke-width: 2.2;
+        flex-shrink: 0;
+      }
+    </style>
+
+    <div class="badge">Solicitudes y Requisitos</div>
 
     <h2 class="title-xl" style="margin-bottom:.8rem;">
-      Gestión Solicitudes Servicios Tercerizados  <!-- ✅ corregido "Serivicios" -->
+      Gestión Solicitudes Servicios Tercerizados
     </h2>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;align-items:start;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;align-items:start;">
 
-      <!-- Tarjeta principal -->
-      <div class="res-card">
+      <!-- ── Columna izquierda: Proceso y Tareas ── -->
+      <div class="res-card" style="gap:.5rem;">
+
         <div class="res-card-title">PROCESO Y TAREAS</div>
 
         <div class="res-card-desc">
-          <b>PROCESO:</b> TAREAS DE PEI - GESTION DE TERCERIZADOS
+          <b>PROCESO:</b> TAREAS DE PEI — GESTIÓN DE TERCERIZADOS
         </div>
 
-        <div class="task-chips" style="margin-bottom:.7rem;">
-          <div class="task-chip">SOLICITUD INSTALACION</div>
-          <div class="task-chip">SOLICITUD DE RENOVACION FIRMA ELECTRONICA</div>
-          <div class="task-chip">SOLICITUD REUBICACION</div>
+        <div class="task-chips" style="margin-bottom:.5rem;">
+          <div class="task-chip">SOLICITUD INSTALACIÓN</div>
+          <div class="task-chip">SOLICITUD RENOVACIÓN FIRMA ELECTRÓNICA</div>
+          <div class="task-chip">SOLICITUD REUBICACIÓN</div>
           <div class="task-chip">SOLICITUD TRASLADO</div>
           <div class="task-chip">SOLICITUD UPGRADE</div>
           <div class="task-chip">SOLICITUD DOWNGRADE</div>
-          <div class="task-chip">SOLICITUD CANCELACION</div>
+          <div class="task-chip">SOLICITUD CANCELACIÓN</div>
         </div>
 
-        <!-- ✅ Primer enlace corregido: href, target, rel, svg y cierre </a> -->
-        <div class="res-card-links" style="margin-bottom:.45rem;">
-          
-            class="res-link"
-            style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);"
-            href="URL_AUTORIZACION_AQUI"
-            target="_blank"
-            rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" style="stroke:#00e576;fill:none;stroke-width:2;width:14px;height:14px">
+        <div class="res-card-links" style="margin-bottom:.4rem;">
+          <a class="res-link-green"
+             href="URL_AUTORIZACION_AQUI"
+             target="_blank"
+             rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
               <polyline points="15 3 21 3 21 9"/>
               <line x1="10" y1="14" x2="21" y2="3"/>
             </svg>
-            Autorización Firma Electrónica - Presidente Ejecutivo TN
+            Autorización Firma Electrónica — Presidente Ejecutivo TN
           </a>
         </div>
 
         <div class="res-card-links">
-          
-            class="res-link"
-            style="background:rgba(0,229,118,.1);color:#00e576;border:1px solid rgba(0,229,118,.25);"
-            href="https://telcodrive.telconet.net/f/9e1b2a65be8c4fb5b9a8/"
-            target="_blank"
-            rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" style="stroke:#00e576;fill:none;stroke-width:2;width:14px;height:14px">
+          <a class="res-link-green"
+             href="https://telcodrive.telconet.net/f/9e1b2a65be8c4fb5b9a8/"
+             target="_blank"
+             rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
               <polyline points="15 3 21 3 21 9"/>
               <line x1="10" y1="14" x2="21" y2="3"/>
@@ -1189,26 +1326,31 @@ new MutationObserver(function(){
             Solicitud Firma Electrónica
           </a>
         </div>
+
       </div>
 
-      <!-- Flujo de Tareas -->
-      <div class="req-card">  <!-- ✅ cierre </div> movido al lugar correcto abajo -->
+      <!-- ── Columna derecha: Flujo de Tareas ── -->
+      <div class="req-card">
+
         <div class="req-header">
           <div class="req-icon">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#00e576" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                 stroke="var(--cy)" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
           <div class="req-label">Flujo de Tareas Tercerizados</div>
         </div>
 
-        <div style="font-size:.72rem;color:#7ab3cc;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:.55rem">
+        <div style="font-size:.7rem;color:rgba(0,180,216,.65);text-transform:uppercase;
+                    font-weight:700;letter-spacing:.07em;margin-bottom:.6rem;">
           Etapa 1 — Validación de la tarea
         </div>
 
         <div class="flow-step">
           <div class="step-num">1</div>
-          <div class="step-body">
+          <div>
             <div class="step-title">Validación de Login</div>
             <div class="step-desc">Validar que el Login se encuentre en estado FACTIBLE y enlazado a la Tercerizadora; verificar Switch Virtual.</div>
           </div>
@@ -1216,7 +1358,7 @@ new MutationObserver(function(){
 
         <div class="flow-step">
           <div class="step-num">2</div>
-          <div class="step-body">
+          <div>
             <div class="step-title">Validación de Formato</div>
             <div class="step-desc">Validar que la Tarea tenga adjunto el Formato de Factibilidad dependiendo del proveedor y verificar que los datos sean correctos.</div>
           </div>
@@ -1227,12 +1369,12 @@ new MutationObserver(function(){
           <div class="bifurc-item">Sin formato → Reasignar la tarea a Ventas solicitando el formato.</div>
           <div class="bifurc-item">Con formato → Continuar con el paso 3 (envío de correos y tareas).</div>
         </div>
-      </div> <!-- ✅ cierre correcto de .req-card -->
 
-    </div> <!-- cierre del grid -->
-  </div> <!-- cierre de .slide-pad -->
+      </div><!-- fin .req-card -->
+
+    </div><!-- fin grid -->
+  </div><!-- fin .slide-pad -->
 </section>
-
 
 <!-- SLIDE 6 — TIGO: Flujos de Gestión -->
 
