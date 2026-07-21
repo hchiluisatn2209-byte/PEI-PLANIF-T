@@ -1013,15 +1013,128 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </section>
 
 
-
-
-
-
-
-
-<!-- SLIDE 11 — TIGO: Flujos de Gestión -->
-
+<!-- SLIDE 4 — MAPA DE COBERTURA -->
 <section class="slide theme-navy" data-index="4" id="slide-4">
+<div style="display:flex;flex-direction:column;height:100%;padding-top:41px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:.6rem 2rem .4rem;flex-shrink:0;gap:1rem;">
+    <div>
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--cy);text-transform:uppercase;margin-bottom:.15rem;">Operadores · Cobertura</div>
+      <h2 style="font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;color:#fff;margin:0;">Cobertura por Tercerizadora</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-end;max-width:75%;">
+      <button class="mf-btn active" onclick="filterMap('all',this)">Todos</button>
+      <button class="mf-btn" onclick="filterMap('telefonica',this)" style="--mc:#00B4D8;">Telefónica</button>
+      <button class="mf-btn" onclick="filterMap('cnt',this)" style="--mc:#FFD166;">CNT</button>
+      <button class="mf-btn" onclick="filterMap('claro',this)" style="--mc:#FF4757;">Claro</button>
+      <button class="mf-btn" onclick="filterMap('cirion',this)" style="--mc:#FF8C42;">Cirión</button>
+      <button class="mf-btn" onclick="filterMap('ufinet',this)" style="--mc:#2CD9B0;">Ufinet</button>
+      <button class="mf-btn" onclick="filterMap('rural',this)" style="--mc:#9B8AFB;">Rurales/Interurbanos</button>
+    </div>
+  </div>
+  <div style="position:relative;flex:1;min-height:0;">
+    <div id="cov-map" style="width:100%;height:100%;"></div>
+    <div id="map-legend" style="position:absolute;bottom:3rem;left:1rem;z-index:999;background:rgba(11,29,83,.92);backdrop-filter:blur(10px);border:1px solid rgba(0,180,216,.2);border-radius:10px;padding:.6rem .85rem;display:flex;flex-direction:column;gap:.3rem;">
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#00B4D8;flex-shrink:0;"></div>Telefónica (CC)</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FFD166;flex-shrink:0;"></div>CNT</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF4757;flex-shrink:0;"></div>Claro DC</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF8C42;flex-shrink:0;"></div>Cirión DC</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#2CD9B0;flex-shrink:0;"></div>Ufinet</div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#9B8AFB;flex-shrink:0;"></div>Rurales/Interurbanos</div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+.mf-btn{font-size:.72rem;font-weight:700;cursor:pointer;padding:.28rem .75rem;border-radius:999px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:rgba(200,220,240,.7);font-family:inherit;transition:all .18s;white-space:nowrap;}
+.mf-btn:hover{background:rgba(255,255,255,.14);color:#fff;}
+.mf-btn.active{background:var(--mc,#00B4D8);border-color:var(--mc,#00B4D8);color:#0B1D53;}
+.leaflet-popup-content-wrapper{background:#0d1e4a!important;border:1px solid rgba(0,180,216,.35)!important;border-radius:10px!important;color:#e8f0ff!important;}
+.leaflet-popup-tip{background:#0d1e4a!important;}
+.leaflet-popup-content{margin:.7rem .9rem!important;font-family:'Outfit',sans-serif!important;}
+.lp-name{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:.18rem;}
+.lp-op{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.35rem;}
+.lp-city{font-size:.78rem;color:#9ab2cc;}
+.lp-warn{font-size:.72rem;color:#fca5a5;margin-top:.35rem;background:rgba(255,71,87,.12);border-radius:5px;padding:.22rem .5rem;}
+@keyframes ecpulse{0%,100%{opacity:.5;}50%{opacity:.9;}}
+.ecuador-pulse{animation:ecpulse 2.5s infinite;}
+</style>
+<script>
+(function(){
+var PUNTOS=[
+  {name:'Quicentro Norte',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.17275,lng:-78.48051,warn:false},
+  {name:'Quicentro Sur',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.28520,lng:-78.54230,warn:false},
+  {name:'San Luis Shopping',city:'Sangolquí',op:'Telefónica',group:'telefonica',lat:-0.30797,lng:-78.45008,warn:false},
+  {name:'Mall El Jardín',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.18848,lng:-78.48756,warn:false},
+  {name:'San Marino Shopping',city:'Guayaquil',op:'Telefónica',group:'telefonica',lat:-2.16917,lng:-79.89806,warn:false},
+  {name:'Mall del Pacífico',city:'Manta',op:'Telefónica',group:'telefonica',lat:-0.94274,lng:-80.73234,warn:false},
+  {name:'Granados Plaza',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.15090,lng:-78.47300,warn:false},
+  {name:'Portal Shopping',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.10758,lng:-78.45813,warn:false},
+  {name:'Maltería Plaza',city:'Latacunga',op:'Telefónica',group:'telefonica',lat:-0.92605,lng:-78.62539,warn:false},
+  {name:'Aeropuerto Mariscal Sucre (Tababela)',city:'Quito',op:'CNT',group:'cnt',lat:-0.11333,lng:-78.35861,warn:false},
+  {name:'Plataforma Gubernamental Norte',city:'Quito',op:'CNT',group:'cnt',lat:-0.17395,lng:-78.48507,warn:false},
+  {name:'Plataforma Gubernamental Sur',city:'Quito',op:'CNT',group:'cnt',lat:-0.29580,lng:-78.55100,warn:false},
+  {name:'Rancho San Francisco',city:'Quito',op:'CNT',group:'cnt',lat:-0.18362,lng:-78.44205,warn:false},
+  {name:'Claro DC GYE (Chongón)',city:'Guayaquil',op:'Claro',group:'claro',lat:-2.23640,lng:-80.08249,warn:false},
+  {name:'Claro DC UIO (Collaloma)',city:'Quito',op:'Claro',group:'claro',lat:-0.10250,lng:-78.51400,warn:false},
+  {name:'Claro Oficina Principal',city:'Quito',op:'Claro',group:'claro',lat:-0.17600,lng:-78.48400,warn:false},
+  {name:'Cirión DC UIO — QUI1',city:'Quito',op:'Cirión',group:'cirion',lat:-0.17770,lng:-78.48290,warn:true},
+  {name:'Cirión DC UIO — QUI2',city:'Quito',op:'Cirión',group:'cirion',lat:-0.15050,lng:-78.47070,warn:true},
+  {name:'Cirión DC GYE — GUA1',city:'Guayaquil',op:'Cirión',group:'cirion',lat:-2.14790,lng:-79.96480,warn:true},
+  {name:'Ufinet Plaza Lagos',city:'Samborondón',op:'Ufinet',group:'ufinet',lat:-2.14500,lng:-79.86500,warn:false},
+  {name:'Ufinet DC Ciudad Digital',city:'Guayaquil',op:'Ufinet',group:'ufinet',lat:-2.07607,lng:-79.92261,warn:false},
+  {name:'Bravco — Rural/Interurbano',city:'Ecuador',op:'Bravco',group:'rural',lat:-1.85,lng:-78.60,warn:false},
+  {name:'Teuno — Rural/Interurbano',city:'Ecuador',op:'Teuno',group:'rural',lat:-1.50,lng:-78.00,warn:false},
+  {name:'Systray — Rural/Interurbano',city:'Ecuador',op:'Systray',group:'rural',lat:-2.20,lng:-79.00,warn:false},
+  {name:'Puntonet — Rural/Interurbano',city:'Ecuador',op:'Puntonet',group:'rural',lat:-0.55,lng:-78.55,warn:false},
+  {name:'Piedrahuasi — Rural/Interurbano',city:'Ecuador',op:'Piedrahuasi',group:'rural',lat:-3.00,lng:-79.20,warn:false},
+  {name:'C4 S.A. — Rural/Interurbano',city:'Ecuador',op:'C4 S.A.',group:'rural',lat:-1.00,lng:-77.80,warn:false},
+  {name:'Speedcast — Satelital Galápagos',city:'Galápagos',op:'Speedcast',group:'rural',lat:-0.67,lng:-90.55,warn:false}
+];
+var COLORS={telefonica:'#00B4D8',cnt:'#FFD166',claro:'#FF4757',cirion:'#FF8C42',ufinet:'#2CD9B0',rural:'#9B8AFB'};
+function mkIcon(g,w){
+  var c=COLORS[g]||'#fff',s=14;
+  var wc=w?'<circle cx="'+s+'" cy="'+s+'" r="'+(s-1.5)+'" fill="none" stroke="#FF4757" stroke-width="1.5" stroke-dasharray="3,2"/>':'';
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+(s*2)+'" height="'+(s*2)+'" viewBox="0 0 '+(s*2)+' '+(s*2)+'"><circle cx="'+s+'" cy="'+s+'" r="'+(s-1)+'" fill="'+c+'" opacity=".2"/><circle cx="'+s+'" cy="'+s+'" r="'+(s/2)+'" fill="'+c+'" stroke="#0B1D53" stroke-width="1.5"/>'+wc+'</svg>';
+  return L.divIcon({html:svg,className:'',iconSize:[s*2,s*2],iconAnchor:[s,s],popupAnchor:[0,-s]});
+}
+var inited=false,map=null,markers=[];
+function initMap(){
+  if(inited)return;inited=true;
+  map=L.map('cov-map',{center:[-1.5,-78.5],zoom:6,attributionControl:false});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+  L.rectangle([[-5.0,-81.2],[1.5,-75.2]],{color:'#9B8AFB',weight:1.5,fillColor:'#9B8AFB',fillOpacity:0.05,dashArray:'6,5',className:'ecuador-pulse'}).addTo(map).bindPopup('<div class="lp-name">Cobertura Rural/Interurbana</div><div class="lp-op" style="color:#9B8AFB">Bravco · Teuno · Systray · Puntonet · Piedrahuasi · C4</div><div class="lp-city">Todo Ecuador continental</div>');
+  L.rectangle([[-1.5,-92.0],[0.6,-89.0]],{color:'#9B8AFB',weight:1.5,fillColor:'#9B8AFB',fillOpacity:0.08,dashArray:'6,5'}).addTo(map).bindPopup('<div class="lp-name">Galápagos — Satelital</div><div class="lp-op" style="color:#9B8AFB">Speedcast</div>');
+  PUNTOS.forEach(function(p){
+    var wh=p.warn?'<div class="lp-warn">&#9888; Gestión directa del cliente</div>':'';
+    var popup='<div class="lp-name">'+p.name+'</div><div class="lp-op" style="color:'+COLORS[p.group]+'">'+p.op+'</div><div class="lp-city">'+p.city+'</div>'+wh;
+    var m=L.marker([p.lat,p.lng],{icon:mkIcon(p.group,p.warn)}).addTo(map).bindPopup(popup);
+    m._group=p.group;markers.push(m);
+  });
+}
+window.filterMap=function(g,btn){
+  document.querySelectorAll('.mf-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  markers.forEach(function(m){g==='all'||m._group===g?map.addLayer(m):map.removeLayer(m);});
+};
+var sec=document.getElementById('slide-4');
+new MutationObserver(function(){
+  if(sec.classList.contains('active')){if(!inited)setTimeout(initMap,80);else map.invalidateSize();}
+}).observe(sec,{attributes:true,attributeFilter:['class']});
+})();
+</script>
+</section>
+
+<!-- SLIDE 5 — TIGO: Flujos de Gestión -->
+<section class="slide theme-navy" data-index="5" id="slide-5">
+
+
+
+
+
+<!-- SLIDE 5 — TIGO: Flujos de Gestión -->
+
+<section class="slide theme-navy" data-index="5" id="slide-5">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(0,112,242,.2);color:#5b9bff;border-color:rgba(91,155,255,.3);">
     TIGO
@@ -1122,9 +1235,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 5 — TIGO: Flujo Detallado Instalación y Reubicación + Hilo/Upgrade/Cancelación -->
+<!-- SLIDE 6 — TIGO: Flujo Detallado Instalación y Reubicación + Hilo/Upgrade/Cancelación -->
 
-<section class="slide theme-navy" data-index="5" id="slide-5">
+<section class="slide theme-navy" data-index="6" id="slide-6">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(0,112,242,.2);color:#5b9bff;border-color:rgba(91,155,255,.3);">TIGO</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">Hilo Oscuro, Upgrade/Downgrade y Cancelación</h2>
@@ -1213,9 +1326,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 6 — CNT: Gestión Tercerizadoras -->
+<!-- SLIDE 7 — CNT: Gestión Tercerizadoras -->
 
-<section class="slide theme-navy" data-index="6" id="slide-6">
+<section class="slide theme-navy" data-index="7" id="slide-7">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(255,140,66,.15);color:var(--or);border-color:rgba(255,140,66,.3);">CNT</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — CNT</h2>
@@ -1276,9 +1389,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 7 — KONNET: Gestión Tercerizadoras -->
+<!-- SLIDE 8 — KONNET: Gestión Tercerizadoras -->
 
-<section class="slide theme-navy" data-index="7" id="slide-7">
+<section class="slide theme-navy" data-index="8" id="slide-8">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(44,217,176,.12);color:var(--gn);border-color:rgba(44,217,176,.3);">KONNET</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — KONNET</h2>
@@ -1335,9 +1448,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 
 
 
-<!-- SLIDE 8 — CLARO: Gestión Tercerizadoras -->
+<!-- SLIDE 9 — CLARO: Gestión Tercerizadoras -->
 
-<section class="slide theme-navy" data-index="8" id="slide-8">
+<section class="slide theme-navy" data-index="9" id="slide-9">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(255,71,87,.12);color:var(--rd);border-color:rgba(255,71,87,.3);">CLARO</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — Claro</h2>
@@ -1425,9 +1538,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 9 — OTROS OPERADORES -->
+<!-- SLIDE 10 — OTROS OPERADORES -->
 
-<section class="slide theme-navy" data-index="9" id="slide-9">
+<section class="slide theme-navy" data-index="10" id="slide-10">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(0,207,193,.12);color:var(--tl);border-color:rgba(0,207,193,.3);">OTROS OPERADORES</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">GO CORP., Piedrahuasi Inmobiliaria y Mall del Alto</h2>
@@ -1482,9 +1595,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 
 
 
-<!-- SLIDE 10 — C4 S.A.: Gestión Tercerizadoras -->
+<!-- SLIDE 11 — C4 S.A.: Gestión Tercerizadoras -->
 
-<section class="slide theme-navy" data-index="10" id="slide-10">
+<section class="slide theme-navy" data-index="11" id="slide-11">
 <div class="slide-pad">
   <div class="badge" style="background:rgba(255,209,102,.12);color:var(--gd);border-color:rgba(255,209,102,.3);">C4 S.A.</div>
   <h2 class="title-xl" style="margin-bottom:1rem;">Gestión Tercerizadoras — C4 S.A.</h2>
@@ -1548,9 +1661,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 11 — INTERCONEXIONES: Validación y Aprobación -->
+<!-- SLIDE 12 — INTERCONEXIONES: Validación y Aprobación -->
 
-<section class="slide theme-navy" data-index="11" id="slide-11">
+<section class="slide theme-navy" data-index="12" id="slide-12">
 <div class="slide-pad" style="padding-top:calc(38px + 1.2rem);">
 
   <!-- HEADER -->
@@ -1640,9 +1753,9 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 </div>
 </section>
 
-<!-- SLIDE 12 — Fin del módulo Flujos Tercerizados -->
+<!-- SLIDE 13 — Fin del módulo Flujos Tercerizados -->
 
-<section class="slide theme-navy slide-cover" data-index="12" id="slide-12">
+<section class="slide theme-navy slide-cover" data-index="13" id="slide-13">
 <div class="slide-pad" style="padding:0;">
 <div style="height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;background:linear-gradient(135deg,var(--nd) 0%,#0a1e4a 100%);">
   <div style="text-align:center;max-width:620px;padding:2rem;">
@@ -1663,11 +1776,11 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
 
 <div class="slide-foot">
   <button class="nav-btn" onclick="go(-1)" aria-label="Anterior">&#8592;</button>
-  <div class="dots"><span class="dot active" onclick="jumpTo(0)"></span><span class="dot" onclick="jumpTo(1)"></span><span class="dot" onclick="jumpTo(2)"></span><span class="dot" onclick="jumpTo(3)"></span><span class="dot" onclick="jumpTo(4)"></span><span class="dot" onclick="jumpTo(5)"></span><span class="dot" onclick="jumpTo(6)"></span><span class="dot" onclick="jumpTo(7)"></span><span class="dot" onclick="jumpTo(8)"></span><span class="dot" onclick="jumpTo(9)"></span><span class="dot" onclick="jumpTo(10)"></span><span class="dot" onclick="jumpTo(11)"></span><span class="dot" onclick="jumpTo(12)"></span></div>
+  <div class="dots"><span class="dot active" onclick="jumpTo(0)"></span><span class="dot" onclick="jumpTo(1)"></span><span class="dot" onclick="jumpTo(2)"></span><span class="dot" onclick="jumpTo(3)"></span><span class="dot" onclick="jumpTo(4)"></span><span class="dot" onclick="jumpTo(5)"></span><span class="dot" onclick="jumpTo(6)"></span><span class="dot" onclick="jumpTo(7)"></span><span class="dot" onclick="jumpTo(8)"></span><span class="dot" onclick="jumpTo(9)"></span><span class="dot" onclick="jumpTo(10)"></span><span class="dot" onclick="jumpTo(11)"></span><span class="dot" onclick="jumpTo(12)"></span><span class="dot" onclick="jumpTo(13)"></span></div>
   <button class="nav-btn" onclick="go(1)" aria-label="Siguiente">&#8594;</button>
 </div>
 <script>
-const TOTAL = 13;
+const TOTAL = 14;
 let cur = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
@@ -1703,7 +1816,7 @@ function update() {
     if (i === cur) s.classList.add('active');
   });
   dots.forEach((d,i) => d.classList.toggle('active', i === cur));
-  document.getElementById('counter').textContent = String(cur+1).padStart(2,'0') + ' / 13';
+  document.getElementById('counter').textContent = String(cur+1).padStart(2,'0') + ' / 14';
   document.getElementById('progress').style.width = ((cur+1)/TOTAL*100).toFixed(2) + '%';
   slides[cur].scrollTop = 0;
   activeMod(cur);
