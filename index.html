@@ -1066,7 +1066,8 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
   <div style="position:relative;flex:1;min-height:0;">
   <div id="loc-panel"></div>   <!-- ← AGREGAR ESTA LÍNEA -->
     <div id="cov-map" style="width:100%;height:100%;"></div>
-    <div id="map-legend" style="position:absolute;bottom:3rem;left:1rem;z-index:999;background:rgba(11,29,83,.92);backdrop-filter:blur(10px);border:1px solid rgba(0,180,216,.2);border-radius:10px;padding:.6rem .85rem;display:flex;flex-direction:column;gap:.3rem;">
+
+<div id="map-legend" style="position:absolute;bottom:1rem;right:1rem;z-index:999;background:rgba(11,29,83,.92);backdrop-filter:blur(10px);border:1px solid rgba(0,180,216,.2);border-radius:10px;padding:.6rem .85rem;display:flex;flex-direction:column;gap:.3rem;">
   <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#00E5FF;flex-shrink:0;"></div>Telefónica (CC)</div>
   <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FFD166;flex-shrink:0;"></div>CNT</div>
   <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF4757;flex-shrink:0;"></div>Claro DC</div>
@@ -1202,8 +1203,9 @@ window.flyToPoint=function(g,lat,lng,name){
 function initMap(){
   if(inited)return;inited=true;
 
-  map=L.map('cov-map',{center:[-1.8,-78.3],zoom:7,attributionControl:false,zoomControl:true});
-
+  map=L.map('cov-map',{center:[-1.8,-78.3],zoom:7,attributionControl:false,zoomControl:false});
+/* Zoom control dentro del mapa, esquina superior derecha */
+L.control.zoom({position:'topright'}).addTo(map);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
     maxZoom:19,subdomains:'abcd',opacity:0.5
   }).addTo(map);
