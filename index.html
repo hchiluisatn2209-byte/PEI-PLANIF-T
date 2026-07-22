@@ -1048,28 +1048,36 @@ table.deck-table tr:nth-child(even) td{background:rgba(0,180,216,.04);}
       <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--cy);text-transform:uppercase;margin-bottom:.15rem;">Operadores · Cobertura</div>
       <h2 style="font-size:clamp(1.1rem,2vw,1.5rem);font-weight:800;color:#fff;margin:0;">Cobertura por Tercerizadora</h2>
     </div>
+
     <div style="display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-end;max-width:75%;">
-      <button class="mf-btn active" onclick="filterMap('all',this)">Todos</button>
-      <button class="mf-btn" onclick="filterMap('telefonica',this)" style="--mc:#00B4D8;">Telefónica</button>
-      <button class="mf-btn" onclick="filterMap('cnt',this)" style="--mc:#FFD166;">CNT</button>
-      <button class="mf-btn" onclick="filterMap('claro',this)" style="--mc:#FF4757;">Claro</button>
-      <button class="mf-btn" onclick="filterMap('cirion',this)" style="--mc:#FF8C42;">Cirión</button>
-      <button class="mf-btn" onclick="filterMap('ufinet',this)" style="--mc:#2CD9B0;">Ufinet</button>
-<button class="mf-btn" onclick="filterMap('c4',this)" style="--mc:#F06292;">C4 S.A.</button>
-      <button class="mf-btn" onclick="filterMap('rural',this)" style="--mc:#9B8AFB;">Otros Isps</button>
-    </div>
+  <button class="mf-btn active" onclick="filterMap('all',this)">Todos</button>
+  <button class="mf-btn" onclick="filterMap('telefonica',this)" style="--mc:#00E5FF;">Telefónica</button>
+  <button class="mf-btn" onclick="filterMap('cnt',this)" style="--mc:#FFD166;">CNT</button>
+  <button class="mf-btn" onclick="filterMap('claro',this)" style="--mc:#FF4757;">Claro</button>
+  <button class="mf-btn" onclick="filterMap('cirion',this)" style="--mc:#FF8C42;">Cirión</button>
+  <button class="mf-btn" onclick="filterMap('ufinet',this)" style="--mc:#2CD9B0;">Ufinet</button>
+  <button class="mf-btn" onclick="filterMap('c4',this)" style="--mc:#F06292;">C4 S.A.</button>
+  <button class="mf-btn" onclick="filterMap('systray',this)" style="--mc:#81D4FA;">Systray</button>
+  <button class="mf-btn" onclick="filterMap('piedrahuasi',this)" style="--mc:#A5D6A7;">Piedrahuasi</button>
+  <button class="mf-btn" onclick="filterMap('rural',this)" style="--mc:#CE93D8;">Otros ISPs</button>
+</div>
+
   </div>
   <div style="position:relative;flex:1;min-height:0;">
   <div id="loc-panel"></div>   <!-- ← AGREGAR ESTA LÍNEA -->
     <div id="cov-map" style="width:100%;height:100%;"></div>
     <div id="map-legend" style="position:absolute;bottom:3rem;left:1rem;z-index:999;background:rgba(11,29,83,.92);backdrop-filter:blur(10px);border:1px solid rgba(0,180,216,.2);border-radius:10px;padding:.6rem .85rem;display:flex;flex-direction:column;gap:.3rem;">
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#00B4D8;flex-shrink:0;"></div>Telefónica (CC)</div>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FFD166;flex-shrink:0;"></div>CNT</div>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF4757;flex-shrink:0;"></div>Claro DC</div>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF8C42;flex-shrink:0;"></div>Cirión DC</div>
-      <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#2CD9B0;flex-shrink:0;"></div>Ufinet</div>
-<div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#F06292;flex-shrink:0;"></div>C4 S.A.
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#00E5FF;flex-shrink:0;"></div>Telefónica (CC)</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FFD166;flex-shrink:0;"></div>CNT</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF4757;flex-shrink:0;"></div>Claro DC</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#FF8C42;flex-shrink:0;"></div>Cirión DC</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#2CD9B0;flex-shrink:0;"></div>Ufinet</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#F06292;flex-shrink:0;"></div>C4 S.A.</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#81D4FA;flex-shrink:0;"></div>Systray</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#A5D6A7;flex-shrink:0;"></div>Piedrahuasi</div>
+  <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#CE93D8;flex-shrink:0;"></div>Otros ISPs</div>
 </div>
+
 
       <div style="display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:#c8d8ec;"><div style="width:10px;height:10px;border-radius:50%;background:#9B8AFB;flex-shrink:0;"></div>Otros ISPs</div>
     </div>
@@ -1110,8 +1118,8 @@ var PROV_COLORS={
   'Tungurahua-Napo-extra':'#1565C0'
 };
 
-var COLORS={telefonica:'#00E5FF',cnt:'#FFD166',claro:'#FF4757',cirion:'#FF8C42',ufinet:'#2CD9B0',c4:'#F06292',rural:'#CE93D8'};
-var LABELS={telefonica:'Telefónica',cnt:'CNT',claro:'Claro',cirion:'Cirión',ufinet:'Ufinet',c4:'C4 S.A.',rural:'Rurales/Interurbanos'};
+var COLORS={telefonica:'#00E5FF',cnt:'#FFD166',claro:'#FF4757',cirion:'#FF8C42',ufinet:'#2CD9B0',c4:'#F06292',systray:'#81D4FA',piedrahuasi:'#A5D6A7',rural:'#CE93D8'};
+var LABELS={telefonica:'Telefónica',cnt:'CNT',claro:'Claro',cirion:'Cirión',ufinet:'Ufinet',c4:'C4 S.A.',systray:'Systray',piedrahuasi:'Piedrahuasi',rural:'Otros ISPs'};
 
 var PUNTOS=[
   {name:'Quicentro Norte',city:'Quito',op:'Telefónica',group:'telefonica',lat:-0.17275,lng:-78.48051,warn:false},
@@ -1136,18 +1144,15 @@ var PUNTOS=[
   {name:'Cirión DC GYE — GUA1',city:'Guayaquil',op:'Cirión',group:'cirion',lat:-2.14790,lng:-79.96480,warn:true},
   {name:'Ufinet Plaza Lagos',city:'Samborondón',op:'Ufinet',group:'ufinet',lat:-2.14500,lng:-79.86500,warn:false},
   {name:'Ufinet DC Ciudad Digital',city:'Guayaquil',op:'Ufinet',group:'ufinet',lat:-2.07607,lng:-79.92261,warn:false},
-{name:'Buijo City Center',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.07613,lng:-79.86039,warn:false},
-{name:'ALMAX Center',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.03740,lng:-79.84802,warn:false},
-{name:'ALMAX Plus',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.03354,lng:-79.84607,warn:false},
-
-  {name:'Bravco — Rural/Interurbano',city:'Ecuador',op:'Bravco',group:'rural',lat:-1.85,lng:-78.60,warn:false},
+  {name:'Buijo City Center',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.07613,lng:-79.86039,warn:false},
+  {name:'ALMAX Center',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.03740,lng:-79.84802,warn:false},
+  {name:'ALMAX Plus',city:'Samborondón',op:'C4 S.A.',group:'c4',lat:-2.03354,lng:-79.84607,warn:false},
+  {name:'Terminal Terrestre de Manta',city:'Manta',op:'Systray',group:'systray',lat:-0.95917,lng:-80.69028,warn:false},
+  {name:'Mall del Río',city:'Cuenca',op:'Piedrahuasi',group:'piedrahuasi',lat:-2.91870,lng:-79.01470,warn:false},
+  {name:'Mall del Alto',city:'Cuenca',op:'Piedrahuasi',group:'piedrahuasi',lat:-2.91950,lng:-79.01580,warn:false},
+  {name:'Batán Shopping',city:'Cuenca',op:'Piedrahuasi',group:'piedrahuasi',lat:-2.89729,lng:-79.02213,warn:false},
   {name:'Teuno — Rural/Interurbano',city:'Ecuador',op:'Teuno',group:'rural',lat:-1.50,lng:-78.00,warn:false},
-  {name:'Systray — Rural/Interurbano',city:'Ecuador',op:'Systray',group:'rural',lat:-2.20,lng:-79.00,warn:false},
   {name:'Puntonet — Rural/Interurbano',city:'Ecuador',op:'Puntonet',group:'rural',lat:-0.55,lng:-78.55,warn:false},
-  {name:'Piedrahuasi — Rural/Interurbano',city:'Ecuador',op:'Piedrahuasi',group:'rural',lat:-3.00,lng:-79.20,warn:false},
-
-
-
   {name:'Speedcast — Satelital Galápagos',city:'Galápagos',op:'Speedcast',group:'rural',lat:-0.67,lng:-90.55,warn:false}
 ];
 
